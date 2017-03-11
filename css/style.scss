@@ -1,0 +1,17 @@
+$main-space: 200px;
+$background-color: #363636;
+$text-color: #fff;
+
+body{
+	padding-left: $main-space;
+	background-color: $background-color;
+	color: $text-color;
+}
+
+#home img{
+	width: 500px;
+	position: absolute;
+  	top: 25%;
+  	left: 25%;
+}
+

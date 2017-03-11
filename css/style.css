@@ -1,0 +1,12 @@
+body {
+  padding-left: 200px;
+  background-color: #363636;
+  color: #fff; }
+
+#home img {
+  width: 500px;
+  position: absolute;
+  top: 25%;
+  left: 25%; }
+
+/*# sourceMappingURL=style.css.map */
