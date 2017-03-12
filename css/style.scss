@@ -8,10 +8,12 @@ body{
 	color: $text-color;
 }
 
-#home img{
-	width: 500px;
-	position: absolute;
-  	top: 25%;
-  	left: 25%;
+#home {
+  img{
+    width: 500px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+  }
 }
 
