@@ -1,21 +1,69 @@
-function 
-
-class MenuPrincipal extends React.Component {
-  render() {
-    return (
-      <ul className="side-nav fixed color-menu">
-        <img className="center" src="img/logo_svg.svg" />
-        <p>Mostro<br />Media</p>
-        <li><a href="#home"><i className="medium material-icons">fast_forward</i></a></li>
-        <li><a href="#servicios"><i className="medium material-icons">code</i></a></li>
-        <li><a href="#portafolio"><i className="medium material-icons">videocam</i></a></li>
-        <li><a href="#equipo"><i className="medium material-icons">recent_actors</i></a></li>
-        <li><a href="#contactenos"><i className="medium material-icons">chat_bubble_outline</i></a></li>
-      </ul>
+class Contact extends React.Component{
+  render(){
+    return(
+      <section>
+        <h1>Contact</h1>
+      </section>
     );
   }
 }
+
+class Team extends React.Component{
+  render(){
+    return(
+      <section>
+        <h1>Team</h1>
+      </section>
+    );
+  }
+}
+
+class Work extends React.Component{
+  render(){
+    return(
+      <section>
+        <h1>Work</h1>
+      </section>
+    );
+  }
+}
+
+class HomeContent extends React.Component{
+  render(){
+    return(
+    <div className="row">
+        <div className="col s12 m12 l12">
+          <img className="center responsive-img" src="img/logo_svg.svg" />
+        </div>
+    </div>
+    );
+  }
+}
+
+class Home extends React.Component{
+  render(){
+    return(
+      <section id="home">
+        <HomeContent />
+      </section>
+    );
+  }
+}
+
+class Main extends React.Component{
+  render(){
+    return(
+      <div>
+        <Home />
+        <Work />
+        <Team />
+        <Contact />
+      </div>
+    );
+  }
+}
+
 ReactDOM.render(
-  <MenuPrincipal />,
+  <Main />,
   document.getElementById('main')
 );
