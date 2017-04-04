@@ -2,7 +2,6 @@
 /*Responsive values*/
 /*--------------------Desktop--------------*/
 body {
-  padding-left: 100px;
   background-color: #363636;
   color: #fff !important; }
   @media screen and (max-width: 768px) {
@@ -24,10 +23,62 @@ nav {
   .color-menu i {
     color: #fff !important; }
 
+#particles-home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10; }
+
 #home img.center {
   width: 500px;
   display: block;
-  margin: 0 auto; }
+  margin: 20vh 400px;
+  position: absolute;
+  z-index: 10; }
+#home h1 {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 70vh; }
+#home ul {
+  position: relative;
+  z-index: 10; }
+#home #iconos-home {
+  position: relative;
+  /* 1 */
+  width: 50em;
+  height: 50em;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+  /* 2 */
+  box-sizing: content-box;
+  /* 3 */
+  margin: 5em auto 0; }
+  #home #iconos-home > * {
+    /* 4 */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8em;
+    height: 8em;
+    margin: -4em; }
+  #home #iconos-home > :nth-of-type(1) {
+    transform: rotate(0deg) translate(25em) rotate(0deg); }
+  #home #iconos-home > :nth-of-type(2) {
+    transform: rotate(72deg) translate(25em) rotate(-72deg); }
+  #home #iconos-home > :nth-of-type(3) {
+    transform: rotate(144deg) translate(25em) rotate(-144deg); }
+  #home #iconos-home > :nth-of-type(4) {
+    transform: rotate(216deg) translate(25em) rotate(-216deg); }
+  #home #iconos-home > :nth-of-type(5) {
+    transform: rotate(288deg) translate(25em) rotate(-288deg); }
+  #home #iconos-home li {
+    display: block;
+    width: 100%;
+    border-radius: 50%; }
 
 #servicios h1 {
   text-align: center; }
