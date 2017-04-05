@@ -8,6 +8,17 @@ $text-color: #fff;
 $break-small: 768px;
 
 
+@font-face{
+  font-family: 'steelfish';
+  src: url('../fonts/steelfish/steelfishRG.ttf') format('truetype'),
+  url('../fonts/steelfish/steelfishRG.woff') format('woff'),
+  url('../fonts/steelfish/steelfishRG.otf'),
+  url('../fonts/steelfish/steelfishRG.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/steelfish/steelfishRG.svg') format('svg');
+}
+
+
+
 @mixin distribute-on-circle(
 	$nb-items,
 	$circle-size,
@@ -51,7 +62,6 @@ $break-small: 768px;
 				margin: $mt 0 0 $ml;
 			}
 		}
-
 		$rot: ($rot + $angle);
 	}
 }
@@ -61,18 +71,34 @@ $break-small: 768px;
 
 body{
 	// padding-left: $main-space;
+	font-family: 'steelfish';
 	background-color: $background-color;
 	color: $text-color !important;
+
 	@media screen and (max-width: $break-small) {
 		padding-left: 0px;
   	}
 }
+
+
 nav{
 	background-color: $mostro-color;
 }
+
 .side-nav{
 	width: 100px !important;
+	h1{
+		font-size: 1.8em;
+	}
+	li{
+		a{
+			i{
+				font-size: 40px;
+			}
+		}
+	}
 }
+
 .color-menu{
 	background-color: $mostro-menu;
 	li{
@@ -96,7 +122,7 @@ nav{
 
 #home {
 	img.center{
-		width: 500px;
+		width: 300px;
 		display: block;
     margin: 20vh 400px;
 		position: absolute;
@@ -107,28 +133,53 @@ nav{
 		z-index: 10;
 		left: 0;
 		right: 0;
-		top: 70vh;
+		top: 60vh;
 	}
 	ul{
 		position: relative;
 		z-index: 10;
 	}
-
 	#iconos-home {
-
-	  @include distribute-on-circle(5, 50em, 8em, false);
+	  @include distribute-on-circle(5, 40em, 5em, false);
 	  margin: 5em auto 0;
 
 		li{
 			display: block;
-		  width: 100%;
 		  border-radius: 50%;
+			img{
+				margin-left: 15px;
+			}
+			p{
+				text-align: center;
+				font-size: 1.5em;
+			}
 		}
 	}
 
+	button{
+		font-size: 1.4em;
+	}
+
 }
-#servicios{
+#work {
+	margin-top: 200px;
+	.row{
+		height: 100vh;  /*ALTO DE CADA PRESENTACIÓN*/
+	}
+	img.center{  /*LOGO*/
+		width: 330px;
+		display: block;
+    	margin: 0 auto;
+	}
+	.item-servicio img{
+		width: 150px;
+		display: block;
+    	margin: 0 auto;
+	}
 	h1{
-		text-align: center;
+		font-size: 45px;
+	}
+	h3{
+		font-size: 25px;
 	}
 }
