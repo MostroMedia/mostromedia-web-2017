@@ -1,8 +1,5 @@
 'use strict'
 
-// document.documentElement.style.overflow = 'hidden'
-// document.body.scroll = "no"
-
 const MiMenu = [
   {name: '#home', icon: 'fast_forward'},
   {name: '#servicios', icon: 'code'},
@@ -195,9 +192,11 @@ const MOSTROTEAM = [
     position: '',
     quote: 'Empatía',
     color: '#8E44AD'
-  },
+  }
 
 ]
+
+const TitleTeam = 'The Team'
 
 class ItemTeam extends React.Component{
   componentDidMount(){
@@ -232,9 +231,18 @@ class Team extends React.Component{
     })
     return(
       <section id="team">
-        <ul className="carousel">
-          {mostroTeam}
-        </ul>
+        <div className="container">
+          <div className="row">
+
+            <TitleContact
+              titulo={TitleTeam}
+            />
+            <ul className="carousel">
+              {mostroTeam}
+            </ul>
+
+          </div>
+        </div>
       </section>
     );
   }

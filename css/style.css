@@ -145,8 +145,6 @@ nav {
 
 #contact {
   height: 700px; }
-  #contact .determinate {
-    width: 100%; }
   #contact #content-contact, #contact #form-contact {
     margin: 20px 0 0 5%;
     background-color: #333; }
