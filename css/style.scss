@@ -18,6 +18,21 @@ $break-small: 768px;
 }
 
 
+.transicion{
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+@mixin escala($longitud){
+  -moz-transform: scale($longitud);
+  -webkit-transform: scale($longitud);
+  -o-transform: scale($longitud);
+  -ms-transform: scale($longitud);
+  transform: scale($longitud);
+}
+
 
 @mixin distribute-on-circle(
 	$nb-items,
@@ -87,10 +102,14 @@ nav{
 
 .side-nav{
 	width: 100px !important;
+  #logo-mostro-media{
+    margin-top: 50px;
+  }
 	h1{
 		font-size: 1.8em;
 	}
 	li{
+    margin-top: 50px;
 		a{
 			i{
 				font-size: 40px;
@@ -122,12 +141,12 @@ nav{
 
 #home {
   height: 100vh;
-	img.center{
+	#logo-mostro-media-center{
 		width: 300px;
 		display: block;
     margin: 20vh 400px;
 		position: absolute;
-		z-index: 10;
+		z-index: 100;
 	}
 	h1{
 		position: absolute;
@@ -141,9 +160,10 @@ nav{
 		z-index: 10;
 	}
 	#iconos-home {
+    @extend .transicion;
 	  @include distribute-on-circle(5, 40em, 5em, false);
 	  margin: 5em auto 0;
-
+    @include escala(0);
 		li{
 			display: block;
 		  border-radius: 50%;
@@ -219,9 +239,6 @@ nav{
   }
   ul{
     li{
-      img{
-        height: 400px;
-      }
     }
   }
 }
@@ -251,8 +268,8 @@ nav{
 
 @media screen and (min-width: 1824px){
   #home{
-    img.center{
-      margin: 20vh 530px;
+    #logo-mostro-media-center{
+      width: 600px;
     }
     h1{
       left: 90px;
@@ -271,12 +288,9 @@ nav{
     width: 97%;
   }
   #home {
-  	img.center{
-  		width: 100%;
+  	#logo-mostro-media-center{
       margin: 250px 0 0 0;
       position: relative;
-  		display: block;
-  		z-index: 10;
   	}
   }
   .fullscreen-bg{

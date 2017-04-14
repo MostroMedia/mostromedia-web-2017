@@ -36,7 +36,7 @@ class Menu extends React.Component{
     })
     return(
       <ul className="side-nav fixed color-menu">
-        <img className="center" src="img/logo_svg.svg" />
+        <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
         <div className="logo-text">
           <h1 className="center-align">
             Mostro Media
@@ -205,7 +205,7 @@ class ItemTeam extends React.Component{
   render(){
     return(
       <li className="carousel-item">
-        <img src={this.props.img} alt={this.props.alt} />
+        <img className="circle responsive-img" src={this.props.img} alt={this.props.alt} />
         <h3>{this.props.name}</h3>
         <h4 style={{ color: this.props.color }}>{this.props.quote}</h4>
       </li>
@@ -215,7 +215,6 @@ class ItemTeam extends React.Component{
 
 class Team extends React.Component{
   render(){
-    console.log(this.props)
     let mostroTeam = []
     this.props.mostros.forEach((mostro) => {
       mostroTeam.push(
@@ -350,13 +349,69 @@ class Work extends React.Component{
 
 let scene, camera, renderer, particles, saturn
 let width = window.innerWidth-10, height = window.innerHeight
-
+let animCreatividad = '', animInteraccion = ''
 const ICONOS = [
-  {name: 'Interacción', img: 'img/browser.svg', alt: 'Imagen del Icono de Interacción Mostro Media'},
-  {name: 'Creatividad', img: 'img/browser.svg', alt: 'Imagen del Icono de Creatividad Mostro Media'},
-  {name: 'Ingenio', img: 'img/browser.svg', alt: 'Imagen del Icono de Ingenio Mostro Media'},
-  {name: 'Liderazgo', img: 'img/browser.svg', alt: 'Imagen del Icono de Liderazgo Mostro Media'},
-  {name: 'Talento', img: 'img/browser.svg', alt: 'Imagen del Icono de Talento Mostro Media'}
+  {name: 'Interacción',
+  anima: '' ,
+  img: {
+    container: '',
+    renderer: 'svg',
+    loop: true,
+    prerender: false,
+    autoplay: false,
+    autoloadSegments: false,
+    path: '../img/icons-home/interaccion.json'
+  },
+  alt: 'Imagen del Icono de Interacción Mostro Media'
+},
+  {name: 'Creatividad',
+   anima: '',
+   img: {
+    container: '',
+    renderer: 'svg',
+    loop: true,
+    prerender: false,
+    autoplay: false,
+    autoloadSegments: false,
+    path: '../img/icons-home/creatividad.json'
+  },
+  alt: 'Imagen del Icono de Creatividad Mostro Media'},
+  {name: 'Ingenio',
+  anima: '',
+  img: {
+   container: '',
+   renderer: 'svg',
+   loop: true,
+   prerender: false,
+   autoplay: false,
+   autoloadSegments: false,
+   path: '../img/icons-home/ingenio.json'
+  },
+  alt: 'Imagen del Icono de Ingenio Mostro Media'},
+  {name: 'Liderazgo',
+  anima: '',
+  img: {
+   container: '',
+   renderer: 'svg',
+   loop: true,
+   prerender: false,
+   autoplay: false,
+   autoloadSegments: false,
+   path: '../img/icons-home/liderazgo.json'
+  },
+  alt: 'Imagen del Icono de Liderazgo Mostro Media'},
+  {name: 'Talento',
+  anima: '',
+  img: {
+   container: '',
+   renderer: 'svg',
+   loop: true,
+   prerender: false,
+   autoplay: false,
+   autoloadSegments: false,
+   path: '../img/icons-home/talento.json'
+  },
+  alt: 'Imagen del Icono de Talento Mostro Media'}
 ]
 
 const colores = [0xE8540D, 0xCCCCCC, 0xE8540D]
@@ -454,13 +509,43 @@ class ParticlesHome extends React.Component{
   }
 }
 
+let animData = {
+    container: '',
+    renderer: 'svg',
+    loop: true,
+    prerender: false,
+    autoplay: false,
+    autoloadSegments: false,
+    path: '../img/animations/mostro-media-icon-animation.json'
+}
+let anim = ''
+let isThrowing = false
+
 class HomeContent extends React.Component{
+  constructor(props){
+    super(props)
+    this.playAnimation = this.playAnimation.bind(this)
+    this.stopAnimation = this.stopAnimation.bind(this)
+  }
+  componentDidMount(){
+    animData.container = document.getElementById('logo-mostro-media-center')
+    anim = bodymovin.loadAnimation(animData)
+    anim.playSegments([0,35],true)
+    setTimeout(() => { anim.stop() } , 2200)
+  }
+  playAnimation(){
+    anim.playSegments([0,35],true)
+  }
+  stopAnimation(){
+    anim.stop()
+  }
+
   render(){
     return(
       <div className="container">
         <div className="row">
             <div className="col s12 m12 l12">
-              <img className="center responsive-img" src="img/logo_svg.svg" />
+              <div id="logo-mostro-media-center" className="center" onMouseEnter={this.playAnimation} onMouseLeave={this.stopAnimation}></div>
               <h1 className="center-align">MOSTRO <br /> MEDIA</h1>
             </div>
         </div>
@@ -470,10 +555,19 @@ class HomeContent extends React.Component{
 }
 
 class SingleIconHome extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    let miAnima = this.props.anima
+    this.props.img.container = document.getElementById(this.props.myid)
+    miAnima = bodymovin.loadAnimation(this.props.img)
+    miAnima.playSegments([0,29],true)
+  }
   render(){
     return(
       <li>
-        <img src={this.props.img} alt={this.props.alt} width="50" />
+        <div id={this.props.myid}></div>
         <p>{this.props.name}</p>
       </li>
     )
@@ -481,15 +575,22 @@ class SingleIconHome extends React.Component{
 }
 
 class IconHome extends React.Component{
+  componentDidMount(){
+    setTimeout( () => {
+      document.getElementById("iconos-home").style.transform = "scale(1)";
+    } , 1000)
+  }
   render(){
     let myIcon = []
-    this.props.iconos.forEach((icono) => {
+    this.props.iconos.forEach((icono, index, array) => {
       myIcon.push(
         <SingleIconHome
           name={icono.name}
           key={icono.name}
+          myid={icono.name}
           img={icono.img}
           alt={icono.alt}
+          anima={icono.anima}
         />
       )
     })

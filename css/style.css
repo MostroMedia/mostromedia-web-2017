@@ -4,6 +4,12 @@
 @font-face {
   font-family: 'steelfish';
   src: url("../fonts/steelfish/steelfishRG.ttf") format("truetype"), url("../fonts/steelfish/steelfishRG.woff") format("woff"), url("../fonts/steelfish/steelfishRG.otf"), url("../fonts/steelfish/steelfishRG.eot?#iefix") format("embedded-opentype"), url("../fonts/steelfish/steelfishRG.svg") format("svg"); }
+.transicion, #home #iconos-home {
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s; }
+
 /*--------------------Desktop--------------*/
 body {
   font-family: 'steelfish';
@@ -18,10 +24,14 @@ nav {
 
 .side-nav {
   width: 100px !important; }
+  .side-nav #logo-mostro-media {
+    margin-top: 50px; }
   .side-nav h1 {
     font-size: 1.8em; }
-  .side-nav li a i {
-    font-size: 40px; }
+  .side-nav li {
+    margin-top: 50px; }
+    .side-nav li a i {
+      font-size: 40px; }
 
 .color-menu {
   background-color: #232323; }
@@ -40,12 +50,12 @@ nav {
 
 #home {
   height: 100vh; }
-  #home img.center {
+  #home #logo-mostro-media-center {
     width: 300px;
     display: block;
     margin: 20vh 400px;
     position: absolute;
-    z-index: 10; }
+    z-index: 100; }
   #home h1 {
     position: absolute;
     z-index: 10;
@@ -66,7 +76,12 @@ nav {
     /* 2 */
     box-sizing: content-box;
     /* 3 */
-    margin: 5em auto 0; }
+    margin: 5em auto 0;
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0); }
     #home #iconos-home > * {
       /* 4 */
       display: block;
@@ -140,8 +155,6 @@ nav {
     #team .carousel .carousel-item {
       height: 400px;
       width: 400px; }
-  #team ul li img {
-    height: 400px; }
 
 #contact {
   height: 700px; }
@@ -161,8 +174,8 @@ nav {
   background-color: #fff !important; }
 
 @media screen and (min-width: 1824px) {
-  #home img.center {
-    margin: 20vh 530px; }
+  #home #logo-mostro-media-center {
+    width: 600px; }
   #home h1 {
     left: 90px;
     top: 50vh; }
@@ -200,12 +213,9 @@ nav {
   #main {
     width: 97%; }
 
-  #home img.center {
-    width: 100%;
+  #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
-    position: relative;
-    display: block;
-    z-index: 10; }
+    position: relative; }
 
   .fullscreen-bg {
     height: 800px;
