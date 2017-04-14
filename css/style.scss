@@ -121,6 +121,7 @@ nav{
 
 
 #home {
+  height: 100vh;
 	img.center{
 		width: 300px;
 		display: block;
@@ -182,4 +183,113 @@ nav{
 	h3{
 		font-size: 25px;
 	}
+}
+
+.fullscreen-bg{
+  position: relative;
+  right: 0;
+  left: 0;
+  height: 800px;
+  width: 100%;
+}
+
+.fullscreen-bg__video{
+  position: absolute;
+  width: 100%;
+  height: 140%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video , .fullscreen-bg__video2{
+    height: 300%;
+    top: -100%;
+  }
+}
+
+
+#team{
+  margin-top: 500px;
+  height: 100vh;
+  .carousel{
+    height: 800px;
+    .carousel-item{
+      height: 400px;
+      width: 400px;
+    }
+  }
+  ul{
+    li{
+      img{
+        height: 400px;
+      }
+    }
+  }
+}
+
+#contact{
+  height: 700px;
+  .determinate{
+    width: 100%;
+  }
+  #content-contact, #form-contact{
+    margin: 20px 0 0 5%;
+    background-color: #333;
+    .valign-wrapper{
+      height: 400px;
+      .valign{
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+  form{
+    margin-left: 10%;
+    width: 80%;
+  }
+}
+
+.progress{
+  background-color: #fff !important;
+}
+
+@media screen and (min-width: 1824px){
+  #home{
+    img.center{
+      margin: 20vh 530px;
+    }
+    h1{
+      left: 90px;
+      top: 50vh;
+    }
+    #iconos-home{
+      @include distribute-on-circle(5, 50em, 5em, false);
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 800px){
+  #main{
+    width: 97%;
+  }
+  #home {
+  	img.center{
+  		width: 100%;
+      margin: 250px 0 0 0;
+      position: relative;
+  		display: block;
+  		z-index: 10;
+  	}
+  }
+  .fullscreen-bg{
+    height: 800px;
+    overflow-x: hidden;
+  }
+
+  .fullscreen-bg__video{
+    height: 100%;
+    left: -170px;
+    width: 200%;
+  }
 }
