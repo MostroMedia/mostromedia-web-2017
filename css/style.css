@@ -173,6 +173,10 @@ nav {
 .progress {
   background-color: #fff !important; }
 
+.toast {
+  font-size: 1.8rem;
+  font-weight: normal; }
+
 @media screen and (min-width: 1824px) {
   #home #logo-mostro-media-center {
     width: 600px; }

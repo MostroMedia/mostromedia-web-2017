@@ -57,7 +57,11 @@ const TextoContact = [
   { call: 'Llámanos', number: 3142588148}
 ]
 
+
 class FormularioContact extends React.Component{
+  constructor(props){
+    super(props)
+  }
   render(){
     return(
       <form>
@@ -120,6 +124,19 @@ class TitleContact extends React.Component{
 }
 
 class Contact extends React.Component{
+  constructor(props){
+    super(props)
+    this.launchToast = this.launchToast.bind(this)
+  }
+  componentDidMount(){
+    $(window).scroll( function() {
+      console.log($(this).scrollTop())
+      $(this).scrollTop() > 3000 ? this.launchToast : console.log()
+    })
+  }
+  launchToast(){
+    Materialize.toast(' Dejanos tu mensaje y te contactaremos pronto :) ', 20000)
+  }
   render(){
     return(
       <section id="contact">
@@ -349,69 +366,77 @@ class Work extends React.Component{
 
 let scene, camera, renderer, particles, saturn
 let width = window.innerWidth-10, height = window.innerHeight
-let animCreatividad = '', animInteraccion = ''
 const ICONOS = [
-  {name: 'Interacción',
-  anima: '' ,
-  img: {
-    container: '',
-    renderer: 'svg',
-    loop: true,
-    prerender: false,
-    autoplay: false,
-    autoloadSegments: false,
-    path: '../img/icons-home/interaccion.json'
+  {
+    name: 'Interacción',
+    anima: '' ,
+    img: {
+      container: '',
+      renderer: 'svg',
+      loop: true,
+      prerender: false,
+      autoplay: false,
+      autoloadSegments: false,
+      path: '../img/icons-home/interaccion.json'
+    },
+    alt: 'Imagen del Icono de Interacción Mostro Media'
   },
-  alt: 'Imagen del Icono de Interacción Mostro Media'
-},
-  {name: 'Creatividad',
-   anima: '',
-   img: {
-    container: '',
-    renderer: 'svg',
-    loop: true,
-    prerender: false,
-    autoplay: false,
-    autoloadSegments: false,
-    path: '../img/icons-home/creatividad.json'
+  {
+    name: 'Creatividad',
+    anima: '',
+    img: {
+      container: '',
+      renderer: 'svg',
+      loop: true,
+      prerender: false,
+      autoplay: false,
+      autoloadSegments: false,
+      path: '../img/icons-home/creatividad.json'
+    },
+    alt: 'Imagen del Icono de Creatividad Mostro Media'
   },
-  alt: 'Imagen del Icono de Creatividad Mostro Media'},
-  {name: 'Ingenio',
-  anima: '',
-  img: {
-   container: '',
-   renderer: 'svg',
-   loop: true,
-   prerender: false,
-   autoplay: false,
-   autoloadSegments: false,
-   path: '../img/icons-home/ingenio.json'
+  {
+    name: 'Ingenio',
+    anima: '',
+    img: {
+     container: '',
+     renderer: 'svg',
+     loop: true,
+     prerender: false,
+     autoplay: false,
+     autoloadSegments: false,
+     path: '../img/icons-home/ingenio.json'
+    },
+    alt: 'Imagen del Icono de Ingenio Mostro Media'
   },
-  alt: 'Imagen del Icono de Ingenio Mostro Media'},
-  {name: 'Liderazgo',
-  anima: '',
-  img: {
-   container: '',
-   renderer: 'svg',
-   loop: true,
-   prerender: false,
-   autoplay: false,
-   autoloadSegments: false,
-   path: '../img/icons-home/liderazgo.json'
+  {
+    name: 'Liderazgo',
+    anima: '',
+    img: {
+     container: '',
+     renderer: 'svg',
+     loop: true,
+     prerender: false,
+     autoplay: false,
+     autoloadSegments: false,
+     path: '../img/icons-home/liderazgo.json'
+    },
+    alt: 'Imagen del Icono de Liderazgo Mostro Media'
   },
-  alt: 'Imagen del Icono de Liderazgo Mostro Media'},
-  {name: 'Talento',
-  anima: '',
-  img: {
-   container: '',
-   renderer: 'svg',
-   loop: true,
-   prerender: false,
-   autoplay: false,
-   autoloadSegments: false,
-   path: '../img/icons-home/talento.json'
-  },
-  alt: 'Imagen del Icono de Talento Mostro Media'}
+  {
+    name: 'Talento',
+    anima: '',
+    img: {
+     container: '',
+     renderer: 'svg',
+     loop: true,
+     prerender: false,
+     autoplay: false,
+     autoloadSegments: false,
+     path: '../img/icons-home/talento.json'
+    },
+    alt: 'Imagen del Icono de Talento Mostro Media'
+  }
 ]
 
 const colores = [0xE8540D, 0xCCCCCC, 0xE8540D]
@@ -601,6 +626,7 @@ class IconHome extends React.Component{
 }
 
 class Home extends React.Component{
+
   render(){
     return(
       <section id="home" className="container-fluid">
@@ -616,6 +642,10 @@ class Home extends React.Component{
 // MAIN
 
 class Main extends React.Component{
+  constructor(){
+    super()
+  }
+
   render(){
     return(
       <div>
