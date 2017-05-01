@@ -626,7 +626,6 @@ class IconHome extends React.Component{
 }
 
 class Home extends React.Component{
-
   render(){
     return(
       <section id="home" className="container-fluid">

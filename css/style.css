@@ -4,7 +4,7 @@
 @font-face {
   font-family: 'steelfish';
   src: url("../fonts/steelfish/steelfishRG.ttf") format("truetype"), url("../fonts/steelfish/steelfishRG.woff") format("woff"), url("../fonts/steelfish/steelfishRG.otf"), url("../fonts/steelfish/steelfishRG.eot?#iefix") format("embedded-opentype"), url("../fonts/steelfish/steelfishRG.svg") format("svg"); }
-.transicion, #home #iconos-home {
+.transicion, #home #logo-mostro-media-center, #home #iconos-home {
   -webkit-transition: all ease 0.3s;
   -moz-transition: all ease 0.3s;
   -o-transition: all ease 0.3s;
@@ -213,21 +213,67 @@ nav {
       transform: rotate(216deg) translate(25em) rotate(-216deg); }
     #home #iconos-home > :nth-of-type(5) {
       transform: rotate(288deg) translate(25em) rotate(-288deg); } }
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 1524px) and (max-width: 1823px) {
+  #home #logo-mostro-media-center {
+    margin: 25vh 500px; } }
+@media screen and (min-width: 1225px) and (max-width: 1523px) {
+  #home #logo-mostro-media-center {
+    margin: 25vh 350px; } }
+@media screen and (min-width: 1025px) and (max-width: 1224px) {
+  #home #logo-mostro-media-center {
+    margin: 25vh 300px; }
+  #home h1 {
+    left: 150px;
+    top: 45vh; } }
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+  #home #logo-mostro-media-center {
+    margin: 25vh 250px; }
+  #home h1 {
+    top: 45vh; } }
+@media screen and (min-width: 401px) and (max-width: 800px) {
   #main {
-    width: 97%; }
+    overflow-y: hidden; }
 
   #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
-    position: relative; }
+    position: relative;
+    width: 100%; }
+
+  #work .row {
+    height: auto; }
+
+  #team {
+    margin-top: 100px; } }
+@media screen and (max-width: 400px) {
+  #main {
+    overflow-y: hidden; }
+
+  #home {
+    height: auto; }
+    #home #logo-mostro-media-center {
+      margin: 250px 0 0 0;
+      position: relative;
+      width: 100%; }
+    #home h1 {
+      position: inherit;
+      top: 0; }
 
   .fullscreen-bg {
-    height: 800px;
-    overflow-x: hidden; }
+    margin: 200px 0;
+    overflow-x: hidden;
+    height: 500px; }
+    .fullscreen-bg .fullscreen-bg__video {
+      height: 100%;
+      width: auto;
+      left: -125%; }
 
-  .fullscreen-bg__video {
-    height: 100%;
-    left: -170px;
-    width: 200%; } }
+  #team {
+    height: auto;
+    margin: 200px 0; }
+    #team .carousel {
+      position: relative; }
+      #team .carousel .carousel-item {
+        width: 100%;
+        height: auto; } }
 
 /*# sourceMappingURL=style.css.map */

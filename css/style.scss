@@ -71,7 +71,6 @@ $break-small: 768px;
 			}
 		} @else {
 			> .#{$class-for-IE}#{$i} {
-				// If CSS transforms are not supported
 				$mt: sin($rot * pi() / 180) * $half-parent - $half-item;
 				$ml: cos($rot * pi() / 180) * $half-parent - $half-item;
 				margin: $mt 0 0 $ml;
@@ -147,6 +146,7 @@ nav{
     margin: 20vh 400px;
 		position: absolute;
 		z-index: 100;
+    @extend .transicion;
 	}
 	h1{
 		position: absolute;
@@ -286,26 +286,101 @@ nav{
   }
 }
 
+@media screen and (min-width: 1524px) and (max-width: 1823px){
+  #home{
+    #logo-mostro-media-center{
+      margin: 25vh 500px;
+    }
+  }
+}
 
+@media screen and (min-width: 1225px) and (max-width: 1523px){
+  #home{
+    #logo-mostro-media-center{
+      margin: 25vh 350px;
+    }
+  }
+}
 
-@media screen and (max-width: 800px){
+@media screen and (min-width: 1025px) and (max-width: 1224px){
+  #home{
+    #logo-mostro-media-center{
+      margin: 25vh 300px;
+    }
+    h1{
+      left: 150px;
+      top: 45vh;
+    }
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1024px){
+  #home{
+    #logo-mostro-media-center{
+      margin: 25vh 250px;
+    }
+    h1{
+      top: 45vh;
+    }
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 800px){
   #main{
-    width: 97%;
+    overflow-y: hidden;
+  }
+  #home{
+    #logo-mostro-media-center{
+      margin: 250px 0 0 0;
+      position: relative;
+      width: 100%;
+    }
+  }
+  #work{
+    .row{
+      height: auto;
+    }
+  }
+  #team{
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  #main{
+    overflow-y: hidden;
   }
   #home {
+    height: auto;
   	#logo-mostro-media-center{
       margin: 250px 0 0 0;
       position: relative;
+      width: 100%;
   	}
+    h1{
+      position: inherit;
+      top: 0;
+    }
   }
   .fullscreen-bg{
-    height: 800px;
+    margin: 200px 0;
     overflow-x: hidden;
-  }
+    height: 500px;
 
-  .fullscreen-bg__video{
-    height: 100%;
-    left: -170px;
-    width: 200%;
+    .fullscreen-bg__video{
+      height: 100%;
+      width: auto;
+      left: -125%;
+    }
+  }
+  #team{
+    height: auto;
+    margin: 200px 0;
+    .carousel{
+      position: relative;
+      .carousel-item{
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
