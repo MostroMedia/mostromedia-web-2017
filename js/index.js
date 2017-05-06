@@ -402,7 +402,7 @@ const ICONOS = [
       prerender: false,
       autoplay: false,
       autoloadSegments: false,
-      path: '../img/icons-home/interaccion.json'
+      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/interaccion.json'
     },
     alt: 'Imagen del Icono de Interacción Mostro Media'
   },
@@ -416,7 +416,7 @@ const ICONOS = [
       prerender: false,
       autoplay: false,
       autoloadSegments: false,
-      path: '../img/icons-home/creatividad.json'
+      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/creatividad.json'
     },
     alt: 'Imagen del Icono de Creatividad Mostro Media'
   },
@@ -430,7 +430,7 @@ const ICONOS = [
      prerender: false,
      autoplay: false,
      autoloadSegments: false,
-     path: '../img/icons-home/ingenio.json'
+     path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/ingenio.json'
     },
     alt: 'Imagen del Icono de Ingenio Mostro Media'
   },
@@ -444,7 +444,7 @@ const ICONOS = [
      prerender: false,
      autoplay: false,
      autoloadSegments: false,
-     path: '../img/icons-home/liderazgo.json'
+     path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/liderazgo.json'
     },
     alt: 'Imagen del Icono de Liderazgo Mostro Media'
   },
@@ -458,7 +458,7 @@ const ICONOS = [
      prerender: false,
      autoplay: false,
      autoloadSegments: false,
-     path: '../img/icons-home/talento.json'
+     path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/talento.json'
     },
     alt: 'Imagen del Icono de Talento Mostro Media'
   }
@@ -566,7 +566,7 @@ let animData = {
     prerender: false,
     autoplay: false,
     autoloadSegments: false,
-    path: '../img/animations/mostro-media-icon-animation.json'
+    path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/animations/mostro-media-icon-animation.json'
 }
 let anim = ''
 let isThrowing = false
