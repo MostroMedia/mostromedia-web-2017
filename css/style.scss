@@ -314,6 +314,11 @@ nav{
   }
 }
 @media screen and (min-width: 801px) and (max-width: 1024px){
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
   #home{
     #logo-mostro-media-center{
       margin: 25vh 250px;
@@ -325,6 +330,11 @@ nav{
 }
 
 @media screen and (min-width: 401px) and (max-width: 800px){
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
   #main{
     overflow-y: hidden;
   }
@@ -346,6 +356,11 @@ nav{
 }
 
 @media screen and (max-width: 400px){
+  nav{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
   #main{
     overflow-y: hidden;
   }

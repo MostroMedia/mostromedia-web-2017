@@ -116,7 +116,7 @@ nav {
   margin-top: 200px; }
   #work .row {
     height: 100vh;
-    /*ALTO DE CADA PRESENTACI├ôN*/ }
+    /*ALTO DE CADA PRESENTACIÓN*/ }
   #work img.center {
     /*LOGO*/
     width: 330px;
@@ -226,11 +226,21 @@ nav {
     left: 150px;
     top: 45vh; } }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 100; }
+
   #home #logo-mostro-media-center {
     margin: 25vh 250px; }
   #home h1 {
     top: 45vh; } }
 @media screen and (min-width: 401px) and (max-width: 800px) {
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 100; }
+
   #main {
     overflow-y: hidden; }
 
@@ -245,6 +255,11 @@ nav {
   #team {
     margin-top: 100px; } }
 @media screen and (max-width: 400px) {
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 100; }
+
   #main {
     overflow-y: hidden; }
 

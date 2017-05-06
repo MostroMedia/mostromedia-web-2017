@@ -23,6 +23,14 @@ class ItemMenu extends React.Component{
 }
 
 class Menu extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    $( document ).ready(function(){
+      $(".button-collapse").sideNav()
+    })
+  }
   render(){
     let myItemMenu = []
     this.props.itemsMenu.forEach((item) => {
@@ -35,15 +43,28 @@ class Menu extends React.Component{
       )
     })
     return(
-      <ul className="side-nav fixed color-menu">
-        <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
-        <div className="logo-text">
-          <h1 className="center-align">
+      <nav>
+        <div className="nav-wrapper">
+
+          <a href="#" className="brand-logo">
             Mostro Media
-          </h1>
+          </a>
+          <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+          <ul className="right hide-on-med-and-down">
+            {myItemMenu}
+          </ul>
+
+          <ul className="side-nav fixed color-menu">
+            <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
+            <div className="logo-text">
+              <h1 className="center-align">
+                Mostro Media
+              </h1>
+            </div>
+            {myItemMenu}
+          </ul>
         </div>
-        {myItemMenu}
-      </ul>
+      </nav>
     )
   }
 }
@@ -54,7 +75,8 @@ class Menu extends React.Component{
 
 const TextoContact = [
   { titulo: '¿Quieres saber más?, conversemos'},
-  { call: 'Llámanos', number: 3142588148}
+  { call: 'Llámanos', number: 3142588148},
+  { call: 'Envianos un email', number: 'info@mostromedia.com'}
 ]
 
 
@@ -130,7 +152,6 @@ class Contact extends React.Component{
   }
   componentDidMount(){
     $(window).scroll( function() {
-      console.log($(this).scrollTop())
       $(this).scrollTop() > 3000 ? this.launchToast : console.log()
     })
   }
@@ -138,6 +159,10 @@ class Contact extends React.Component{
     Materialize.toast(' Dejanos tu mensaje y te contactaremos pronto :) ', 20000)
   }
   render(){
+    let call = this.props.textContact[1].call
+    let number = this.props.textContact[1].number
+
+    console.log(call)
     return(
       <section id="contact">
         <div className="container">
@@ -146,8 +171,8 @@ class Contact extends React.Component{
               titulo={this.props.textContact[0].titulo}
             />
             <ContentContact
-              call={this.props.textContact[1].call}
-              number={this.props.textContact[1].number}
+              call={call}
+              number={number}
             />
           </div>
         </div>
@@ -578,7 +603,6 @@ class HomeContent extends React.Component{
     )
   }
 }
-
 class SingleIconHome extends React.Component{
   constructor(props){
     super(props)
@@ -635,7 +659,6 @@ class Home extends React.Component{
     )
   }
 }
-
 
 // ************************************************************************************************************
 // MAIN
