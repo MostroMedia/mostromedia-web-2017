@@ -183,10 +183,14 @@ nav{
 
 }
 #work {
+  background-color: rgba(255,255,255,0.1);
 	margin-top: 200px;
 	.row{
 		height: 100vh;  /*ALTO DE CADA PRESENTACIÓN*/
 	}
+  #serv-section{
+    margin-top: 200px;
+  }
 	img.center{  /*LOGO*/
 		width: 330px;
 		display: block;
@@ -222,7 +226,7 @@ nav{
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video , .fullscreen-bg__video2{
     height: 300%;
-    top: -100%;
+    top: -91%;
   }
 }
 
@@ -327,6 +331,14 @@ nav{
       top: 45vh;
     }
   }
+  .fullscreen-bg__video{
+    width: auto !important;
+    height: 700px;
+    margin-left: -350px;
+  }
+  #work{
+    height: 1300px;
+  }
 }
 
 @media screen and (min-width: 401px) and (max-width: 800px){
@@ -345,7 +357,13 @@ nav{
       width: 100%;
     }
   }
+  .fullscreen-bg__video{
+    width: auto !important;
+    height: 700px;
+    margin-left: -350px;
+  }
   #work{
+    height: 1300px;
     .row{
       height: auto;
     }
@@ -376,15 +394,18 @@ nav{
       top: 0;
     }
   }
+  #work{
+    height: 1300px;
+  }
   .fullscreen-bg{
     margin: 200px 0;
     overflow-x: hidden;
     height: 500px;
 
     .fullscreen-bg__video{
-      height: 100%;
-      width: auto;
-      left: -125%;
+      width: auto !important;
+      margin-left: -300px;
+      height: 500px;
     }
   }
   #team{

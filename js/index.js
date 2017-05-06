@@ -45,14 +45,15 @@ class Menu extends React.Component{
     return(
       <nav>
         <div className="nav-wrapper">
-
-          <a href="#" className="brand-logo">
-            Mostro Media
-          </a>
-          <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-          <ul className="right hide-on-med-and-down">
-            {myItemMenu}
-          </ul>
+          <div  className="hide-on-large-only">
+            <a href="#" className="brand-logo">
+              Mostro Media
+            </a>
+            <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+            <ul className="right hide-on-med-and-down">
+              {myItemMenu}
+            </ul>
+          </div>
 
           <ul className="side-nav fixed color-menu">
             <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
@@ -162,7 +163,6 @@ class Contact extends React.Component{
     let call = this.props.textContact[1].call
     let number = this.props.textContact[1].number
 
-    console.log(call)
     return(
       <section id="contact">
         <div className="container">
@@ -373,11 +373,13 @@ class TxtWork extends React.Component{
 class Work extends React.Component{
   render(){
     return(
-      <section id="work" className="container">
-        <div className="row">
-          <div id="serv-section" className="col s12">
-            <TxtWork clase="col s12 m4" />
-            <PairItemsWork whatwelove={WHATWELOVE} clase="col s12 m8"/>
+      <section id="work">
+        <div className="container">
+          <div className="row">
+            <div id="serv-section" className="col s12">
+              <TxtWork clase="col s12 m4" />
+              <PairItemsWork whatwelove={WHATWELOVE} clase="col s12 m8"/>
+            </div>
           </div>
         </div>
       </section>

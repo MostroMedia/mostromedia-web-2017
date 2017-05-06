@@ -113,10 +113,13 @@ nav {
     font-size: 1.4em; }
 
 #work {
+  background-color: rgba(255, 255, 255, 0.1);
   margin-top: 200px; }
   #work .row {
     height: 100vh;
     /*ALTO DE CADA PRESENTACIÓN*/ }
+  #work #serv-section {
+    margin-top: 200px; }
   #work img.center {
     /*LOGO*/
     width: 330px;
@@ -146,7 +149,7 @@ nav {
 @media (min-aspect-ratio: 16 / 9) {
   .fullscreen-bg__video, .fullscreen-bg__video2 {
     height: 300%;
-    top: -100%; } }
+    top: -91%; } }
 #team {
   margin-top: 500px;
   height: 100vh; }
@@ -234,7 +237,15 @@ nav {
   #home #logo-mostro-media-center {
     margin: 25vh 250px; }
   #home h1 {
-    top: 45vh; } }
+    top: 45vh; }
+
+  .fullscreen-bg__video {
+    width: auto !important;
+    height: 700px;
+    margin-left: -350px; }
+
+  #work {
+    height: 1300px; } }
 @media screen and (min-width: 401px) and (max-width: 800px) {
   nav {
     position: fixed;
@@ -249,8 +260,15 @@ nav {
     position: relative;
     width: 100%; }
 
-  #work .row {
-    height: auto; }
+  .fullscreen-bg__video {
+    width: auto !important;
+    height: 700px;
+    margin-left: -350px; }
+
+  #work {
+    height: 1300px; }
+    #work .row {
+      height: auto; }
 
   #team {
     margin-top: 100px; } }
@@ -273,14 +291,17 @@ nav {
       position: inherit;
       top: 0; }
 
+  #work {
+    height: 1300px; }
+
   .fullscreen-bg {
     margin: 200px 0;
     overflow-x: hidden;
     height: 500px; }
     .fullscreen-bg .fullscreen-bg__video {
-      height: 100%;
-      width: auto;
-      left: -125%; }
+      width: auto !important;
+      margin-left: -300px;
+      height: 500px; }
 
   #team {
     height: auto;
