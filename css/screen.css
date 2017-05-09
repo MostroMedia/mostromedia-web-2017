@@ -351,17 +351,28 @@ nav {
   font-weight: normal;
 }
 
+@media screen and (max-width: 1024px) {
+  /* line 290, ../sass/screen.scss */
+  nav .brand-logo {
+    margin-top: 12px !important;
+  }
+
+  /* line 297, ../sass/screen.scss */
+  .nav-wrapper ul li a {
+    padding: 0 32px !important;
+  }
+}
 @media screen and (min-width: 1824px) {
-  /* line 289, ../sass/screen.scss */
+  /* line 307, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     width: 600px;
   }
-  /* line 292, ../sass/screen.scss */
+  /* line 310, ../sass/screen.scss */
   #home h1 {
     left: 90px;
     top: 50vh;
   }
-  /* line 296, ../sass/screen.scss */
+  /* line 314, ../sass/screen.scss */
   #home #iconos-home {
     position: relative;
     /* 1 */
@@ -407,155 +418,155 @@ nav {
   }
 }
 @media screen and (min-width: 1524px) and (max-width: 1823px) {
-  /* line 304, ../sass/screen.scss */
+  /* line 322, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 25vh 500px;
   }
 }
 @media screen and (min-width: 1225px) and (max-width: 1523px) {
-  /* line 312, ../sass/screen.scss */
+  /* line 330, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 25vh 350px;
   }
 }
 @media screen and (min-width: 1025px) and (max-width: 1224px) {
-  /* line 320, ../sass/screen.scss */
+  /* line 338, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 25vh 300px;
   }
-  /* line 323, ../sass/screen.scss */
+  /* line 341, ../sass/screen.scss */
   #home h1 {
     left: 150px;
     top: 45vh;
   }
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  /* line 330, ../sass/screen.scss */
+  /* line 349, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 336, ../sass/screen.scss */
+  /* line 355, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 25vh 250px;
   }
-  /* line 339, ../sass/screen.scss */
+  /* line 358, ../sass/screen.scss */
   #home h1 {
     top: 45vh;
   }
 
-  /* line 343, ../sass/screen.scss */
+  /* line 362, ../sass/screen.scss */
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
     margin-left: -350px;
   }
 
-  /* line 348, ../sass/screen.scss */
+  /* line 367, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
 }
 @media screen and (min-width: 401px) and (max-width: 800px) {
-  /* line 354, ../sass/screen.scss */
+  /* line 373, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 359, ../sass/screen.scss */
+  /* line 378, ../sass/screen.scss */
   #main {
     overflow-y: hidden;
   }
 
-  /* line 363, ../sass/screen.scss */
+  /* line 382, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
     position: relative;
     width: 100%;
   }
 
-  /* line 369, ../sass/screen.scss */
+  /* line 388, ../sass/screen.scss */
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
     margin-left: -350px;
   }
 
-  /* line 374, ../sass/screen.scss */
+  /* line 393, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
-  /* line 376, ../sass/screen.scss */
+  /* line 395, ../sass/screen.scss */
   #work .row {
     height: auto;
   }
 
-  /* line 380, ../sass/screen.scss */
+  /* line 399, ../sass/screen.scss */
   #team {
     margin-top: 100px;
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 386, ../sass/screen.scss */
+  /* line 405, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 391, ../sass/screen.scss */
+  /* line 410, ../sass/screen.scss */
   #main {
     overflow-y: hidden;
   }
 
-  /* line 394, ../sass/screen.scss */
+  /* line 413, ../sass/screen.scss */
   #home {
     height: auto;
   }
-  /* line 396, ../sass/screen.scss */
+  /* line 415, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
     position: relative;
     width: 100%;
   }
-  /* line 401, ../sass/screen.scss */
+  /* line 420, ../sass/screen.scss */
   #home h1 {
     position: inherit;
     top: 0;
   }
 
-  /* line 406, ../sass/screen.scss */
+  /* line 425, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
 
-  /* line 409, ../sass/screen.scss */
+  /* line 428, ../sass/screen.scss */
   .fullscreen-bg {
     margin: 200px 0;
     overflow-x: hidden;
     height: 500px;
   }
-  /* line 414, ../sass/screen.scss */
+  /* line 433, ../sass/screen.scss */
   .fullscreen-bg .fullscreen-bg__video {
     width: auto !important;
     margin-left: -300px;
     height: 500px;
   }
 
-  /* line 420, ../sass/screen.scss */
+  /* line 439, ../sass/screen.scss */
   #team {
     height: auto;
     margin: 200px 0;
   }
-  /* line 423, ../sass/screen.scss */
+  /* line 442, ../sass/screen.scss */
   #team .carousel {
     position: relative;
   }
-  /* line 425, ../sass/screen.scss */
+  /* line 444, ../sass/screen.scss */
   #team .carousel .carousel-item {
     width: 100%;
     height: auto;

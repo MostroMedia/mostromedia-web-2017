@@ -284,6 +284,24 @@ nav{
   font-weight: normal;
 }
 
+
+@media screen and (max-width: 1024px){
+  nav{
+    .brand-logo{
+      margin-top: 12px !important;
+    }
+  }
+  .nav-wrapper{
+    ul{
+      li{
+        a{
+          padding: 0 32px !important;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 1824px){
   #home{
     #logo-mostro-media-center{
@@ -326,6 +344,7 @@ nav{
     }
   }
 }
+
 @media screen and (min-width: 801px) and (max-width: 1024px){
   nav{
     position: fixed;

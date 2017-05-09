@@ -55,7 +55,7 @@ class Menu extends React.Component{
             </ul>
           </nav>
 
-          <ul className="side-nav fixed color-menu">
+          <ul className="side-nav fixed color-menu" id="mobile-demo">
             <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
             <div className="logo-text">
               <h1 className="center-align">
@@ -669,7 +669,6 @@ class Main extends React.Component{
   constructor(){
     super()
   }
-  // <Home />
   // <Work />
   // <VideoBackground />
   // <Team mostros={MOSTROTEAM}/>
@@ -678,7 +677,7 @@ class Main extends React.Component{
   render(){
     return(
       <div>
-
+        <Home />
         <Menu itemsMenu={MiMenu}/>
       </div>
     )
