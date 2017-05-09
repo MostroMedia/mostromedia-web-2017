@@ -75,7 +75,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: url("../fonts/steelfish/steelfishRG.ttf") format("truetype"), url("../fonts/steelfish/steelfishRG.woff") format("woff"), url("../fonts/steelfish/steelfishRG.otf"), url("../fonts/steelfish/steelfishRG.eot?#iefix") format("embedded-opentype"), url("../fonts/steelfish/steelfishRG.svg") format("svg");
 }
 /* line 29, ../sass/screen.scss */
-.transicion, #home #logo-mostro-media-center, #home #iconos-home {
+.transicion, #home #mostro-center #logo-mostro-media-center, #home #iconos-home {
   -webkit-transition: all ease 0.3s;
   -moz-transition: all ease 0.3s;
   -o-transition: all ease 0.3s;
@@ -147,33 +147,50 @@ nav {
   z-index: -10;
 }
 
-/* line 149, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 #home {
   height: 100vh;
+  position: relative;
 }
 /* line 151, ../sass/screen.scss */
-#home #logo-mostro-media-center {
-  width: 300px;
-  display: block;
-  margin: 20vh 400px;
+#home #mostro-center {
   position: absolute;
-  z-index: 100;
-}
-/* line 159, ../sass/screen.scss */
-#home h1 {
-  position: absolute;
-  z-index: 10;
   left: 0;
   right: 0;
-  top: 60vh;
-  font-size: 3em;
+  top: 20vh;
+  z-index: 12;
 }
-/* line 167, ../sass/screen.scss */
-#home ul {
-  position: relative;
-  z-index: 10;
+/* line 158, ../sass/screen.scss */
+#home #mostro-center #logo-mostro-media-center {
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 1025px) and (max-width: 1223px) {
+  /* line 158, ../sass/screen.scss */
+  #home #mostro-center #logo-mostro-media-center {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 1224px) and (max-width: 1823px) {
+  /* line 158, ../sass/screen.scss */
+  #home #mostro-center #logo-mostro-media-center {
+    width: 400px;
+  }
 }
 /* line 171, ../sass/screen.scss */
+#home #mostro-center h1 {
+  font-size: 3em;
+}
+/* line 175, ../sass/screen.scss */
+#home ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+/* line 181, ../sass/screen.scss */
 #home #iconos-home {
   position: relative;
   /* 1 */
@@ -223,62 +240,62 @@ nav {
 #home #iconos-home > :nth-of-type(5) {
   transform: rotate(288deg) translate(20em) rotate(-288deg);
 }
-/* line 176, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 #home #iconos-home li {
   display: block;
   border-radius: 50%;
 }
-/* line 179, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 #home #iconos-home li img {
   margin-left: 15px;
 }
-/* line 182, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 #home #iconos-home li p {
   text-align: center;
   font-size: 1.5em;
 }
-/* line 189, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 #home button {
   font-size: 1.4em;
 }
 
-/* line 194, ../sass/screen.scss */
+/* line 204, ../sass/screen.scss */
 #work {
   background-color: rgba(255, 255, 255, 0.1);
   margin-top: 200px;
 }
-/* line 197, ../sass/screen.scss */
+/* line 207, ../sass/screen.scss */
 #work .row {
   height: 100vh;
   /*ALTO DE CADA PRESENTACIÓN*/
 }
-/* line 200, ../sass/screen.scss */
+/* line 210, ../sass/screen.scss */
 #work #serv-section {
   margin-top: 200px;
 }
-/* line 203, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 #work img.center {
   /*LOGO*/
   width: 330px;
   display: block;
   margin: 0 auto;
 }
-/* line 208, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 #work .item-servicio img {
   width: 150px;
   display: block;
   margin: 0 auto;
 }
-/* line 213, ../sass/screen.scss */
+/* line 223, ../sass/screen.scss */
 #work h1 {
   font-size: 45px;
 }
-/* line 216, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 #work h3 {
   font-size: 25px;
 }
 
-/* line 221, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 .fullscreen-bg {
   position: relative;
   right: 0;
@@ -287,7 +304,7 @@ nav {
   width: 100%;
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 .fullscreen-bg__video {
   position: absolute;
   width: 100%;
@@ -295,84 +312,75 @@ nav {
 }
 
 @media (min-aspect-ratio: 16 / 9) {
-  /* line 236, ../sass/screen.scss */
+  /* line 246, ../sass/screen.scss */
   .fullscreen-bg__video, .fullscreen-bg__video2 {
     height: 300%;
     top: -91%;
   }
 }
-/* line 243, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 #team {
   margin-top: 500px;
   height: 100vh;
 }
-/* line 246, ../sass/screen.scss */
+/* line 256, ../sass/screen.scss */
 #team .carousel {
   height: 800px;
 }
-/* line 248, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 #team .carousel .carousel-item {
   height: 400px;
   width: 400px;
 }
 
-/* line 259, ../sass/screen.scss */
+/* line 269, ../sass/screen.scss */
 #contact {
   height: 700px;
 }
-/* line 261, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 #contact #content-contact, #contact #form-contact {
   margin: 20px 0 0 5%;
   background-color: #333;
 }
-/* line 264, ../sass/screen.scss */
+/* line 274, ../sass/screen.scss */
 #contact #content-contact .valign-wrapper, #contact #form-contact .valign-wrapper {
   height: 400px;
 }
-/* line 266, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 #contact #content-contact .valign-wrapper .valign, #contact #form-contact .valign-wrapper .valign {
   text-align: center;
   width: 100%;
 }
-/* line 272, ../sass/screen.scss */
+/* line 282, ../sass/screen.scss */
 #contact form {
   margin-left: 10%;
   width: 80%;
 }
 
-/* line 278, ../sass/screen.scss */
+/* line 288, ../sass/screen.scss */
 .progress {
   background-color: #fff !important;
 }
 
-/* line 282, ../sass/screen.scss */
+/* line 292, ../sass/screen.scss */
 .toast {
   font-size: 1.8rem;
   font-weight: normal;
 }
 
 @media screen and (max-width: 1024px) {
-  /* line 290, ../sass/screen.scss */
+  /* line 300, ../sass/screen.scss */
   nav .brand-logo {
     margin-top: 12px !important;
   }
 
-  /* line 297, ../sass/screen.scss */
+  /* line 307, ../sass/screen.scss */
   .nav-wrapper ul li a {
     padding: 0 32px !important;
   }
 }
 @media screen and (min-width: 1824px) {
-  /* line 307, ../sass/screen.scss */
-  #home #logo-mostro-media-center {
-    width: 600px;
-  }
-  /* line 310, ../sass/screen.scss */
-  #home h1 {
-    left: 90px;
-    top: 50vh;
-  }
-  /* line 314, ../sass/screen.scss */
+  /* line 317, ../sass/screen.scss */
   #home #iconos-home {
     position: relative;
     /* 1 */
@@ -417,156 +425,133 @@ nav {
     transform: rotate(288deg) translate(25em) rotate(-288deg);
   }
 }
-@media screen and (min-width: 1524px) and (max-width: 1823px) {
-  /* line 322, ../sass/screen.scss */
-  #home #logo-mostro-media-center {
-    margin: 25vh 500px;
-  }
-}
-@media screen and (min-width: 1225px) and (max-width: 1523px) {
-  /* line 330, ../sass/screen.scss */
-  #home #logo-mostro-media-center {
-    margin: 25vh 350px;
-  }
-}
-@media screen and (min-width: 1025px) and (max-width: 1224px) {
-  /* line 338, ../sass/screen.scss */
-  #home #logo-mostro-media-center {
-    margin: 25vh 300px;
-  }
-  /* line 341, ../sass/screen.scss */
-  #home h1 {
-    left: 150px;
-    top: 45vh;
-  }
-}
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  /* line 349, ../sass/screen.scss */
+  /* line 336, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 355, ../sass/screen.scss */
+  /* line 342, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 25vh 250px;
   }
-  /* line 358, ../sass/screen.scss */
+  /* line 345, ../sass/screen.scss */
   #home h1 {
     top: 45vh;
   }
 
-  /* line 362, ../sass/screen.scss */
+  /* line 349, ../sass/screen.scss */
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
     margin-left: -350px;
   }
 
-  /* line 367, ../sass/screen.scss */
+  /* line 354, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
 }
 @media screen and (min-width: 401px) and (max-width: 800px) {
-  /* line 373, ../sass/screen.scss */
+  /* line 360, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 378, ../sass/screen.scss */
+  /* line 365, ../sass/screen.scss */
   #main {
     overflow-y: hidden;
   }
 
-  /* line 382, ../sass/screen.scss */
+  /* line 369, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
     position: relative;
     width: 100%;
   }
 
-  /* line 388, ../sass/screen.scss */
+  /* line 375, ../sass/screen.scss */
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
     margin-left: -350px;
   }
 
-  /* line 393, ../sass/screen.scss */
+  /* line 380, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
-  /* line 395, ../sass/screen.scss */
+  /* line 382, ../sass/screen.scss */
   #work .row {
     height: auto;
   }
 
-  /* line 399, ../sass/screen.scss */
+  /* line 386, ../sass/screen.scss */
   #team {
     margin-top: 100px;
   }
 }
 @media screen and (max-width: 400px) {
-  /* line 405, ../sass/screen.scss */
+  /* line 392, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 410, ../sass/screen.scss */
+  /* line 397, ../sass/screen.scss */
   #main {
     overflow-y: hidden;
   }
 
-  /* line 413, ../sass/screen.scss */
+  /* line 400, ../sass/screen.scss */
   #home {
     height: auto;
   }
-  /* line 415, ../sass/screen.scss */
+  /* line 402, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     margin: 250px 0 0 0;
     position: relative;
     width: 100%;
   }
-  /* line 420, ../sass/screen.scss */
+  /* line 407, ../sass/screen.scss */
   #home h1 {
     position: inherit;
     top: 0;
   }
 
-  /* line 425, ../sass/screen.scss */
+  /* line 412, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
 
-  /* line 428, ../sass/screen.scss */
+  /* line 415, ../sass/screen.scss */
   .fullscreen-bg {
     margin: 200px 0;
     overflow-x: hidden;
     height: 500px;
   }
-  /* line 433, ../sass/screen.scss */
+  /* line 420, ../sass/screen.scss */
   .fullscreen-bg .fullscreen-bg__video {
     width: auto !important;
     margin-left: -300px;
     height: 500px;
   }
 
-  /* line 439, ../sass/screen.scss */
+  /* line 426, ../sass/screen.scss */
   #team {
     height: auto;
     margin: 200px 0;
   }
-  /* line 442, ../sass/screen.scss */
+  /* line 429, ../sass/screen.scss */
   #team .carousel {
     position: relative;
   }
-  /* line 444, ../sass/screen.scss */
+  /* line 431, ../sass/screen.scss */
   #team .carousel .carousel-item {
     width: 100%;
     height: auto;
