@@ -669,15 +669,17 @@ class Main extends React.Component{
   constructor(){
     super()
   }
-  // <Work />
-  // <VideoBackground />
-  // <Team mostros={MOSTROTEAM}/>
-  // <Contact textContact={TextoContact}/>
-  // <ParticlesHome />
+
+
   render(){
     return(
       <div>
         <Home />
+        <Work />
+        <VideoBackground />
+        <Team mostros={MOSTROTEAM}/>
+        <Contact textContact={TextoContact}/>
+        <ParticlesHome />
         <Menu itemsMenu={MiMenu}/>
       </div>
     )

@@ -338,14 +338,6 @@ nav{
     top: 0;
     z-index: 100;
   }
-  #home{
-    #logo-mostro-media-center{
-      margin: 25vh 250px;
-    }
-    h1{
-      top: 45vh;
-    }
-  }
   .fullscreen-bg__video{
     width: auto !important;
     height: 700px;
@@ -367,9 +359,7 @@ nav{
   }
   #home{
     #logo-mostro-media-center{
-      margin: 250px 0 0 0;
-      position: relative;
-      width: 100%;
+      width: 100% !important;
     }
   }
   .fullscreen-bg__video{
@@ -398,16 +388,9 @@ nav{
     overflow-y: hidden;
   }
   #home {
-    height: auto;
   	#logo-mostro-media-center{
-      margin: 250px 0 0 0;
-      position: relative;
-      width: 100%;
+      width: 100% !important;
   	}
-    h1{
-      position: inherit;
-      top: 0;
-    }
   }
   #work{
     height: 1300px;
