@@ -43,9 +43,9 @@ class Menu extends React.Component{
       )
     })
     return(
-      <nav>
+      <div>
         <div className="nav-wrapper">
-          <div  className="hide-on-large-only">
+          <nav className="hide-on-large-only">
             <a href="#" className="brand-logo">
               Mostro Media
             </a>
@@ -53,7 +53,7 @@ class Menu extends React.Component{
             <ul className="right hide-on-med-and-down">
               {myItemMenu}
             </ul>
-          </div>
+          </nav>
 
           <ul className="side-nav fixed color-menu">
             <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
@@ -65,7 +65,7 @@ class Menu extends React.Component{
             {myItemMenu}
           </ul>
         </div>
-      </nav>
+      </div>
     )
   }
 }
@@ -669,16 +669,16 @@ class Main extends React.Component{
   constructor(){
     super()
   }
-
+  // <Home />
+  // <Work />
+  // <VideoBackground />
+  // <Team mostros={MOSTROTEAM}/>
+  // <Contact textContact={TextoContact}/>
+  // <ParticlesHome />
   render(){
     return(
       <div>
-        <Home />
-        <Work />
-        <VideoBackground />
-        <Team mostros={MOSTROTEAM}/>
-        <Contact textContact={TextoContact}/>
-        <ParticlesHome />
+
         <Menu itemsMenu={MiMenu}/>
       </div>
     )
