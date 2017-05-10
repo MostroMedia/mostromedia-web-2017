@@ -2,17 +2,40 @@
 
 const MiMenu = [
   {name: '#home', icon: 'fast_forward'},
-  {name: '#servicios', icon: 'code'},
-  {name: '#portafolio', icon: 'videocam'},
-  {name: '#equipo', icon: 'recent_actors'},
-  {name: '#contactenos', icon: 'chat_bubble_outline'}
+  {name: '#work', icon: 'code'},
+  {name: '#video', icon: 'videocam'},
+  {name: '#team', icon: 'recent_actors'},
+  {name: '#contact', icon: 'chat_bubble_outline'}
 ]
 
 class ItemMenu extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      selected : ''
+    }
+    this._handleScroll = this._handleScroll.bind(this)
+    this._handleClick = this._handleClick.bind(this)
+
+  }
+  _handleScroll(e){
+    console.log("Scrolling!")
+  }
+  _handleClick(e){
+    e.preventDefault()
+    this.setState({ selected: '' })
+  }
+
+  componentDidMount(){
+    $(document).on("scroll", this._handleScroll)
+    $(document).ready(function(){
+      $('.scrollspy').scrollSpy();
+    });
+  }
   render(){
     return(
       <li>
-        <a href={this.props.name}>
+        <a className={this.state.selected} href={this.props.name} onClick={this._handleClick}>
           <i className="medium material-icons">
             {this.props.icon}
           </i>
@@ -50,12 +73,12 @@ class Menu extends React.Component{
               Mostro Media
             </a>
             <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-            <ul className="right hide-on-med-and-down">
+            <ul className="section table-of-contents right hide-on-med-and-down">
               {myItemMenu}
             </ul>
           </nav>
 
-          <ul className="side-nav fixed color-menu" id="mobile-demo">
+          <ul className="section table-of-contents side-nav fixed color-menu" id="mobile-demo">
             <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
             <div className="logo-text">
               <h1 className="center-align">
@@ -164,7 +187,7 @@ class Contact extends React.Component{
     let number = this.props.textContact[1].number
 
     return(
-      <section id="contact">
+      <section id="contact" className="section scrollSpy">
         <div className="container">
           <div className="row">
             <TitleContact
@@ -271,7 +294,7 @@ class Team extends React.Component{
       )
     })
     return(
-      <section id="team">
+      <section id="team" className="section scrollSpy">
         <div className="container">
           <div className="row">
 
@@ -296,7 +319,7 @@ class Team extends React.Component{
 class VideoBackground extends React.Component{
   render(){
     return(
-      <section id="video" className="fullscreen-bg">
+      <section id="video" className="fullscreen-bg section scrollSpy">
         <video id="myVideo" className="fullscreen-bg__video" muted autoPlay loop>
           <source src="video/videoBG.mp4" type="video/mp4" />
             Este navegador no soporta reproduccion de <code>video</code>
@@ -373,7 +396,7 @@ class TxtWork extends React.Component{
 class Work extends React.Component{
   render(){
     return(
-      <section id="work">
+      <section id="work" className="section scrollSpy">
         <div className="container">
           <div className="row">
             <div id="serv-section" className="col s12">
@@ -654,7 +677,7 @@ class IconHome extends React.Component{
 class Home extends React.Component{
   render(){
     return(
-      <section id="home" className="container-fluid">
+      <section id="home" className="container-fluid section scrollSpy">
         <HomeContent />
         <IconHome iconos={ICONOS} />
       </section>
@@ -666,11 +689,6 @@ class Home extends React.Component{
 // MAIN
 
 class Main extends React.Component{
-  constructor(){
-    super()
-  }
-
-
   render(){
     return(
       <div>
