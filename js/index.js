@@ -167,7 +167,7 @@ class Contact extends React.Component{
     let number = this.props.textContact[1].number
 
     return(
-      <section id="contact" className="section scrollSpy">
+      <section id="contact" className="section scrollspy">
         <div className="container">
           <div className="row">
             <TitleContact
