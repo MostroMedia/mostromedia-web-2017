@@ -105,6 +105,9 @@ body{
   	}
 }
 
+h1{
+  font-size: 6em;
+}
 
 nav{
 	background-color: $mostro-color;
@@ -215,23 +218,23 @@ nav{
 	}
   #serv-section{
     margin-top: 200px;
+    #individual-services{
+      margin: 10% 0;
+      text-align: center;
+      .item-servicio{
+        display: inline-block;
+        margin: 30px;
+        img{
+          width: 150px;
+      		display: block;
+        }
+        h3{
+          margin-top: 10px;
+          font-size: 25px;
+        }
+    	}
+    }
   }
-	img.center{  /*LOGO*/
-		width: 330px;
-		display: block;
-    	margin: 0 auto;
-	}
-	.item-servicio img{
-		width: 150px;
-		display: block;
-    	margin: 0 auto;
-	}
-	h1{
-		font-size: 45px;
-	}
-	h3{
-		font-size: 25px;
-	}
 }
 
 .fullscreen-bg{
@@ -250,8 +253,8 @@ nav{
 
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video , .fullscreen-bg__video2{
-    height: 300%;
-    top: -91%;
+    height: 200%;
+    top: -35%;
   }
 }
 
@@ -302,6 +305,12 @@ nav{
 
 
 @media screen and (max-width: 1024px){
+  body{
+    overflow-x: hidden;
+  }
+  h1{
+    font-size: 4em;
+  }
   nav{
     .brand-logo{
       margin-top: 12px !important;

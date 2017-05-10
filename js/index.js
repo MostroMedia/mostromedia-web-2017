@@ -323,20 +323,16 @@ const WHATWELOVE = [
 class ItemWork extends React.Component{
   render(){
     return(
-        <div className="col s12 m6 l6">
-          <div className="item-servicio">
+          <li className="item-servicio">
             <img
               className="responsive-img"
               src={this.props.img}
               alt={this.props.alt}
             />
-            <div>
-              <h3 className="center-align">
-                {this.props.name}
-              </h3>
-            </div>
-          </div>
-        </div>
+            <h3 className="center-align">
+              {this.props.name}
+            </h3>
+          </li>
     )
   }
 }
@@ -355,20 +351,9 @@ class PairItemsWork extends React.Component{
       )
     })
     return(
-      <div id="idividual-services" className={this.props.clase}>
+      <ul id="individual-services">
         {weWork}
-      </div>
-    )
-  }
-}
-
-class TxtWork extends React.Component{
-  render(){
-    return(
-      <div className={this.props.clase}>
-        <h1>Lo que nos gusta hacer</h1>
-        <div className="divider"></div>
-      </div>
+      </ul>
     )
   }
 }
@@ -380,8 +365,11 @@ class Work extends React.Component{
         <div className="container">
           <div className="row">
             <div id="serv-section" className="col s12">
-              <TxtWork clase="col s12 m4" />
-              <PairItemsWork whatwelove={WHATWELOVE} clase="col s12 m8"/>
+
+              <TitleContact
+                titulo="Lo que nos gusta hacer"
+              />
+              <PairItemsWork whatwelove={WHATWELOVE}/>
             </div>
           </div>
         </div>
