@@ -11,31 +11,12 @@ const MiMenu = [
 class ItemMenu extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      selected : ''
-    }
-    this._handleScroll = this._handleScroll.bind(this)
-    this._handleClick = this._handleClick.bind(this)
-
-  }
-  _handleScroll(e){
-    console.log("Scrolling!")
-  }
-  _handleClick(e){
-    e.preventDefault()
-    this.setState({ selected: '' })
   }
 
-  componentDidMount(){
-    $(document).on("scroll", this._handleScroll)
-    $(document).ready(function(){
-      $('.scrollspy').scrollSpy();
-    });
-  }
   render(){
     return(
       <li>
-        <a className={this.state.selected} href={this.props.name} onClick={this._handleClick}>
+        <a href={this.props.name}>
           <i className="medium material-icons">
             {this.props.icon}
           </i>
@@ -52,6 +33,7 @@ class Menu extends React.Component{
   componentDidMount(){
     $( document ).ready(function(){
       $(".button-collapse").sideNav()
+      $('.scrollspy').scrollSpy()
     })
   }
   render(){
@@ -66,7 +48,6 @@ class Menu extends React.Component{
       )
     })
     return(
-      <div>
         <div className="nav-wrapper">
           <nav className="hide-on-large-only">
             <a href="#" className="brand-logo">
@@ -88,7 +69,6 @@ class Menu extends React.Component{
             {myItemMenu}
           </ul>
         </div>
-      </div>
     )
   }
 }
@@ -294,7 +274,7 @@ class Team extends React.Component{
       )
     })
     return(
-      <section id="team" className="section scrollSpy">
+      <section id="team" className="section scrollspy">
         <div className="container">
           <div className="row">
 
@@ -319,7 +299,7 @@ class Team extends React.Component{
 class VideoBackground extends React.Component{
   render(){
     return(
-      <section id="video" className="fullscreen-bg section scrollSpy">
+      <section id="video" className="fullscreen-bg section scrollspy">
         <video id="myVideo" className="fullscreen-bg__video" muted autoPlay loop>
           <source src="video/videoBG.mp4" type="video/mp4" />
             Este navegador no soporta reproduccion de <code>video</code>
@@ -396,7 +376,7 @@ class TxtWork extends React.Component{
 class Work extends React.Component{
   render(){
     return(
-      <section id="work" className="section scrollSpy">
+      <section id="work" className="section scrollspy">
         <div className="container">
           <div className="row">
             <div id="serv-section" className="col s12">
@@ -677,7 +657,7 @@ class IconHome extends React.Component{
 class Home extends React.Component{
   render(){
     return(
-      <section id="home" className="container-fluid section scrollSpy">
+      <section id="home" className="container-fluid section scrollspy">
         <HomeContent />
         <IconHome iconos={ICONOS} />
       </section>
