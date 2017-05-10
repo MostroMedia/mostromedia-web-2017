@@ -15,7 +15,6 @@ $text-color: #fff;
 /*Responsive values*/
 $break-small: 768px;
 
-
 @font-face{
   font-family: 'steelfish';
   src: url('../fonts/steelfish/steelfishRG.ttf') format('truetype'),
@@ -42,54 +41,89 @@ $break-small: 768px;
 }
 
 
+// Variables for circle
+// $numberItems: 6;
+// $circle-size: 15em;
+// $item-size: 4em;
+
+$color-base-circle: rgb(247,247,249);
+$btn-inactive: #313a45;
+$btn-active: rbg(230,40,43);
+$ease: cubic-bezier(0.310,1.470,0.475,1.005);
 
 
-
-@mixin distribute-on-circle(
-	$nb-items,
-	$circle-size,
-	$item-size,
-	$class-for-IE: false
-) {
-	$half-item: ($item-size / 2);
+@mixin distribute-on-circle($nb-items,$circle-size, $item-size,$class-for-IE: false){
+  $half-item: ($item-size / 2);
 	$half-parent: ($circle-size / 2);
-
-	position: relative; /* 1 */
-	width:  $circle-size;
-	height: $circle-size;
-	padding: 0;
-	border-radius: 50%;
-	list-style: none; /* 2 */
-	box-sizing: content-box; /* 3 */
-
-	> * { /* 4 */
-		display: block;
-		position: absolute;
-		top:  50%;
-		left: 50%;
-		width:  $item-size;
+  border-radius: 100%;
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  > * {
+    display: table;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:  $item-size;
 		height: $item-size;
 		margin: -$half-item;
-	}
+    @include transition( transform 1.5 $ease );
 
-	$angle: (360 / $nb-items);
-	$rot: 0;
+    $angle: (360 / $nb-items);
+    $rot: 0;
 
-	@for $i from 1 through $nb-items {
-		@if not $class-for-IE {
-			> :nth-of-type(#{$i}) {
-				transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
-			}
-		} @else {
-			> .#{$class-for-IE}#{$i} {
-				$mt: sin($rot * pi() / 180) * $half-parent - $half-item;
-				$ml: cos($rot * pi() / 180) * $half-parent - $half-item;
-				margin: $mt 0 0 $ml;
-			}
-		}
-		$rot: ($rot + $angle);
-	}
+    @for $i from 1 to $nb-items{
+      &:nth-of-type(#{$i}){
+        @include transform(rotate(#{$rot}deg) translate($half-parent) rotate(-#{$rot}deg));
+      }
+      $rot: $rot + $angle;
+    }
+  }
 }
+
+
+
+
+// @mixin distribute-on-circle($nb-items,$circle-size,$item-size,$class-for-IE: false) {
+// 	$half-item: ($item-size / 2);
+// 	$half-parent: ($circle-size / 2);
+//
+// 	position: relative; /* 1 */
+// 	width:  $circle-size;
+// 	height: $circle-size;
+// 	padding: 0;
+// 	border-radius: 50%;
+// 	list-style: none; /* 2 */
+// 	box-sizing: content-box; /* 3 */
+//
+// 	> * { /* 4 */
+// 		display: block;
+// 		position: absolute;
+// 		top:  50%;
+// 		left: 50%;
+// 		width:  $item-size;
+// 		height: $item-size;
+// 		margin: -$half-item;
+// 	}
+//
+// 	$angle: (360 / $nb-items);
+// 	$rot: 0;
+//
+// 	@for $i from 1 through $nb-items {
+// 		@if not $class-for-IE {
+// 			> :nth-of-type(#{$i}) {
+// 				transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
+// 			}
+// 		} @else {
+// 			> .#{$class-for-IE}#{$i} {
+// 				$mt: sin($rot * pi() / 180) * $half-parent - $half-item;
+// 				$ml: cos($rot * pi() / 180) * $half-parent - $half-item;
+// 				margin: $mt 0 0 $ml;
+// 			}
+// 		}
+// 		$rot: ($rot + $angle);
+// 	}
+// }
 
 
 /*--------------------Desktop--------------*/
