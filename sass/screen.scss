@@ -4,7 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
-
+@import "compass/css3";
 
 $main-space: 100px; /* this is the width of the menu*/
 $background-color: #363636;
@@ -40,6 +40,9 @@ $break-small: 768px;
   -ms-transform: scale($longitud);
   transform: scale($longitud);
 }
+
+
+
 
 
 @mixin distribute-on-circle(
@@ -107,6 +110,7 @@ nav{
 	background-color: $mostro-color;
 }
 
+
 .side-nav{
 	width: 100px !important;
   #logo-mostro-media{
@@ -129,12 +133,15 @@ nav{
 	background-color: $mostro-menu;
 	li{
 		color: $text-color;
-	}
-	a{
-		color: $mostro-color;
-	}
-	i{
-		color: $text-color !important;
+    a{
+  		color: $mostro-color;
+      i{
+        color: $text-color !important;
+      }
+  	}
+    &:hover{
+      color: red !important;
+    }
 	}
 }
 
