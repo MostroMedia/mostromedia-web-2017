@@ -249,8 +249,8 @@ class ItemTeam extends React.Component{
   }
   render(){
     return(
-      <li className="carousel-item">
-        <img className="circle responsive-img" src={this.props.img} alt={this.props.alt} />
+      <li>
+        <img className="esponsive-img" src={this.props.img} alt={this.props.alt} />
         <h3>{this.props.name}</h3>
         <h4 style={{ color: this.props.color }}>{this.props.quote}</h4>
       </li>
@@ -281,12 +281,11 @@ class Team extends React.Component{
             <TitleContact
               titulo={TitleTeam}
             />
-            <ul className="carousel">
-              {mostroTeam}
-            </ul>
-
           </div>
         </div>
+        <ul>
+          {mostroTeam}
+        </ul>        
       </section>
     );
   }

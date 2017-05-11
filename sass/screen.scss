@@ -41,10 +41,6 @@ $break-small: 768px;
   transform: scale($longitud);
 }
 
-
-
-
-
 @mixin distribute-on-circle(
 	$nb-items,
 	$circle-size,
@@ -90,6 +86,8 @@ $break-small: 768px;
 		$rot: ($rot + $angle);
 	}
 }
+
+
 
 
 /*--------------------Desktop--------------*/
@@ -276,7 +274,13 @@ nav{
     }
   }
   ul{
+    height: 500px;
+    margin-top: 230px;
     li{
+      display: inline-block;
+      img{
+        width: 300px;
+      }
       h3{
         font-size: 3em;
       }
