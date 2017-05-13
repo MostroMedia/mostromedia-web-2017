@@ -34,6 +34,11 @@ class Menu extends React.Component{
     $( document ).ready(function(){
       $(".button-collapse").sideNav()
       $('.scrollspy').scrollSpy()
+      $(".logo-text").click(function() {
+      $('html,body').animate({
+          scrollTop: $("#home").offset().top},
+          'slow');
+        });
     })
   }
   render(){
@@ -50,7 +55,7 @@ class Menu extends React.Component{
     return(
         <div className="nav-wrapper">
           <nav className="hide-on-large-only">
-            <a href="#" className="brand-logo">
+            <a href="#home" className="brand-logo">
               Mostro Media
             </a>
             <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
@@ -60,8 +65,8 @@ class Menu extends React.Component{
           </nav>
 
           <ul className="section table-of-contents side-nav fixed color-menu" id="mobile-demo">
-            <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
             <div className="logo-text">
+              <img id="logo-mostro-media" className="center" src="img/logo_svg.svg" />
               <h1 className="center-align">
                 Mostro Media
               </h1>
@@ -285,7 +290,7 @@ class Team extends React.Component{
         </div>
         <ul>
           {mostroTeam}
-        </ul>        
+        </ul>
       </section>
     );
   }
@@ -460,9 +465,9 @@ const colores = [0xE8540D, 0xCCCCCC, 0xE8540D]
 
 function Init(padre){
   scene = new THREE.Scene()
-  camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
+  camera = new THREE.PerspectiveCamera(75, width / height, 0.5, 1000)
   camera.lookAt(scene.position)
-  camera.position.z = 500
+  camera.position.z = 200
 
   renderer = new THREE.WebGLRenderer()
   renderer.setPixelRatio(window.devicePixelRatio)
@@ -483,7 +488,6 @@ function Init(padre){
   scene.add(light)
 
   drawParticles()
-  drawSaturn()
 
   padre.appendChild(renderer.domElement)
 
@@ -505,9 +509,8 @@ function animate(){
 }
 
 function render(){
-  particles.rotation.x += 0.0005
-  particles.rotation.y -= 0.0007
-  saturn.rotation.y += 0.0003
+  particles.rotation.x += 0.001
+  particles.rotation.y -= 0.002
   renderer.render(scene, camera)
 }
 
@@ -515,7 +518,7 @@ function drawParticles(){
   particles = new THREE.Group()
   scene.add(particles)
   const geometry =new THREE.TetrahedronGeometry(5,0)
-  for(let i=0; i<100; i++){
+  for(let i=0; i<200; i++){
     const material = new THREE.MeshPhongMaterial({
       color : colores[Math.floor(Math.random() * colores.length)],
       shading: THREE.FlatShading
@@ -530,11 +533,6 @@ function drawParticles(){
     particles.add(mesh)
   }
 }
-
-function drawSaturn(){
-  saturn = new THREE.Group()
-}
-
 class ParticlesHome extends React.Component{
   constructor(){
     super()
@@ -542,6 +540,14 @@ class ParticlesHome extends React.Component{
   componentDidMount(){
     Init(document.getElementById("particles-home"))
     animate();
+    $(window).scroll(function(){
+         var barra = $(window).scrollTop()
+         var posicion = barra * 0.9
+
+         $('#particles-home').css({
+             'top' : posicion + 'px'
+         })
+      })
   }
 
   render(){

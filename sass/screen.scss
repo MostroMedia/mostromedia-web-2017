@@ -1,8 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
 @import "compass/reset";
 @import "compass/css3";
 
@@ -116,9 +111,12 @@ nav{
   #logo-mostro-media{
     margin-top: 50px;
   }
-	h1{
-		font-size: 1.8em;
-	}
+  .logo-text{
+    cursor: pointer;
+    h1{
+  		font-size: 1.8em;
+  	}
+  }
 	li{
     margin-top: 50px;
 		a{
@@ -127,6 +125,7 @@ nav{
 			}
 		}
 	}
+
 }
 .table-of-contents{
   a{
@@ -152,7 +151,7 @@ nav{
 }
 
 #particles-home{
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -10;
@@ -215,7 +214,7 @@ nav{
 
 }
 #work {
-  background-color: rgba(255,255,255,0.1);
+  background-color: $mostro-color;
 	margin-top: 200px;
 	.row{
 		height: 100vh;  /*ALTO DE CADA PRESENTACIÓN*/
