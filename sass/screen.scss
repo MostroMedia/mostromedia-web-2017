@@ -213,8 +213,10 @@ nav{
 	}
 
 }
+$item-txt-work: #5a5a5f;
+$item-img-work: #2c3434;
 #work {
-  background-color: $mostro-color;
+  // background-color: $mostro-color;
 	margin-top: 200px;
 	.row{
 		height: 100vh;  /*ALTO DE CADA PRESENTACIÓN*/
@@ -225,18 +227,32 @@ nav{
       margin: 10% 0;
       text-align: center;
       .item-servicio{
+        cursor: pointer;
         display: inline-block;
         margin: 30px;
-        img{
-          width: 150px;
-      		display: block;
+        .img-item{
+          background: $item-img-work;
+          padding: 30px;
+          img{
+            width: 150px;
+        		display: block;
+          }
         }
-        h3{
-          margin-top: 10px;
-          font-size: 25px;
+        .txt-item{
+          background: $item-txt-work;
+          padding: 20px;
+          h3{
+            font-size: 25px;
+          }
         }
     	}
     }
+  }
+}
+.modal{
+  background-color: rgba(0,0,0,0) !important;
+  .modal-footer{
+    background-color: rgba(0,0,0,0) !important;
   }
 }
 
@@ -291,7 +307,7 @@ nav{
 }
 
 #contact{
-  height: 900px;
+  height: 700px;
   #content-contact, #form-contact{
     margin: 20px 0 0 5%;
     background-color: #333;

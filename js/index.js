@@ -78,6 +78,22 @@ class Menu extends React.Component{
   }
 }
 
+
+// ************************************************************************************************************
+// Seccion Footer
+// ************************************************************************************************************
+
+class Footer extends React.Component{
+  render(){
+    return(
+      <footer className="center card-panel grey darken-3">
+        <p>Copyright (c) 2017 Copyright MOSTRO MEDIA All Rights Reserved.</p>
+      </footer>
+    )
+  }
+}
+
+
 // ************************************************************************************************************
 // Seccion CONTACT
 // ************************************************************************************************************
@@ -317,25 +333,72 @@ class VideoBackground extends React.Component{
 // Seccion WORK
 // ************************************************************************************************************
 
+
+
 const WHATWELOVE = [
-  {name: 'Gráfica y Animación Digital', img: 'img/motion.svg', alt: 'Imagen de Gráfica y Animación Digital MOSTRO MEDIA'},
-  {name: 'E-learning', img: 'img/laptop.svg', alt: 'Imagen de E-learning MOSTRO MEDIA'},
-  {name: 'Producción Audiovisual', img: 'img/photo-camera.svg', alt: 'Imagen de Producción Audiovisual MOSTRO MEDIA'},
-  {name: 'Producción Sonora', img: 'img/audio-wave.svg', alt: 'Imagen de Producción Sonora MOSTRO MEDIA'}
+  {name: '¿Tienes una idea en mente?', img: 'img/motion.svg', alt: 'Imagen de Gráfica y Animación Digital MOSTRO MEDIA', modal: 'rtaA', rta: 'La hacemos realidad.'},
+  {name: '¿Tu animación personalizada?', img: 'img/laptop.svg', alt: 'Imagen de E-learning MOSTRO MEDIA', modal: 'rtaB', rta: 'Desarróllala con nosotros.'},
+  {name: '¿Tienes un negocio?', img: 'img/photo-camera.svg', alt: 'Imagen de Producción Audiovisual MOSTRO MEDIA', modal: 'rtaC', rta: 'Potencializa tu ventas. Vende online.'},
+  {name: '¿Tienes un equipo que capacitar?', img: 'img/audio-wave.svg', alt: 'Imagen de Producción Sonora MOSTRO MEDIA', modal: 'rtaD', rta: 'Crea plataformas de aprendizaje en línea.'}
 ]
 
+function MyModal(props){
+  return(
+    <div id={props.modal} className="modal">
+      <div className="modal-content">
+        <h1>{props.rta}</h1>
+      </div>
+      <div className="modal-footer">
+        <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+  )
+}
+
+class Modals extends React.Component{
+  render(){
+    let weWork = []
+    this.props.whatwelove.forEach((whatwelov) => {
+      weWork.push(
+          <MyModal
+            modal={whatwelov.modal}
+            key={whatwelov.modal}
+            rta={whatwelov.rta}
+          />
+      )
+    })
+    return(
+      <div>
+        {weWork}
+      </div>
+    )
+  }
+}
+
+
 class ItemWork extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    $('.modal').modal();
+  }
+
   render(){
     return(
-          <li className="item-servicio">
-            <img
-              className="responsive-img"
-              src={this.props.img}
-              alt={this.props.alt}
-            />
-            <h3 className="center-align">
-              {this.props.name}
-            </h3>
+          <li className="item-servicio" data-target={this.props.modal} >
+            <div className="img-item">
+              <img
+                className="responsive-img"
+                src={this.props.img}
+                alt={this.props.alt}
+              />
+            </div>
+            <div className="txt-item">
+              <h3 className="center-align">
+                {this.props.name}
+              </h3>
+            </div>
           </li>
     )
   }
@@ -346,12 +409,13 @@ class PairItemsWork extends React.Component{
     let weWork = []
     this.props.whatwelove.forEach((whatwelov) => {
       weWork.push(
-        <ItemWork
-          name={whatwelov.name}
-          key={whatwelov.name}
-          img={whatwelov.img}
-          alt={whatwelov.alt}
-        />
+          <ItemWork
+            name={whatwelov.name}
+            key={whatwelov.name}
+            img={whatwelov.img}
+            alt={whatwelov.alt}
+            modal={whatwelov.modal}
+          />
       )
     })
     return(
@@ -371,9 +435,11 @@ class Work extends React.Component{
             <div id="serv-section" className="col s12">
 
               <TitleContact
-                titulo="Lo que nos gusta hacer"
+                titulo="¿Porqué Mostro Media?"
               />
+              <Modals whatwelove={WHATWELOVE}/>
               <PairItemsWork whatwelove={WHATWELOVE}/>
+
             </div>
           </div>
         </div>
@@ -540,14 +606,14 @@ class ParticlesHome extends React.Component{
   componentDidMount(){
     Init(document.getElementById("particles-home"))
     animate();
-    $(window).scroll(function(){
-         var barra = $(window).scrollTop()
-         var posicion = barra * 0.9
-
-         $('#particles-home').css({
-             'top' : posicion + 'px'
-         })
-      })
+    // $(window).scroll(function(){
+    //      var barra = $(window).scrollTop()
+    //      var posicion = barra * 0.9
+    //
+    //      $('#particles-home').css({
+    //          'top' : posicion + 'px'
+    //      })
+    //   })
   }
 
   render(){
@@ -670,6 +736,7 @@ class Main extends React.Component{
         <VideoBackground />
         <Team mostros={MOSTROTEAM}/>
         <Contact textContact={TextoContact}/>
+        <Footer />
         <ParticlesHome />
         <Menu itemsMenu={MiMenu}/>
       </div>

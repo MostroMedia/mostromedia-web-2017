@@ -271,42 +271,60 @@ nav {
   font-size: 1.4em;
 }
 
-/* line 216, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 #work {
-  background-color: #E8540D;
   margin-top: 200px;
 }
-/* line 219, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 #work .row {
   height: 100vh;
   /*ALTO DE CADA PRESENTACIÓN*/
 }
-/* line 222, ../sass/screen.scss */
+/* line 224, ../sass/screen.scss */
 #work #serv-section {
   margin-top: 200px;
 }
-/* line 224, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 #work #serv-section #individual-services {
   margin: 10% 0;
   text-align: center;
 }
-/* line 227, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
 #work #serv-section #individual-services .item-servicio {
+  cursor: pointer;
   display: inline-block;
   margin: 30px;
 }
-/* line 230, ../sass/screen.scss */
-#work #serv-section #individual-services .item-servicio img {
+/* line 233, ../sass/screen.scss */
+#work #serv-section #individual-services .item-servicio .img-item {
+  background: #2c3434;
+  padding: 30px;
+}
+/* line 236, ../sass/screen.scss */
+#work #serv-section #individual-services .item-servicio .img-item img {
   width: 150px;
   display: block;
 }
-/* line 234, ../sass/screen.scss */
-#work #serv-section #individual-services .item-servicio h3 {
-  margin-top: 10px;
+/* line 241, ../sass/screen.scss */
+#work #serv-section #individual-services .item-servicio .txt-item {
+  background: #5a5a5f;
+  padding: 20px;
+}
+/* line 244, ../sass/screen.scss */
+#work #serv-section #individual-services .item-servicio .txt-item h3 {
   font-size: 25px;
 }
 
-/* line 243, ../sass/screen.scss */
+/* line 252, ../sass/screen.scss */
+.modal {
+  background-color: transparent !important;
+}
+/* line 254, ../sass/screen.scss */
+.modal .modal-footer {
+  background-color: transparent !important;
+}
+
+/* line 259, ../sass/screen.scss */
 .fullscreen-bg {
   position: relative;
   right: 0;
@@ -315,7 +333,7 @@ nav {
   width: 100%;
 }
 
-/* line 251, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 .fullscreen-bg__video {
   position: absolute;
   width: 100%;
@@ -323,106 +341,106 @@ nav {
 }
 
 @media (min-aspect-ratio: 16 / 9) {
-  /* line 258, ../sass/screen.scss */
+  /* line 274, ../sass/screen.scss */
   .fullscreen-bg__video, .fullscreen-bg__video2 {
     height: 200%;
     top: -35%;
   }
 }
-/* line 265, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 #team {
   margin-top: 500px;
   height: 100vh;
 }
-/* line 268, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 #team .carousel {
   height: 800px;
 }
-/* line 270, ../sass/screen.scss */
+/* line 286, ../sass/screen.scss */
 #team .carousel .carousel-item {
   height: 400px;
   width: 400px;
 }
-/* line 275, ../sass/screen.scss */
+/* line 291, ../sass/screen.scss */
 #team ul {
   height: 500px;
   margin-top: 230px;
 }
-/* line 278, ../sass/screen.scss */
+/* line 294, ../sass/screen.scss */
 #team ul li {
   display: inline-block;
 }
-/* line 280, ../sass/screen.scss */
+/* line 296, ../sass/screen.scss */
 #team ul li img {
   width: 300px;
 }
-/* line 283, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 #team ul li h3 {
   font-size: 3em;
 }
-/* line 286, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 #team ul li h4 {
   font-size: 1.5em;
 }
 
-/* line 293, ../sass/screen.scss */
+/* line 309, ../sass/screen.scss */
 #contact {
-  height: 900px;
+  height: 700px;
 }
-/* line 295, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 #contact #content-contact, #contact #form-contact {
   margin: 20px 0 0 5%;
   background-color: #333;
 }
-/* line 298, ../sass/screen.scss */
+/* line 314, ../sass/screen.scss */
 #contact #content-contact .valign-wrapper, #contact #form-contact .valign-wrapper {
   height: 400px;
 }
-/* line 300, ../sass/screen.scss */
+/* line 316, ../sass/screen.scss */
 #contact #content-contact .valign-wrapper .valign, #contact #form-contact .valign-wrapper .valign {
   text-align: center;
   width: 100%;
 }
-/* line 306, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 #contact form {
   margin-left: 10%;
   width: 80%;
 }
 
-/* line 312, ../sass/screen.scss */
+/* line 328, ../sass/screen.scss */
 .progress {
   background-color: #fff !important;
 }
 
-/* line 316, ../sass/screen.scss */
+/* line 332, ../sass/screen.scss */
 .toast {
   font-size: 1.8rem;
   font-weight: normal;
 }
 
 @media screen and (max-width: 1024px) {
-  /* line 323, ../sass/screen.scss */
+  /* line 339, ../sass/screen.scss */
   body {
     overflow-x: hidden;
   }
 
-  /* line 326, ../sass/screen.scss */
+  /* line 342, ../sass/screen.scss */
   h1 {
     font-size: 4em;
   }
 
-  /* line 330, ../sass/screen.scss */
+  /* line 346, ../sass/screen.scss */
   nav .brand-logo {
     margin-top: 12px !important;
   }
 
-  /* line 337, ../sass/screen.scss */
+  /* line 353, ../sass/screen.scss */
   .nav-wrapper ul li a {
     padding: 0 32px !important;
   }
 }
 @media screen and (min-width: 1824px) {
-  /* line 347, ../sass/screen.scss */
+  /* line 363, ../sass/screen.scss */
   #home #iconos-home {
     position: relative;
     /* 1 */
@@ -468,26 +486,6 @@ nav {
   }
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
-  /* line 366, ../sass/screen.scss */
-  nav {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-  }
-
-  /* line 371, ../sass/screen.scss */
-  .fullscreen-bg__video {
-    width: auto !important;
-    height: 700px;
-    margin-left: -350px;
-  }
-
-  /* line 376, ../sass/screen.scss */
-  #work {
-    height: 1300px;
-  }
-}
-@media screen and (min-width: 401px) and (max-width: 800px) {
   /* line 382, ../sass/screen.scss */
   nav {
     position: fixed;
@@ -496,82 +494,102 @@ nav {
   }
 
   /* line 387, ../sass/screen.scss */
-  #main {
-    overflow-y: hidden;
-  }
-
-  /* line 391, ../sass/screen.scss */
-  #home #logo-mostro-media-center {
-    width: 100% !important;
-  }
-
-  /* line 395, ../sass/screen.scss */
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
     margin-left: -350px;
   }
 
-  /* line 400, ../sass/screen.scss */
+  /* line 392, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
-  /* line 402, ../sass/screen.scss */
-  #work .row {
-    height: auto;
-  }
-
-  /* line 406, ../sass/screen.scss */
-  #team {
-    margin-top: 100px;
-  }
 }
-@media screen and (max-width: 400px) {
-  /* line 412, ../sass/screen.scss */
+@media screen and (min-width: 401px) and (max-width: 800px) {
+  /* line 398, ../sass/screen.scss */
   nav {
     position: fixed;
     top: 0;
     z-index: 100;
   }
 
-  /* line 417, ../sass/screen.scss */
+  /* line 403, ../sass/screen.scss */
   #main {
     overflow-y: hidden;
   }
 
-  /* line 421, ../sass/screen.scss */
+  /* line 407, ../sass/screen.scss */
   #home #logo-mostro-media-center {
     width: 100% !important;
   }
 
-  /* line 425, ../sass/screen.scss */
+  /* line 411, ../sass/screen.scss */
+  .fullscreen-bg__video {
+    width: auto !important;
+    height: 700px;
+    margin-left: -350px;
+  }
+
+  /* line 416, ../sass/screen.scss */
+  #work {
+    height: 1300px;
+  }
+  /* line 418, ../sass/screen.scss */
+  #work .row {
+    height: auto;
+  }
+
+  /* line 422, ../sass/screen.scss */
+  #team {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 400px) {
+  /* line 428, ../sass/screen.scss */
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* line 433, ../sass/screen.scss */
+  #main {
+    overflow-y: hidden;
+  }
+
+  /* line 437, ../sass/screen.scss */
+  #home #logo-mostro-media-center {
+    width: 100% !important;
+  }
+
+  /* line 441, ../sass/screen.scss */
   #work {
     height: 1300px;
   }
 
-  /* line 428, ../sass/screen.scss */
+  /* line 444, ../sass/screen.scss */
   .fullscreen-bg {
     margin: 200px 0;
     overflow-x: hidden;
     height: 500px;
   }
-  /* line 433, ../sass/screen.scss */
+  /* line 449, ../sass/screen.scss */
   .fullscreen-bg .fullscreen-bg__video {
     width: auto !important;
     margin-left: -300px;
     height: 500px;
   }
 
-  /* line 439, ../sass/screen.scss */
+  /* line 455, ../sass/screen.scss */
   #team {
     height: auto;
     margin: 200px 0;
   }
-  /* line 442, ../sass/screen.scss */
+  /* line 458, ../sass/screen.scss */
   #team .carousel {
     position: relative;
   }
-  /* line 444, ../sass/screen.scss */
+  /* line 460, ../sass/screen.scss */
   #team .carousel .carousel-item {
     width: 100%;
     height: auto;
