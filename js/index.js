@@ -357,9 +357,9 @@ function MyModal(props){
 
 class Modals extends React.Component{
   render(){
-    let weWork = []
+    let myModal = []
     this.props.whatwelove.forEach((whatwelov) => {
-      weWork.push(
+      myModal.push(
           <MyModal
             modal={whatwelov.modal}
             key={whatwelov.modal}
@@ -369,7 +369,7 @@ class Modals extends React.Component{
     })
     return(
       <div>
-        {weWork}
+        {myModal}
       </div>
     )
   }
@@ -383,7 +383,6 @@ class ItemWork extends React.Component{
   componentDidMount(){
     $('.modal').modal();
   }
-
   render(){
     return(
           <li className="item-servicio" data-target={this.props.modal} >
@@ -427,6 +426,16 @@ class PairItemsWork extends React.Component{
 }
 
 class Work extends React.Component{
+  constructor(){
+    super()
+    this.openTrigger = this.openTrigger.bind(this)
+  }
+  openTrigger(){
+    $('.tap-target').tapTarget('open')
+  }
+  componentDidMount(){
+    $('.tap-target').tapTarget('open');
+  }
   render(){
     return(
       <section id="work" className="section scrollspy">
@@ -439,8 +448,17 @@ class Work extends React.Component{
               />
               <Modals whatwelove={WHATWELOVE}/>
               <PairItemsWork whatwelove={WHATWELOVE}/>
+              <button className="btn " onClick={this.openTrigger}>HOla</button>
+
 
             </div>
+          </div>
+        </div>
+        <a id="trigger-work-msj" className="waves-effect waves-light btn btn-floating" ><i className="material-icons">menu</i></a>
+        <div className="tap-target" data-activates="trigger-work-msj">
+          <div className="tap-target-content">
+            <h5>Title</h5>
+            <p>A bunch of text</p>
           </div>
         </div>
       </section>

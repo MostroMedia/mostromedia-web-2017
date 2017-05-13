@@ -151,7 +151,7 @@ nav{
 }
 
 #particles-home{
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: -10;
@@ -247,6 +247,11 @@ $item-img-work: #2c3434;
         }
     	}
     }
+  }
+  #trigger-work-msj{
+    position: relative;
+    display: block;
+    margin-left: 97%;
   }
 }
 .modal{
