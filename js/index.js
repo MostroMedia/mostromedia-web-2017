@@ -334,10 +334,46 @@ class VideoBackground extends React.Component{
 // ************************************************************************************************************
 
 const WHATWELOVE = [
-  {name: '¿Tienes una idea en mente?', img: 'img/iconos-work/ideaMostroMedia.svg', alt: 'Imagen de Gráfica y Animación Digital MOSTRO MEDIA', modal: 'rtaA', rta: 'La hacemos realidad.'},
-  {name: '¿Tu animación personalizada?', img: 'img/iconos-work/animationMostroMedia.svg', alt: 'Imagen de E-learning MOSTRO MEDIA', modal: 'rtaB', rta: 'Desarróllala con nosotros.'},
-  {name: '¿Tienes un negocio?', img: 'img/iconos-work/businessMostroMedia.svg', alt: 'Imagen de Producción Audiovisual MOSTRO MEDIA', modal: 'rtaC', rta: 'Potencializa tu ventas. Vende online.'},
-  {name: '¿Tienes un equipo que capacitar?', img: 'img/iconos-work/e-learningMostroMedia.svg', alt: 'Imagen de Producción Sonora MOSTRO MEDIA', modal: 'rtaD', rta: 'Crea plataformas de aprendizaje en línea.'}
+  {
+    name: '¿Tienes una idea en mente?',
+    img: 'img/iconos-work/ideaMostroMedia.svg',
+    alt: 'Imagen de ¿Tienes una idea en mente?, MOSTRO MEDIA',
+    modal: 'rtaA',
+    rta: 'La hacemos realidad.',
+    textoRta: 'En Mostro Media te ofrecemos la posibilidad de hacer realidad tus ideas, ya sea que quieras desarrollar una aplicación movil o un sitio web, para conectarte con tus clientes de nueva forma.',
+    imgintro: 'img/iconos-work/idea-introMostroMedia.jpg',
+    alt2: 'Imagen de Tu idea la hacemos realidad MOSTRO MEDIA',
+  },
+  {
+    name: '¿Tu animación personalizada?',
+    img: 'img/iconos-work/animationMostroMedia.svg',
+    alt: 'Imagen de ¿Tu animación personalizada? MOSTRO MEDIA',
+     modal: 'rtaB',
+     rta: 'Desarróllala con nosotros.',
+     textoRta: 'Ponemos a tu alcance todas nuestras habilidades para que juntos desarrollemos esa animación que siempre quisiste.',
+     imgintro: 'img/iconos-work/animation-introMostroMedia.jpg',
+     alt2: 'Imagen de Desarróllala con nosotros MOSTRO MEDIA',
+   },
+  {
+    name: '¿Tienes un negocio?',
+    img: 'img/iconos-work/businessMostroMedia.svg',
+    alt: 'Imagen de ¿Tienes un negocio? MOSTRO MEDIA',
+    modal: 'rtaC',
+    rta: 'Potencializa tu ventas. Vende online.',
+    textoRta: 'Te ayudamos a crear estrategias de Marketing digital para que tus ventas online se incrementen.',
+    imgintro: 'img/iconos-work/idea-introMostroMedia.jpg',
+    alt2: 'Imagen de Potencializa tu ventas. Vende online MOSTRO MEDIA',
+  },
+  {
+    name: '¿Tienes un equipo que capacitar?',
+    img: 'img/iconos-work/e-learningMostroMedia.svg',
+    alt: 'Imagen de ¿Tienes un equipo que capacitar? MOSTRO MEDIA',
+    modal: 'rtaD',
+    rta: 'Crea plataformas de aprendizaje en línea.',
+    textoRta: 'Te ofrecemos la creación de plataformas de universidad Corporativa, además de la implementación de malla curricular, creación de cursos e-learning y consultoría en proyectos TIC-Educación.',
+    imgintro: 'img/iconos-work/e-learning-introMostroMedia.jpg',
+    alt2: 'Imagen de Crea plataformas de aprendizaje en línea. MOSTRO MEDIA',
+  }
 ]
 
 function MyModal(props){
@@ -345,9 +381,11 @@ function MyModal(props){
     <div id={props.modal} className="modal">
       <div className="modal-content">
         <h1>{props.rta}</h1>
+        <img src={props.imgintro} alt={props.alt2}/>
+        <h2>{props.textoRta}</h2>
       </div>
       <div className="modal-footer">
-        <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" className="modal-action modal-close waves-effect waves-green btn white black-text">Salir</a>
       </div>
     </div>
   )
@@ -362,6 +400,9 @@ class Modals extends React.Component{
             modal={whatwelov.modal}
             key={whatwelov.modal}
             rta={whatwelov.rta}
+            textoRta={whatwelov.textoRta}
+            imgintro={whatwelov.imgintro}
+            alt2={whatwelov.alt2}
           />
       )
     })

@@ -261,7 +261,6 @@ nav{
           padding: 30px;
           img{
             width: 150px;
-        		display: block;
           }
         }
         .txt-item{
@@ -285,6 +284,20 @@ nav{
 }
 .modal{
   background-color: rgba(0,0,0,0) !important;
+  h2{
+    font-size: 2em;
+    margin-top: 30px;
+  }
+  a{
+    font-size: 1.5em;
+  }
+  img{
+    display: block;
+    width: 50%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .modal-footer{
     background-color: rgba(0,0,0,0) !important;
   }
