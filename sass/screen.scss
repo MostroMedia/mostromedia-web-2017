@@ -98,6 +98,7 @@ body{
   	}
 }
 
+
 h1{
   font-size: 6em;
 }
@@ -148,6 +149,22 @@ nav{
       }
   	}
 	}
+}
+
+
+#your-name{
+  height: 100vh;
+  form{
+    width: 100%;
+
+    label{
+      margin-top: -20px;
+      font-size: 3em;
+    }
+    h2,input{
+      font-size: 2em;
+    }
+  }
 }
 
 #particles-home{

@@ -428,13 +428,11 @@ class PairItemsWork extends React.Component{
 class Work extends React.Component{
   constructor(){
     super()
-    this.openTrigger = this.openTrigger.bind(this)
+
   }
-  openTrigger(){
-    $('.tap-target').tapTarget('open')
-  }
+
   componentDidMount(){
-    $('.tap-target').tapTarget('open');
+
   }
   render(){
     return(
@@ -448,17 +446,7 @@ class Work extends React.Component{
               />
               <Modals whatwelove={WHATWELOVE}/>
               <PairItemsWork whatwelove={WHATWELOVE}/>
-              <button className="btn " onClick={this.openTrigger}>HOla</button>
-
-
             </div>
-          </div>
-        </div>
-        <a id="trigger-work-msj" className="waves-effect waves-light btn btn-floating" ><i className="material-icons">menu</i></a>
-        <div className="tap-target" data-activates="trigger-work-msj">
-          <div className="tap-target-content">
-            <h5>Title</h5>
-            <p>A bunch of text</p>
           </div>
         </div>
       </section>
@@ -593,8 +581,8 @@ function animate(){
 }
 
 function render(){
-  particles.rotation.x += 0.001
-  particles.rotation.y -= 0.002
+  particles.rotation.x += 0.0008
+  particles.rotation.y -= 0.0009
   renderer.render(scene, camera)
 }
 
@@ -743,20 +731,66 @@ class Home extends React.Component{
 }
 
 // ************************************************************************************************************
+// Seccion HOME
+// ************************************************************************************************************
+
+const TEXTOINTRO = [
+  {
+    titulo: 'Bienvenido a Mostro Media',
+    textoSaludo: 'En Mostro Media'
+  }
+]
+
+
+class YourName extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      value : ''
+    }
+    this.ingresaNombre = this.ingresaNombre.bind(this)
+  }
+  ingresaNombre(event){
+    this.setState({value: event.target.value})
+  }
+  render(){
+    return(
+      <div id="your-name" className="container valign-wrapper">
+        <form>
+          <div className="input-field">
+            <i className="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" className="validate" value={this.state.value} onChange={this.ingresaNombre} />
+            <label htmlFor="icon_prefix">Tu Nombre</label>
+          </div>
+          <br />
+          <h2 className="center">{this.props.textsSaludo[0].titulo} {this.state.value}</h2>
+        </form>
+      </div>
+    )
+  }
+}
+
+
+// ************************************************************************************************************
 // MAIN
 
 class Main extends React.Component{
+  constructor(props){
+    super(props)
+
+  }
   render(){
+    // <Home />
+    // <Work />
+    // <VideoBackground />
+    // <Team mostros={MOSTROTEAM}/>
+    // <Contact textContact={TextoContact}/>
+    // <Footer />
+    // <ParticlesHome />
+    // <Menu itemsMenu={MiMenu}/>
     return(
       <div>
-        <Home />
-        <Work />
-        <VideoBackground />
-        <Team mostros={MOSTROTEAM}/>
-        <Contact textContact={TextoContact}/>
-        <Footer />
-        <ParticlesHome />
-        <Menu itemsMenu={MiMenu}/>
+        <YourName textsSaludo={TEXTOINTRO}/>
       </div>
     )
   }
