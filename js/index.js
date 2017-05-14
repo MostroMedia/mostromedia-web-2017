@@ -736,22 +736,27 @@ class Home extends React.Component{
 
 const TEXTOINTRO = [
   {
+    input: 'Escribe tu nombre aquí para empezar',
     titulo: 'Bienvenido a Mostro Media',
     textoSaludo: 'En Mostro Media'
   }
 ]
 
+function BtnEnter(props){
+  if(props.value != ''){
+    return(
+      <button className="btn right" onClick={props.onClick}>Entrar</button>
+    )
+  }else{
+    return(
+      <button className="hide"></button>
+    )
+  }
+}
 
 class YourName extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      value : ''
-    }
-    this.ingresaNombre = this.ingresaNombre.bind(this)
-  }
-  ingresaNombre(event){
-    this.setState({value: event.target.value})
   }
   render(){
     return(
@@ -759,11 +764,15 @@ class YourName extends React.Component{
         <form>
           <div className="input-field">
             <i className="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" className="validate" value={this.state.value} onChange={this.ingresaNombre} />
-            <label htmlFor="icon_prefix">Tu Nombre</label>
+            <input id="icon_prefix" type="text" className="validate" value={this.props.value} onChange={this.props.onChange} />
+            <label htmlFor="icon_prefix">{this.props.textsSaludo[0].input}</label>
           </div>
           <br />
-          <h2 className="center">{this.props.textsSaludo[0].titulo} {this.state.value}</h2>
+          <h2 className="center">{this.props.textsSaludo[0].titulo} {this.props.value}</h2>
+          <BtnEnter
+            onClick={this.props.onClick}
+            value={this.props.value}
+          />
         </form>
       </div>
     )
@@ -777,22 +786,49 @@ class YourName extends React.Component{
 class Main extends React.Component{
   constructor(props){
     super(props)
-
+    this.state = {
+      value : '',
+      isPressed: false
+    }
+    this.ingresaNombre = this.ingresaNombre.bind(this)
+    this.botonPresionado = this.botonPresionado.bind(this)
+  }
+  ingresaNombre(event){
+    this.setState({
+      value: event.target.value
+    })
+  }
+  botonPresionado(event){
+    this.setState({
+      isPressed: true
+    })
   }
   render(){
-    // <Home />
-    // <Work />
-    // <VideoBackground />
-    // <Team mostros={MOSTROTEAM}/>
-    // <Contact textContact={TextoContact}/>
-    // <Footer />
-    // <ParticlesHome />
-    // <Menu itemsMenu={MiMenu}/>
-    return(
-      <div>
-        <YourName textsSaludo={TEXTOINTRO}/>
-      </div>
-    )
+    if(this.state.isPressed === false){
+      return(
+        <div>
+          <YourName
+            textsSaludo={TEXTOINTRO}
+            value={this.state.value}
+            onChange={this.ingresaNombre}
+            onClick={this.botonPresionado}
+          />
+        </div>
+      )
+    }else{
+        return(
+          <div>
+            <Home />
+            <Work />
+            <VideoBackground />
+            <Team mostros={MOSTROTEAM}/>
+            <Contact textContact={TextoContact}/>
+            <Footer />
+            <ParticlesHome />
+            <Menu itemsMenu={MiMenu}/>
+          </div>
+        )
+    }
   }
 }
 
