@@ -88,16 +88,21 @@ $break-small: 768px;
 /*--------------------Desktop--------------*/
 
 body{
-	// padding-left: $main-space;
 	font-family: 'steelfish';
 	background-color: $background-color;
 	color: $text-color !important;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
 
 	@media screen and (max-width: $break-small) {
 		padding-left: 0px;
   	}
+
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 h1{
   font-size: 6em;
@@ -151,7 +156,9 @@ nav{
 	}
 }
 
-
+.modal-overlay{
+  opacity: 0.7 !important;
+}
 #your-name{
   height: 100vh;
   form{

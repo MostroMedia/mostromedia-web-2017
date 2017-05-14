@@ -333,13 +333,11 @@ class VideoBackground extends React.Component{
 // Seccion WORK
 // ************************************************************************************************************
 
-
-
 const WHATWELOVE = [
-  {name: '¿Tienes una idea en mente?', img: 'img/motion.svg', alt: 'Imagen de Gráfica y Animación Digital MOSTRO MEDIA', modal: 'rtaA', rta: 'La hacemos realidad.'},
-  {name: '¿Tu animación personalizada?', img: 'img/laptop.svg', alt: 'Imagen de E-learning MOSTRO MEDIA', modal: 'rtaB', rta: 'Desarróllala con nosotros.'},
-  {name: '¿Tienes un negocio?', img: 'img/photo-camera.svg', alt: 'Imagen de Producción Audiovisual MOSTRO MEDIA', modal: 'rtaC', rta: 'Potencializa tu ventas. Vende online.'},
-  {name: '¿Tienes un equipo que capacitar?', img: 'img/audio-wave.svg', alt: 'Imagen de Producción Sonora MOSTRO MEDIA', modal: 'rtaD', rta: 'Crea plataformas de aprendizaje en línea.'}
+  {name: '¿Tienes una idea en mente?', img: 'img/iconos-work/ideaMostroMedia.svg', alt: 'Imagen de Gráfica y Animación Digital MOSTRO MEDIA', modal: 'rtaA', rta: 'La hacemos realidad.'},
+  {name: '¿Tu animación personalizada?', img: 'img/iconos-work/animationMostroMedia.svg', alt: 'Imagen de E-learning MOSTRO MEDIA', modal: 'rtaB', rta: 'Desarróllala con nosotros.'},
+  {name: '¿Tienes un negocio?', img: 'img/iconos-work/businessMostroMedia.svg', alt: 'Imagen de Producción Audiovisual MOSTRO MEDIA', modal: 'rtaC', rta: 'Potencializa tu ventas. Vende online.'},
+  {name: '¿Tienes un equipo que capacitar?', img: 'img/iconos-work/e-learningMostroMedia.svg', alt: 'Imagen de Producción Sonora MOSTRO MEDIA', modal: 'rtaD', rta: 'Crea plataformas de aprendizaje en línea.'}
 ]
 
 function MyModal(props){
@@ -428,11 +426,10 @@ class PairItemsWork extends React.Component{
 class Work extends React.Component{
   constructor(){
     super()
-
   }
 
   componentDidMount(){
-
+    // Materialize.toast(getCookie('nombre') + '', 3000, 'rounded')
   }
   render(){
     return(
@@ -458,8 +455,8 @@ class Work extends React.Component{
 // Seccion HOME
 // ************************************************************************************************************
 
-let scene, camera, renderer, particles, saturn
-let width = window.innerWidth-10, height = window.innerHeight
+let scene, camera, renderer, particles, controls
+let width = window.innerWidth-10, height = window.innerHeight, mousePos = {x:0,y:0}
 const ICONOS = [
   {
     name: 'Interacción',
@@ -563,9 +560,16 @@ function Init(padre){
 
   padre.appendChild(renderer.domElement)
 
-  window.addEventListener('resize', onResize)
+  window.addEventListener('resize', onResize, false)
+  // window.addEventListener('mousemove', hanldeMouseMove, false)
   return renderer
 }
+
+// function hanldeMouseMove(e){
+//   mousePos = {x: event.clientX,y: event.clientY}
+//   console.log(mousePos)
+//
+// }
 
 function onResize(){
   width = window.innerWidth
@@ -612,14 +616,6 @@ class ParticlesHome extends React.Component{
   componentDidMount(){
     Init(document.getElementById("particles-home"))
     animate();
-    // $(window).scroll(function(){
-    //      var barra = $(window).scrollTop()
-    //      var posicion = barra * 0.9
-    //
-    //      $('#particles-home').css({
-    //          'top' : posicion + 'px'
-    //      })
-    //   })
   }
 
   render(){
@@ -696,8 +692,12 @@ class SingleIconHome extends React.Component{
 class IconHome extends React.Component{
   componentDidMount(){
     setTimeout( () => {
-      document.getElementById("iconos-home").style.transform = "scale(1)";
+      document.getElementById("iconos-home").style.transform = "scale(1)"
+      Materialize.toast('Bienvenid@ ' + getCookie('nombre'), 3000, 'rounded')
     } , 1000)
+    setTimeout(() => {
+      Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.', 7000, 'rounded')
+    }, 2000)
   }
   render(){
     let myIcon = []
@@ -737,8 +737,7 @@ class Home extends React.Component{
 const TEXTOINTRO = [
   {
     input: 'Escribe tu nombre aquí para empezar',
-    titulo: 'Bienvenido a Mostro Media',
-    textoSaludo: 'En Mostro Media'
+    titulo: 'Bienvenid@ a Mostro Media'
   }
 ]
 
@@ -843,7 +842,9 @@ class Main extends React.Component{
        console.log("mi cookie es ", getCookie('nombre'))
         return(
           <div>
-            <Home />
+            <Home
+              cookie={getCookie('nombre')}
+            />
             <Work />
             <VideoBackground />
             <Team mostros={MOSTROTEAM}/>
