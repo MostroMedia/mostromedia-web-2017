@@ -428,9 +428,6 @@ class Work extends React.Component{
     super()
   }
 
-  componentDidMount(){
-    // Materialize.toast(getCookie('nombre') + '', 3000, 'rounded')
-  }
   render(){
     return(
       <section id="work" className="section scrollspy">
@@ -696,7 +693,7 @@ class IconHome extends React.Component{
       Materialize.toast('Bienvenid@ ' + getCookie('nombre'), 3000, 'rounded')
     } , 1000)
     setTimeout(() => {
-      Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.', 7000, 'rounded')
+      Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.', 5000, 'rounded')
     }, 2000)
   }
   render(){
