@@ -742,6 +742,29 @@ const TEXTOINTRO = [
   }
 ]
 
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date()
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
+    var expires = "expires="+d.toUTCString()
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+}
+
+function getCookie(cname) {
+    var name = cname + "="
+    var ca = document.cookie.split(';')
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i]
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1)
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length)
+        }
+    }
+    return ""
+}
+
 function BtnEnter(props){
   if(props.value != ''){
     return(
@@ -799,12 +822,13 @@ class Main extends React.Component{
     })
   }
   botonPresionado(event){
+    setCookie('nombre', this.state.value ,365)
     this.setState({
       isPressed: true
     })
   }
   render(){
-    if(this.state.isPressed === false){
+    if(!getCookie('nombre')){
       return(
         <div>
           <YourName
@@ -816,6 +840,7 @@ class Main extends React.Component{
         </div>
       )
     }else{
+       console.log("mi cookie es ", getCookie('nombre'))
         return(
           <div>
             <Home />
