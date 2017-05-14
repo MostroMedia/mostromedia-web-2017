@@ -109,13 +109,16 @@ class FormularioContact extends React.Component{
   constructor(props){
     super(props)
   }
+  componentDidMount(){
+    Materialize.updateTextFields()
+  }
   render(){
     return(
       <form>
         <div className="input-field">
           <i className="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" className="validate" />
-          <label>Your Name</label>
+          <input value={getCookie('nombre')} id="icon_prefix" type="text" className="validate" />
+          <label>Tu nombre</label>
         </div>
 
         <div className="input-field">
@@ -127,10 +130,10 @@ class FormularioContact extends React.Component{
         <div className="input-field">
         <i className="white-text material-icons prefix">message</i>
         <textarea id="textarea" className="materialize-textarea"></textarea>
-        <label>Message</label>
+        <label>Tu mensaje</label>
         </div>
 
-        <button className="white black-text btn waves-effect waves-light" type="submit" name="action">Submit
+        <button className="white black-text btn waves-effect waves-light right" type="submit" name="action">Enviar
           <i className="material-icons right">send</i>
         </button>
       </form>
@@ -144,7 +147,7 @@ class ContentContact extends React.Component{
       <div>
         <div id="content-contact" className="col s12 m5">
           <div className="valign-wrapper">
-            <h4 className="valign">{this.props.call} <br /> {this.props.number}</h4>
+            <h2 className="valign">{this.props.call} <br /> {this.props.number}</h2>
           </div>
         </div>
         <div id="form-contact" className="col s12 m5">
@@ -173,15 +176,15 @@ class TitleContact extends React.Component{
 class Contact extends React.Component{
   constructor(props){
     super(props)
-    this.launchToast = this.launchToast.bind(this)
   }
   componentDidMount(){
     $(window).scroll( function() {
-      $(this).scrollTop() > 3000 ? this.launchToast : console.log()
+      let scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
+      console.log(scrollBottom)
+      if(scrollBottom === 0){
+        Materialize.toast(getCookie('nombre') + ' dejanos tu mensaje y te contactaremos pronto :) ', 5000,'rounded')
+      }
     })
-  }
-  launchToast(){
-    Materialize.toast(' Dejanos tu mensaje y te contactaremos pronto :) ', 20000)
   }
   render(){
     let call = this.props.textContact[1].call
