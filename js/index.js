@@ -783,6 +783,7 @@ const TEXTOINTRO = [
 ]
 
 
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date()
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
@@ -817,6 +818,13 @@ function BtnEnter(props){
   }
 }
 
+function cleanText(input){
+  let str = document.getElementById(input)
+  let regex = /[^a-z]/gi
+  str.value = str.value.replace(regex, '')
+  return str
+}
+
 class YourName extends React.Component{
   constructor(props){
     super(props)
@@ -846,6 +854,8 @@ class YourName extends React.Component{
 // ************************************************************************************************************
 // MAIN
 
+
+
 class Main extends React.Component{
   constructor(props){
     super(props)
@@ -857,6 +867,8 @@ class Main extends React.Component{
     this.botonPresionado = this.botonPresionado.bind(this)
   }
   ingresaNombre(event){
+    event.preventDefault()
+    cleanText("icon_prefix")
     this.setState({
       value: event.target.value
     })
