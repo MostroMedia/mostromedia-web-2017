@@ -33,7 +33,9 @@ class Menu extends React.Component{
   componentDidMount(){
     $( document ).ready(function(){
       $(".button-collapse").sideNav()
-      $('.scrollspy').scrollSpy()
+      $('.scrollspy').scrollSpy({
+        scrollOffset : -50
+      })
       $(".logo-text").click(function() {
       $('html,body').animate({
           scrollTop: $("#home").offset().top},
@@ -117,19 +119,19 @@ class FormularioContact extends React.Component{
       <form>
         <div className="input-field">
           <i className="material-icons prefix">account_circle</i>
-          <input value={getCookie('nombre')} id="icon_prefix" type="text" className="validate" />
+          <input value={getCookie('nombre')} id="icon_prefix" type="text" className="validate" onChange={() => {console.log("hola")}}/>
           <label>Tu nombre</label>
         </div>
 
         <div className="input-field">
           <i className="white-text material-icons prefix">mode_edit</i>
-          <input id="email" type="email" className="validate" />
+          <input id="email" type="email" className="validate" onChange={() => {console.log("hola")}} />
           <label>Email</label>
         </div>
 
         <div className="input-field">
         <i className="white-text material-icons prefix">message</i>
-        <textarea id="textarea" className="materialize-textarea"></textarea>
+        <textarea id="textarea" className="materialize-textarea" onChange={() => {console.log("hola")}} ></textarea>
         <label>Tu mensaje</label>
         </div>
 
@@ -782,7 +784,12 @@ const TEXTOINTRO = [
   }
 ]
 
-
+function cleanText(input){
+  let str = document.getElementById(input)
+  let regex = /[^a-z]/gi
+  str.value = str.value.replace(regex, '')
+  return str
+}
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date()
@@ -818,12 +825,7 @@ function BtnEnter(props){
   }
 }
 
-function cleanText(input){
-  let str = document.getElementById(input)
-  let regex = /[^a-z]/gi
-  str.value = str.value.replace(regex, '')
-  return str
-}
+
 
 class YourName extends React.Component{
   constructor(props){
@@ -853,6 +855,7 @@ class YourName extends React.Component{
 
 // ************************************************************************************************************
 // MAIN
+// ************************************************************************************************************
 
 
 
@@ -892,7 +895,6 @@ class Main extends React.Component{
         </div>
       )
     }else{
-       console.log("mi cookie es ", getCookie('nombre'))
         return(
           <div>
             <Home
