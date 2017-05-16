@@ -417,67 +417,67 @@ nav {
 }
 /* line 339, ../sass/screen.scss */
 #team {
-  margin-top: 500px;
   height: 100vh;
 }
-/* line 342, ../sass/screen.scss */
+/* line 341, ../sass/screen.scss */
 #team .carousel {
   height: 800px;
 }
-/* line 344, ../sass/screen.scss */
+/* line 343, ../sass/screen.scss */
 #team .carousel .carousel-item {
   height: 400px;
   width: 400px;
 }
-/* line 349, ../sass/screen.scss */
+/* line 348, ../sass/screen.scss */
 #team ul {
   height: 500px;
-  margin-top: 230px;
 }
-/* line 352, ../sass/screen.scss */
+/* line 350, ../sass/screen.scss */
 #team ul li {
   display: inline-block;
 }
-/* line 355, ../sass/screen.scss */
+/* line 353, ../sass/screen.scss */
 #team ul li img {
   width: 50px;
+  border: 5px solid #E8540D;
   border-radius: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 362, ../sass/screen.scss */
+/* line 361, ../sass/screen.scss */
 #team ul li h3, #team ul li h4, #team ul li hr {
   display: none;
 }
-/* line 368, ../sass/screen.scss */
+/* line 367, ../sass/screen.scss */
 #team ul .slick-current {
   cursor: pointer;
 }
-/* line 370, ../sass/screen.scss */
+/* line 369, ../sass/screen.scss */
 #team ul .slick-current img {
   width: 200px;
 }
-/* line 373, ../sass/screen.scss */
+/* line 372, ../sass/screen.scss */
 #team ul .slick-current h3, #team ul .slick-current h4, #team ul .slick-current hr {
   display: block;
 }
-/* line 376, ../sass/screen.scss */
+/* line 375, ../sass/screen.scss */
 #team ul .slick-current h3 {
   font-size: 3em;
 }
-/* line 379, ../sass/screen.scss */
+/* line 378, ../sass/screen.scss */
 #team ul .slick-current h4 {
   font-size: 1.5em;
 }
-/* line 382, ../sass/screen.scss */
+/* line 381, ../sass/screen.scss */
 #team ul .slick-current hr {
   width: 40%;
   border-width: 3px;
 }
-/* line 387, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
 #team ul .slick-slide {
   float: none;
+  vertical-align: middle;
 }
 
 /* line 393, ../sass/screen.scss */
