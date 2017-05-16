@@ -87,9 +87,13 @@ class Menu extends React.Component{
 
 class Footer extends React.Component{
   render(){
+    // <a className="left" href="#"><i className="fa fa-instagram white-text" aria-hidden="true"></i></a>
     return(
       <footer className="center card-panel grey darken-3">
-        <p>Copyright (c) 2017 Copyright MOSTRO MEDIA All Rights Reserved.</p>
+        <div className="container">
+
+        <p>Copyright (c) 2017 MOSTRO MEDIA All Rights Reserved.</p>
+        </div>
       </footer>
     )
   }
@@ -182,7 +186,6 @@ class Contact extends React.Component{
   componentDidMount(){
     $(window).scroll( function() {
       let scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
-      console.log(scrollBottom)
       if(scrollBottom === 0){
         Materialize.toast(getCookie('nombre') + ' dejanos tu mensaje y te contactaremos pronto :) ', 5000,'rounded')
       }
@@ -220,7 +223,7 @@ const MOSTROTEAM = [
     name: 'Cristhian Cepeda',
     img: 'img/mostros/cristhian_cepeda.jpg',
     alt: 'Imagen de Cristhian Cepeda - Mostro Team',
-    position: '',
+    position: 'Producer',
     quote: 'Makia',
     color: '#2ECC71'
   },
@@ -228,7 +231,7 @@ const MOSTROTEAM = [
     name: 'Camilo Arguello',
     img: 'img/mostros/camilo_arguello.jpg',
     alt: 'Imagen de Camilo Arguello - Mostro Team',
-    position: 'Developer',
+    position: 'Software Developer',
     quote: 'Ingenio',
     color: '#FFCC08'
   },
@@ -236,7 +239,7 @@ const MOSTROTEAM = [
     name: 'Juan Garay',
     img: 'img/mostros/juan_garay.jpg',
     alt: 'Imagen de Juancho Garay - Mostro Team',
-    position: '',
+    position: 'Animator',
     quote: 'Confianza',
     color: '#3498DB'
   },
@@ -244,7 +247,7 @@ const MOSTROTEAM = [
     name: 'Sebastian Díaz',
     img: 'img/mostros/sebastian_diaz.jpg',
     alt: 'Imagen de Sebastian Díaz - Mostro Team',
-    position: '',
+    position: 'Project Manager',
     quote: 'Compromiso',
     color: '#BDC3C7'
   },
@@ -252,7 +255,7 @@ const MOSTROTEAM = [
     name: 'Daniela Sanchez',
     img: 'img/mostros/daniela_sanchez.jpg',
     alt: 'Imagen de Daniela Sanchez - Mostro Team',
-    position: '',
+    position: 'Art director',
     quote: 'Creatividad',
     color: '#FA7878'
   },
@@ -260,24 +263,22 @@ const MOSTROTEAM = [
     name: 'Daniel Valenzuela',
     img: 'img/mostros/daniel_valenzuela.jpg',
     alt: 'Imagen de Daniel Valenzuela - Mostro Team',
-    position: '',
+    position: 'Musician',
     quote: 'Empatía',
     color: '#8E44AD'
   }
 
 ]
 
-const TitleTeam = 'The Team'
+const TitleTeam = 'Nuestro equipo'
 
 class ItemTeam extends React.Component{
-  componentDidMount(){
-    $('.carousel').carousel();
-  }
   render(){
     return(
-      <li>
+      <li className="center">
         <img className="esponsive-img" src={this.props.img} alt={this.props.alt} />
         <h3>{this.props.name}</h3>
+        <hr/>
         <h4 style={{ color: this.props.color }}>{this.props.quote}</h4>
       </li>
     )
@@ -285,6 +286,33 @@ class ItemTeam extends React.Component{
 }
 
 class Team extends React.Component{
+  componentDidMount(){
+    $('.listMostro').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '0px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    })
+  }
   render(){
     let mostroTeam = []
     this.props.mostros.forEach((mostro) => {
@@ -309,7 +337,7 @@ class Team extends React.Component{
             />
           </div>
         </div>
-        <ul>
+        <ul className="listMostro">
           {mostroTeam}
         </ul>
       </section>
@@ -326,7 +354,7 @@ class VideoBackground extends React.Component{
     return(
       <section id="video" className="fullscreen-bg section scrollspy">
         <video id="myVideo" className="fullscreen-bg__video" muted autoPlay loop>
-          <source src="video/videoBG.mp4" type="video/mp4" />
+          <source src="video/bannerMostroMedia.mp4" type="video/mp4" />
             Este navegador no soporta reproduccion de <code>video</code>
         </video>
       </section>
@@ -419,7 +447,6 @@ class Modals extends React.Component{
   }
 }
 
-
 class ItemWork extends React.Component{
   constructor(props){
     super(props)
@@ -482,7 +509,7 @@ class Work extends React.Component{
             <div id="serv-section" className="col s12">
 
               <TitleContact
-                titulo="¿Porqué Mostro Media?"
+                titulo="Lo que hacemos"
               />
               <Modals whatwelove={WHATWELOVE}/>
               <PairItemsWork whatwelove={WHATWELOVE}/>
@@ -607,12 +634,6 @@ function Init(padre){
   // window.addEventListener('mousemove', hanldeMouseMove, false)
   return renderer
 }
-
-// function hanldeMouseMove(e){
-//   mousePos = {x: event.clientX,y: event.clientY}
-//   console.log(mousePos)
-//
-// }
 
 function onResize(){
   width = window.innerWidth
@@ -895,13 +916,13 @@ class Main extends React.Component{
         </div>
       )
     }else{
+      // <VideoBackground />
         return(
           <div>
             <Home
               cookie={getCookie('nombre')}
             />
             <Work />
-            <VideoBackground />
             <Team mostros={MOSTROTEAM}/>
             <Contact textContact={TextoContact}/>
             <Footer />
