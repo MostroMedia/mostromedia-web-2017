@@ -118,7 +118,7 @@ class Footer extends React.Component{
 
 const TextoContact = [
   { titulo: '¿Quieres saber más?, conversemos'},
-  { call: 'Llámanos', number: 3142588148},
+  { call: 'Llámanos', number: "+57 314 258 8148"},
   { call: 'Envianos un email', number: 'info@mostromedia.com'}
 ]
 
@@ -343,7 +343,6 @@ class Team extends React.Component{
       <section id="team" className="section scrollspy">
         <div className="container">
           <div className="row">
-
             <TitleContact
               titulo={TitleTeam}
             />
@@ -352,6 +351,7 @@ class Team extends React.Component{
         <ul className="listMostro">
           {mostroTeam}
         </ul>
+        <div id="borde"></div>
       </section>
     );
   }
