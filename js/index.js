@@ -468,18 +468,17 @@ class ItemWork extends React.Component{
   }
   render(){
     return(
-          <li className="item-servicio" data-target={this.props.modal} >
-            <div className="img-item">
-              <img
-                className="responsive-img"
-                src={this.props.img}
-                alt={this.props.alt}
-              />
+          <li className="card col s12 m3">
+            <div className="card-image waves-effect waves-block waves-light">
+              <img className="activator" src={this.props.img} alt={this.props.alt}/>
             </div>
-            <div className="txt-item">
-              <h3 className="center-align">
-                {this.props.name}
-              </h3>
+            <div className="card-content">
+              <h3 className="card-title activator grey-text text-darken-4">{this.props.name}<i className="material-icons right">more_vert</i></h3>
+              <p><a href="#">This is a link</a></p>
+            </div>
+            <div className="card-reveal">
+              <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
+              <p>Here is some more information about product that is only revealed once clicked on.</p>
             </div>
           </li>
     )
@@ -501,7 +500,7 @@ class PairItemsWork extends React.Component{
       )
     })
     return(
-      <ul id="individual-services">
+      <ul id="individual-services" className="row">
         {weWork}
       </ul>
     )
