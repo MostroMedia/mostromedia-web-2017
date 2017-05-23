@@ -468,17 +468,17 @@ class ItemWork extends React.Component{
   }
   render(){
     return(
-          <li className="card col s12 m3">
+          <li className="card center col s12 m3 l3 grey darken-4 text-white">
             <div className="card-image waves-effect waves-block waves-light">
               <img className="activator" src={this.props.img} alt={this.props.alt}/>
             </div>
             <div className="card-content">
-              <h3 className="card-title activator grey-text text-darken-4">{this.props.name}<i className="material-icons right">more_vert</i></h3>
-              <p><a href="#">This is a link</a></p>
+              <h3 className="card-title activator">{this.props.name}<i className="material-icons right">more_vert</i></h3>
+              <p><a href="#">Ver más</a></p>
             </div>
-            <div className="card-reveal">
-              <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-              <p>Here is some more information about product that is only revealed once clicked on.</p>
+            <div className="card-reveal grey darken-4 text-white">
+              <h3 className="card-title">{this.props.rta}<i className="material-icons right">close</i></h3>
+              <p>{this.props.textoRta}</p>
             </div>
           </li>
     )
@@ -496,6 +496,8 @@ class PairItemsWork extends React.Component{
             img={whatwelov.img}
             alt={whatwelov.alt}
             modal={whatwelov.modal}
+            rta={whatwelov.rta}
+            textoRta={whatwelov.textoRta}
           />
       )
     })

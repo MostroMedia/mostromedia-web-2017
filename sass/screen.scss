@@ -241,17 +241,16 @@ nav{
   background-color: $background-color;
 	margin-top: 200px;
 	.row{
-		height: 100vh;  /*ALTO DE CADA PRESENTACIÓN*/
+		height: 100vh;
 	}
   #serv-section{
     margin-top: 200px;
     #individual-services{
-      margin: 10% 0;
-      text-align: center;
       .item-servicio{
         cursor: pointer;
         display: inline-block;
-        margin: 30px;
+        margin-left: auto;
+        margin-right: auto;
         box-shadow: 0 0 0 0 rgba(#fff, .5);
         -webkit-animation: pulse 1.5s infinite;
         .card-image{
@@ -306,8 +305,7 @@ nav{
   70% {
     box-shadow: 0 0 0 10px rgba(#fff, 0);
   }
-    100% {
-
+  100% {
     box-shadow: 0 0 0 0 rgba(#fff, 0);
   }
 }
@@ -371,8 +369,6 @@ nav{
       h3,h4,hr{
         display: none;
       }
-
-
     }
     .slick-current{
       cursor: pointer;
@@ -416,6 +412,9 @@ nav{
   form{
     margin-left: 10%;
     width: 80%;
+    input,label{
+      letter-spacing: 1px;
+    }
   }
   h2{
     font-size: 2em;
@@ -474,16 +473,12 @@ footer{
   	left: 25%;
     &:hover{
       background:
-        // left bottom
         radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
         radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
-        // left top
         radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
         radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
-        //  right top
         radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
         radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
-        // right bottom
         radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
 
         linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
@@ -494,7 +489,7 @@ footer{
   	left: 50%;
   	top: 0%;
     &:hover{
-      background: #d05f8f;
+      background: #141414;
     }
   }
 
@@ -512,6 +507,10 @@ footer{
     &:hover{
       background: #157f9d;
     }
+  }
+  p{
+    letter-spacing: 1px;
+    font-weight: normal;
   }
 }
 
@@ -568,12 +567,6 @@ footer{
   }
   #work{
     margin: 0;
-    li{
-      margin: 10px !important;
-    }
-  }
-  #video{
-
   }
 }
 
