@@ -358,6 +358,12 @@ nav{
     li{
       @extend .transicion;
       display: inline-block;
+      &:active, &:focus{
+        outline: none;
+      }
+      -webkit-box-shadow: none;
+      box-shadow: none;      
+      border-color: inherit !important;
       img{
         width: 50px;
         border: 5px solid $mostro-color;

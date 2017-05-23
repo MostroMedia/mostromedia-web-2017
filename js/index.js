@@ -287,7 +287,7 @@ const TitleTeam = 'Nuestro equipo'
 class ItemTeam extends React.Component{
   render(){
     return(
-      <li className="center">
+      <li draggable="true" className="center">
         <img className="esponsive-img" src={this.props.img} alt={this.props.alt} />
         <h3>{this.props.name}</h3>
         <hr/>
@@ -303,6 +303,8 @@ class Team extends React.Component{
       centerMode: true,
       centerPadding: '60px',
       slidesToShow: 5,
+      autoplay: true,
+      cssEase: 'ease',
       responsive: [
         {
           breakpoint: 800,
