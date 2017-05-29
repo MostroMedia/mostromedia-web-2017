@@ -423,50 +423,9 @@ const WHATWELOVE = [
   }
 ]
 
-function MyModal(props){
-  return(
-    <div id={props.modal} className="modal">
-      <div className="modal-content">
-        <h1>{props.rta}</h1>
-        <img src={props.imgintro} alt={props.alt2}/>
-        <h2>{props.textoRta}</h2>
-      </div>
-      <div className="modal-footer">
-        <a href="#!" className="modal-action modal-close waves-effect waves-green btn white black-text">Salir</a>
-      </div>
-    </div>
-  )
-}
-
-class Modals extends React.Component{
-  render(){
-    let myModal = []
-    this.props.whatwelove.forEach((whatwelov) => {
-      myModal.push(
-          <MyModal
-            modal={whatwelov.modal}
-            key={whatwelov.modal}
-            rta={whatwelov.rta}
-            textoRta={whatwelov.textoRta}
-            imgintro={whatwelov.imgintro}
-            alt2={whatwelov.alt2}
-          />
-      )
-    })
-    return(
-      <div>
-        {myModal}
-      </div>
-    )
-  }
-}
-
 class ItemWork extends React.Component{
   constructor(props){
     super(props)
-  }
-  componentDidMount(){
-    $('.modal').modal();
   }
   render(){
     return(
@@ -476,7 +435,6 @@ class ItemWork extends React.Component{
             </div>
             <div className="card-content">
               <h3 className="card-title activator">{this.props.name}<i className="material-icons right">more_vert</i></h3>
-              <p><a href="#">Ver más</a></p>
             </div>
             <div className="card-reveal grey darken-4 text-white">
               <h3 className="card-title">{this.props.rta}<i className="material-icons right">close</i></h3>
@@ -524,9 +482,8 @@ class Work extends React.Component{
             <div id="serv-section" className="col s12">
 
               <TitleContact
-                titulo="Lo que hacemos"
+                titulo="Consolidamos tu presencia en internet a traves de nuestros servicios de PÁGINAS WEB, APLICACIONES MÓVILES, E-LEARNING y VIDEO."
               />
-              <Modals whatwelove={WHATWELOVE}/>
               <PairItemsWork whatwelove={WHATWELOVE}/>
             </div>
           </div>
