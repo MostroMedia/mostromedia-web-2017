@@ -251,32 +251,46 @@ nav{
   }
 
   #serv-section{
-    margin-top: 200px;
-    #individual-services{
-      .card{
-        border-radius: 5%;
-        height: 320px;
-        margin: 10px;
+    margin-top: 200px;  
+  }
+  #individual-services{
+    li{
+      display: inline-block;
+      .card-title{
+        h3{
+          font-size: 3em !important;
+        }
+      }      
+      .card-image{
+        img{
+          padding: 30px;
+        }
       }
-      li{
-        display: inline-block;
-
-        .card-image{
-          img{
-            padding: 30px;
-          }
-        }
-        .card-title{
-          h3{
-            font-size: 25px;
-          }
-        }
-        .card-content{
-          padding: 20px 2px;
-        }
-    	}
+      .card-content{
+        padding: 20px 2px;
+      }
+      .card-reveal{
+        h3{
+          font-size: 2em;
+        }        
+        p{
+          font-size: 1.2em;
+          text-align: justify;
+          letter-spacing: 1px;
+        }        
+      }
     }
   }
+  .card{
+    border-radius: 5%;
+    height: 320px;
+    margin: 20px;
+    @media screen and (max-width: 768px){
+      height: auto;
+      margin: 20px 0;
+    }
+    
+  }    
   #trigger-work-msj{
     position: relative;
     display: block;
@@ -638,6 +652,9 @@ footer{
 }
 
 @media screen and (min-width: 401px) and (max-width: 800px){
+  body{
+    overflow-x: hidden;
+  }
   nav{
     position: fixed;
     top: 0;
@@ -657,20 +674,35 @@ footer{
     margin-left: -350px;
   }
   #work{
-    height: 1300px;
+    height: 2000px;
     .row{
       height: auto;
     }
   }
   #team{
+    height: 1300px;
     margin-top: 100px;
+    ul .slick-current img {
+        margin-top: 60px;
+        width: 100%;
+    }    
+    .card-panel{
+      width: 200px;
+      margin: 30px -45px;
+    }
   }
+  #content-contact, #form-contact{
+    margin: 0 !important;
+  }  
   footer{
     margin-top: 400px !important;
   }
 }
 
 @media screen and (max-width: 400px){
+  body{
+    overflow-x: hidden;
+  }  
   nav{
     position: fixed;
     top: 0;
@@ -685,7 +717,7 @@ footer{
   	}
   }
   #work{
-    height: 1300px;
+    height: 2000px;
   }
   .fullscreen-bg{
     margin: 200px 0;
@@ -700,7 +732,7 @@ footer{
   }
   #team{
     height: auto;
-    margin: 200px 0;
+    margin: 300px 0;
     .carousel{
       position: relative;
       .carousel-item{
@@ -712,4 +744,10 @@ footer{
   footer{
     margin-top: 400px !important;
   }
+
+  #content-contact, #form-contact{
+    margin: 0 !important;
+  }
+
+
 }

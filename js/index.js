@@ -336,7 +336,7 @@ class Team extends React.Component{
       centerMode: true,
       centerPadding: '60px',
       slidesToShow: 5,
-      autoplay: true,
+      autoplay: false,
       cssEase: 'ease',
       responsive: [
         {
@@ -457,8 +457,10 @@ class ItemWork extends React.Component{
               <h3 className="card-title activator">{this.props.name}<i className="material-icons right">more_vert</i></h3>
             </div>
             <div className="card-reveal grey darken-4 text-white">
-              <h3 className="card-title">{this.props.rta}<i className="material-icons right">close</i></h3>
+              <h3 className="card-title"><i className="material-icons right">close</i>{this.props.rta}</h3>
+              <br />
               <p>{this.props.textoRta}</p>
+
             </div>
           </li>
     )
@@ -490,9 +492,6 @@ class PairItemsWork extends React.Component{
 }
 
 class Work extends React.Component{
-  constructor(){
-    super()
-  }
 
   render(){
     return(
@@ -589,7 +588,7 @@ const ICONOS = [
      prerender: false,
      autoplay: false,
      autoloadSegments: false,
-     path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/talento.json'
+     path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/talento1.json'
     },
     alt: 'Imagen del Icono de Talento Mostro Media'
   }
