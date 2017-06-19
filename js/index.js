@@ -533,7 +533,7 @@ const ICONOS = [
       prerender: false,
       autoplay: false,
       autoloadSegments: false,
-      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/interaccion1.json'
+      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/1a66f4ad66716cf017a1a8ae1685c1a04fcfde3c/img/icons-home/interaccion1.json'
     },
     alt: 'Imagen del Icono de Interacción Mostro Media'
   },
