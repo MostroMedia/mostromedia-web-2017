@@ -3,7 +3,6 @@
 const MiMenu = [
   {name: '#home', icon: 'fast_forward'},
   {name: '#work', icon: 'code'},
-  {name: '#video', icon: 'videocam'},
   {name: '#team', icon: 'recent_actors'},
   {name: '#contact', icon: 'chat_bubble_outline'}
 ]
@@ -135,7 +134,7 @@ class FormularioContact extends React.Component{
       <form>
         <div className="input-field">
           <i className="material-icons prefix">account_circle</i>
-          <input value={getCookie('nombre')} id="icon_prefix" type="text" className="validate" onChange={() => {console.log("hola")}}/>
+          <input id="icon_prefix" type="text" className="validate" onChange={() => {console.log("hola")}}/>
           <label>Tu nombre</label>
         </div>
 
@@ -198,9 +197,17 @@ class Contact extends React.Component{
   componentDidMount(){
     $(window).scroll( function() {
       let scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop()
-      if(scrollBottom === 0){
-        Materialize.toast(getCookie('nombre') + ' dejanos tu mensaje y te contactaremos pronto :) ', 5000,'rounded')
-      }
+      let salute = function() {
+        let executed = false;
+        return function() {
+          if(!executed){
+            executed = true
+            if(scrollBottom === 0){
+              Materialize.toast('Déjanos tu mensaje y te contactaremos pronto :) ', 5000,'rounded')
+            }
+          }
+        }
+      }      
     })
   }
   render(){
@@ -235,15 +242,15 @@ const MOSTROTEAM = [
     name: 'Cristhian Cepeda',
     img: 'img/mostros/cristhian_cepeda.jpg',
     alt: 'Imagen de Cristhian Cepeda - Mostro Team',
-    position: 'Producer',
+    position: 'Ingeniero Mutimedia y Productor de música urbana. Su enfoque es usar todas las herramientas pedagógicas de la multimedia para crear contenido innovador.',
     quote: 'Makia',
     color: '#2ECC71'
   },
   {
-    name: 'Camilo Arguello',
+    name: 'Camilo Argüello',
     img: 'img/mostros/camilo_arguello.jpg',
     alt: 'Imagen de Camilo Arguello - Mostro Team',
-    position: 'Software Developer',
+    position: 'Desarrollador de software. Camilo busca con el uso de las tecnologías, crear nuevas formas de interacción en cada proyecto.',
     quote: 'Ingenio',
     color: '#FFCC08'
   },
@@ -251,7 +258,7 @@ const MOSTROTEAM = [
     name: 'Juan Garay',
     img: 'img/mostros/juan_garay.jpg',
     alt: 'Imagen de Juancho Garay - Mostro Team',
-    position: 'Animator',
+    position: 'Animador 3D. Todos lo llaman "Juancho" y es quien lidera las animaciones que realiza Mostro Media.',
     quote: 'Confianza',
     color: '#3498DB'
   },
@@ -259,7 +266,7 @@ const MOSTROTEAM = [
     name: 'Sebastian Díaz',
     img: 'img/mostros/sebastian_diaz.jpg',
     alt: 'Imagen de Sebastian Díaz - Mostro Team',
-    position: 'Project Manager',
+    position: 'Desarrollador web. Sebastián es quien lidera al equipo y coordina con los clientes.',
     quote: 'Compromiso',
     color: '#BDC3C7'
   },
@@ -267,7 +274,7 @@ const MOSTROTEAM = [
     name: 'Daniela Sanchez',
     img: 'img/mostros/daniela_sanchez.jpg',
     alt: 'Imagen de Daniela Sanchez - Mostro Team',
-    position: 'Art director',
+    position: 'Directora de arte, quien le brinda un estilo gráfico único a cada proyecto.',
     quote: 'Creatividad',
     color: '#FA7878'
   },
@@ -275,7 +282,7 @@ const MOSTROTEAM = [
     name: 'Daniel Valenzuela',
     img: 'img/mostros/daniel_valenzuela.jpg',
     alt: 'Imagen de Daniel Valenzuela - Mostro Team',
-    position: 'Musician',
+    position: 'Músico y coordinador de proyectos. Gracias a él, todo el equipo se coordina de la mejor manera en cada proyecto.',
     quote: 'Empatía',
     color: '#8E44AD'
   }
@@ -285,19 +292,45 @@ const MOSTROTEAM = [
 const TitleTeam = 'Nuestro equipo'
 
 class ItemTeam extends React.Component{
+  constructor(props){
+    super(props)
+    this.showInvader = this.showInvader.bind(this)
+    this.hideInvader = this.hideInvader.bind(this)
+  }  
+  showInvader(){
+    let space_invader = this._reactInternalInstance._renderedComponent._hostNode.lastChild
+    space_invader.classList.remove("scale-out");
+    space_invader.classList.add("scale-in");
+  }
+  hideInvader(){
+    let space_invader = this._reactInternalInstance._renderedComponent._hostNode.lastChild
+    space_invader.classList.remove("scale-in");
+    space_invader.classList.add("scale-out");
+  }   
   render(){
     return(
-      <li draggable="true" className="center">
-        <img className="esponsive-img" src={this.props.img} alt={this.props.alt} />
-        <h3>{this.props.name}</h3>
-        <hr/>
-        <h4 style={{ color: this.props.color }}>{this.props.quote}</h4>
+      <li onMouseEnter={this.showInvader} onMouseLeave={this.hideInvader} >
+        <div draggable="true" className="center" >
+          <img className="esponsive-img" src={this.props.img} alt={this.props.alt} />
+          <h3>{this.props.name}</h3>
+          <hr/>
+          <h4 style={{ color: this.props.color }}>{this.props.quote}</h4>      
+        </div>
+        <div className="contSpace scale-transition scale-out">
+          <div className="center space-invader ">
+          </div>
+          <div className="card-panel">
+
+            <span className="white-text">{this.props.position}</span>
+          </div>          
+        </div>       
       </li>
     )
   }
 }
 
 class Team extends React.Component{
+
   componentDidMount(){
     $('.listMostro').slick({
       centerMode: true,
@@ -327,6 +360,7 @@ class Team extends React.Component{
       ]
     })
   }
+ 
   render(){
     let mostroTeam = []
     this.props.mostros.forEach((mostro) => {
@@ -336,11 +370,13 @@ class Team extends React.Component{
           key={mostro.name}
           img={mostro.img}
           alt={mostro.alt}
+          position={mostro.position}
           quote={mostro.quote}
           color={mostro.color}
         />
       )
     })
+
     return(
       <section id="team" className="section scrollspy">
         <div className="container">
@@ -350,29 +386,13 @@ class Team extends React.Component{
             />
           </div>
         </div>
-        <ul className="listMostro">
+        
+        <ul className="listMostro" >
           {mostroTeam}
         </ul>
         <div id="borde"></div>
       </section>
     );
-  }
-}
-
-// ************************************************************************************************************
-// Seccion VIDEO
-// ************************************************************************************************************
-
-class VideoBackground extends React.Component{
-  render(){
-    return(
-      <section id="video" className="fullscreen-bg section scrollspy">
-        <video id="myVideo" className="fullscreen-bg__video" muted autoPlay loop>
-          <source src="video/bannerMostroMedia.mp4" type="video/mp4" />
-            Este navegador no soporta reproduccion de <code>video</code>
-        </video>
-      </section>
-    )
   }
 }
 
@@ -429,7 +449,7 @@ class ItemWork extends React.Component{
   }
   render(){
     return(
-          <li className="card center col s12 m3 l3 grey darken-4 text-white">
+          <li className="card center col s12 m5 grey darken-4 text-white">
             <div className="card-image waves-effect waves-block waves-light">
               <img className="activator" src={this.props.img} alt={this.props.alt}/>
             </div>
@@ -479,11 +499,14 @@ class Work extends React.Component{
       <section id="work" className="section scrollspy">
         <div className="container">
           <div className="row">
-            <div id="serv-section" className="col s12">
+            <div id="serv-section" className="col s12 l6">
 
               <TitleContact
-                titulo="Consolidamos tu presencia en internet a traves de nuestros servicios de PÁGINAS WEB, APLICACIONES MÓVILES, E-LEARNING y VIDEO."
+                titulo="Consolidamos tu presencia en internet a traves de nuestros servicios de Páginas web, Aplicaciones móviles, e-learning y Motion Design."
               />
+              
+            </div>
+            <div className="col s12 l6">
               <PairItemsWork whatwelove={WHATWELOVE}/>
             </div>
           </div>
@@ -729,11 +752,7 @@ class IconHome extends React.Component{
   componentDidMount(){
     setTimeout( () => {
       document.getElementById("iconos-home").style.transform = "scale(1)"
-      Materialize.toast('Bienvenid@ ' + getCookie('nombre'), 3000, 'rounded')
-    } , 1000)
-    setTimeout(() => {
-      Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.', 5000, 'rounded')
-    }, 2000)
+    } , 1000)    
   }
   render(){
     let myIcon = []
@@ -756,6 +775,14 @@ class IconHome extends React.Component{
 }
 
 class Home extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  componentDidMount(){
+    Materialize.toast('Bienvenid@', 3000, 'rounded')
+    Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.', 5000, 'rounded')
+
+  }  
   render(){
     return(
       <section id="home" className="container-fluid section scrollspy">
@@ -769,81 +796,6 @@ class Home extends React.Component{
 // ************************************************************************************************************
 // Seccion HOME
 // ************************************************************************************************************
-
-const TEXTOINTRO = [
-  {
-    input: 'Escribe tu nombre aquí para empezar',
-    titulo: 'Bienvenid@ a Mostro Media'
-  }
-]
-
-function cleanText(input){
-  let str = document.getElementById(input)
-  let regex = /[^a-z]/gi
-  str.value = str.value.replace(regex, '')
-  return str
-}
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date()
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
-    var expires = "expires="+d.toUTCString()
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
-}
-
-function getCookie(cname) {
-    var name = cname + "="
-    var ca = document.cookie.split(';')
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i]
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1)
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length)
-        }
-    }
-    return ""
-}
-
-function BtnEnter(props){
-  if(props.value != ''){
-    return(
-      <button className="btn right" onClick={props.onClick}>Entrar</button>
-    )
-  }else{
-    return(
-      <button className="hide"></button>
-    )
-  }
-}
-
-
-
-class YourName extends React.Component{
-  constructor(props){
-    super(props)
-  }
-  render(){
-    return(
-      <div id="your-name" className="container valign-wrapper">
-        <form>
-          <div className="input-field">
-            <i className="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" className="validate" value={this.props.value} onChange={this.props.onChange} />
-            <label htmlFor="icon_prefix">{this.props.textsSaludo[0].input}</label>
-          </div>
-          <br />
-          <h2 className="center">{this.props.textsSaludo[0].titulo} {this.props.value}</h2>
-          <BtnEnter
-            onClick={this.props.onClick}
-            value={this.props.value}
-          />
-        </form>
-      </div>
-    )
-  }
-}
 
 
 // ************************************************************************************************************
@@ -864,29 +816,19 @@ class Main extends React.Component{
   }
   ingresaNombre(event){
     event.preventDefault()
-    cleanText("icon_prefix")
     this.setState({
       value: event.target.value
     })
   }
   botonPresionado(event){
-    setCookie('nombre', this.state.value ,365)
     this.setState({
       isPressed: true
     })
   }
   render(){
-    // <YourName
-    //   textsSaludo={TEXTOINTRO}
-    //   value={this.state.value}
-    //   onChange={this.ingresaNombre}
-    //   onClick={this.botonPresionado}
-    // />
         return(
           <div>
-            <Home
-              cookie={getCookie('nombre')}
-            />
+            <Home/>
             <Work />
             <Team mostros={MOSTROTEAM}/>
             <Contact textContact={TextoContact}/>
