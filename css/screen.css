@@ -586,8 +586,8 @@ footer .facebook:hover {
 }
 /* line 518, ../sass/screen.scss */
 footer .instagram {
-  bottom: 0;
-  left: 25%;
+  left: 50%;
+  top: 0%;
 }
 /* line 521, ../sass/screen.scss */
 footer .instagram:hover {
@@ -595,8 +595,8 @@ footer .instagram:hover {
 }
 /* line 535, ../sass/screen.scss */
 footer .github {
-  left: 50%;
-  top: 0%;
+  bottom: 0;
+  left: 25%;
 }
 /* line 538, ../sass/screen.scss */
 footer .github:hover {

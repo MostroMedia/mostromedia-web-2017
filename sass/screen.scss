@@ -516,8 +516,8 @@ footer{
   }
 
   .instagram {
-  	bottom: 0;
-  	left: 25%;
+  	left: 50%;
+  	top: 0%;    
     &:hover{
       background:
         radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
@@ -533,8 +533,8 @@ footer{
   }
 
   .github {
-  	left: 50%;
-  	top: 0%;
+  	bottom: 0;
+  	left: 25%;
     &:hover{
       background: #141414;
     }

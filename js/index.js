@@ -94,9 +94,9 @@ class Footer extends React.Component{
           <ul className="social">
 
       			<li className="facebook"><a href="#" className="entypo-facebook"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li className="github"><a href="https://github.com/MostroMedia" className="entypo-github"><i className="fa fa-github" aria-hidden="true"></i></a></li>
       			<li className="instagram"><a href="https://www.instagram.com/mostromedia/?hl=en" className="entypo-instagram"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
-      			<li className="github"><a href="https://github.com/MostroMedia" className="entypo-github"><i className="fa fa-github" aria-hidden="true"></i></a></li>
-      			<li className="behance"><a href="#" className="entypo-behance"><i className="fa fa-behance" aria-hidden="true"></i></a></li>
+            <li className="behance"><a href="#" className="entypo-behance"><i className="fa fa-behance" aria-hidden="true"></i></a></li>
       			<li className="linked-in"><a href="#" className="entypo-linkedin"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
 
       		</ul>
@@ -533,7 +533,7 @@ const ICONOS = [
       prerender: false,
       autoplay: false,
       autoloadSegments: false,
-      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/interaccion.json'
+      path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/icons-home/interaccion1.json'
     },
     alt: 'Imagen del Icono de Interacción Mostro Media'
   },
