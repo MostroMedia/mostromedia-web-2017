@@ -16,19 +16,42 @@ class Footer extends React.Component{render(){return(<footer className="center c
 const TextoContact=[{titulo:'¿Quieres saber más?, conversemos'},{call:'Llámanos',number:"+57 314 258 8148"},{call:'Envianos un email',number:'info@mostromedia.com'}]
 class FormularioContact extends React.Component{constructor(props){super(props)}
 componentDidMount(){Materialize.updateTextFields()}
-render(){return(<form><div className="input-field"><i className="material-icons prefix">account_circle</i><input id="icon_prefix" type="text" className="validate" onChange={()=>{console.log("hola")}}/><label>Tu nombre</label></div><div className="input-field"><i className="white-text material-icons prefix">mode_edit</i><input id="email" type="email" className="validate" onChange={()=>{console.log("hola")}}/><label>Email</label></div><div className="input-field"><i className="white-text material-icons prefix">message</i><textarea id="textarea" className="materialize-textarea" onChange={()=>{console.log("hola")}}></textarea><label>Tu mensaje</label></div><button className="white black-text btn waves-effect waves-light right" type="submit" name="action">Enviar<i className="material-icons right">send</i></button></form>)}}
-class ContentContact extends React.Component{render(){return(<div><div id="content-contact" className="col s12 m5"><div className="valign-wrapper"><h2 className="valign">{this.props.call}<br/>{this.props.number}</h2></div></div><div id="form-contact" className="col s12 m5"><div className="valign-wrapper"><FormularioContact/></div></div></div>)}}
+render(){return(<h2 className="valign">
+            {this.props.call}
+        <br/>
+            {this.props.number}
+        </h2>)}}
+class ContentContact extends React.Component{render(){return(
+    <div>
+        <div id="content-contact" className="col s12 m5">
+            <div className="valign-wrapper">
+                <h2 className="valign">
+                    {this.props.call}
+                <br/>{this.props.number}
+                </h2>
+            </div>
+        </div>
+    <div id="form-contact" className="col s12 m5">
+        <div className="valign-wrapper">
+                <h2 className="valign">
+                    {this.props.mail}
+                <br/>{this.props.mailtxt}
+                </h2>
+        </div>
+    </div></div>)}}
 class TitleContact extends React.Component{render(){return(<div className="center"><h1>{this.props.titulo}</h1><div className="progress"><div className="determinate"></div></div></div>)}}
 class Contact extends React.Component{constructor(props){super(props)}
 componentDidMount(){$(window).scroll(function(){let scrollBottom=$(document).height()-$(window).height()-$(window).scrollTop()
 let salute=function(){let executed=!1;return function(){if(!executed){executed=!0
 if(scrollBottom===0){Materialize.toast('Déjanos tu mensaje y te contactaremos pronto :) ',5000,'rounded')}}}}})}
-render(){let call=this.props.textContact[1].call
-let number=this.props.textContact[1].number
+render(){let call=this.props.textContact[1].call, mail=this.props.textContact[2].call
+let number=this.props.textContact[1].number, mailtxt=this.props.textContact[2].number
 return(<section id="contact" className="section scrollspy"><div className="container"><div className="row"><TitleContact
 titulo={this.props.textContact[0].titulo}/><ContentContact
 call={call}
-number={number}/></div></div></section>)}}
+number={number}
+mail={mail}
+mailtxt={mailtxt}/></div></div></section>)}}
 const MOSTROTEAM=[{name:'Cristhian Cepeda',img:'img/mostros/cristhian_cepeda.jpg',alt:'Imagen de Cristhian Cepeda - Mostro Team',position:'Ingeniero Mutimedia y Productor de música urbana. Su enfoque es usar todas las herramientas pedagógicas de la multimedia para crear contenido innovador.',quote:'Makia',color:'#2ECC71'},{name:'Camilo Argüello',img:'img/mostros/camilo_arguello.jpg',alt:'Imagen de Camilo Arguello - Mostro Team',position:'Desarrollador de software. Camilo busca con el uso de las tecnologías, crear nuevas formas de interacción en cada proyecto.',quote:'Ingenio',color:'#FFCC08'},{name:'Juan Garay',img:'img/mostros/juan_garay.jpg',alt:'Imagen de Juancho Garay - Mostro Team',position:'Animador 3D. Todos lo llaman "Juancho" y es quien lidera las animaciones que realiza Mostro Media.',quote:'Confianza',color:'#3498DB'},{name:'Sebastian Díaz',img:'img/mostros/sebastian_diaz.jpg',alt:'Imagen de Sebastian Díaz - Mostro Team',position:'Desarrollador web. Sebastián es quien lidera al equipo y coordina con los clientes.',quote:'Compromiso',color:'#BDC3C7'},{name:'Daniela Sanchez',img:'img/mostros/daniela_sanchez.jpg',alt:'Imagen de Daniela Sanchez - Mostro Team',position:'Directora de arte, quien le brinda un estilo gráfico único a cada proyecto.',quote:'Creatividad',color:'#FA7878'},{name:'Daniel Valenzuela',img:'img/mostros/daniel_valenzuela.jpg',alt:'Imagen de Daniel Valenzuela - Mostro Team',position:'Músico y coordinador de proyectos. Gracias a él, todo el equipo se coordina de la mejor manera en cada proyecto.',quote:'Empatía',color:'#8E44AD'}]
 const TitleTeam='Nuestro equipo'
 class ItemTeam extends React.Component{constructor(props){super(props)
