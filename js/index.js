@@ -408,26 +408,18 @@ let anim=''
 let isThrowing=!1
 
 class HomeContent extends React.Component{
-	constructor(props){
-		super(props)
-		this.playAnimation=this.playAnimation.bind(this)
-		this.stopAnimation=this.stopAnimation.bind(this)
-	}
 	componentDidMount(){
-		animData.container=document.getElementById('logo-mostro-media-center')
-		anim=bodymovin.loadAnimation(animData)
-		anim.playSegments([0,35],!0)
-		setTimeout(()=>{anim.stop()},2200)}
-		playAnimation(){anim.playSegments([0,35],!0)}
-		stopAnimation(){anim.stop()
 	}
 	render(){
-		// <div id="logo-mostro-media-center" className="center" onMouseEnter={this.playAnimation}onMouseLeave={this.stopAnimation}></div>
+		// <h1 className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1>
 		return(
 			<div id="mostro-center" className="container">
 				<div className="row">
 					<div id="mostro-logo-container" className="col s12 m12 l12">
-						<h1 className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1>
+						<div id="logo-mostro-media-center" className="center">
+							<div id="here-canvas"></div>
+						</div>
+						
 					</div>
 				</div>
 			</div>

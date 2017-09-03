@@ -191,6 +191,7 @@ nav{
     z-index: 12;
 
     #logo-mostro-media-center,canvas{
+      
   		width: 600px;
       @media screen and (min-width: 1025px) and (max-width: 1223px){
         width: 300px;
@@ -199,7 +200,7 @@ nav{
         width: 400px;
       }
       display: block;
-      margin-left: auto;
+      margin-left: 400px; 
       margin-right: auto;
       @extend .transicion;
   	}
