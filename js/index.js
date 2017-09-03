@@ -422,12 +422,12 @@ class HomeContent extends React.Component{
 		stopAnimation(){anim.stop()
 	}
 	render(){
+		// <div id="logo-mostro-media-center" className="center" onMouseEnter={this.playAnimation}onMouseLeave={this.stopAnimation}></div>
 		return(
 			<div id="mostro-center" className="container">
 				<div className="row">
-					<div className="col s12 m12 l12">
-						<div id="logo-mostro-media-center" className="center" onMouseEnter={this.playAnimation}onMouseLeave={this.stopAnimation}></div>
-						<h1 className="center-align">MOSTRO<br/>MEDIA</h1>
+					<div id="mostro-logo-container" className="col s12 m12 l12">
+						<h1 className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1>
 					</div>
 				</div>
 			</div>

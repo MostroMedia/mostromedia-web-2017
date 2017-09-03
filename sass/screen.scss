@@ -190,7 +190,7 @@ nav{
     top: 20vh;
     z-index: 12;
 
-    #logo-mostro-media-center{
+    #logo-mostro-media-center,canvas{
   		width: 600px;
       @media screen and (min-width: 1025px) and (max-width: 1223px){
         width: 300px;
@@ -664,7 +664,7 @@ footer{
     overflow-y: hidden;
   }
   #home{
-    #logo-mostro-media-center{
+    #logo-mostro-media-center,canvas{
       width: 100% !important;
     }
   }
@@ -712,7 +712,7 @@ footer{
     overflow-y: hidden;
   }
   #home {
-  	#logo-mostro-media-center{
+  	#logo-mostro-media-center, canvas{
       width: 100% !important;
   	}
   }
