@@ -37,52 +37,6 @@ $item-img-work: #2c3434;
   transform: scale($longitud);
 }
 
-@mixin distribute-on-circle(
-	$nb-items,
-	$circle-size,
-	$item-size,
-	$class-for-IE: false
-) {
-	$half-item: ($item-size / 2);
-	$half-parent: ($circle-size / 2);
-
-	position: relative; /* 1 */
-	width:  $circle-size;
-	height: $circle-size;
-	padding: 0;
-	border-radius: 50%;
-	list-style: none; /* 2 */
-	box-sizing: content-box; /* 3 */
-
-	> * { /* 4 */
-		display: block;
-		position: absolute;
-		top:  50%;
-		left: 50%;
-		width:  $item-size;
-		height: $item-size;
-		margin: -$half-item;
-	}
-
-	$angle: (360 / $nb-items);
-	$rot: 0;
-
-	@for $i from 1 through $nb-items {
-		@if not $class-for-IE {
-			> :nth-of-type(#{$i}) {
-				transform: rotate($rot * 1deg) translate($half-parent) rotate($rot * -1deg);
-			}
-		} @else {
-			> .#{$class-for-IE}#{$i} {
-				$mt: sin($rot * pi() / 180) * $half-parent - $half-item;
-				$ml: cos($rot * pi() / 180) * $half-parent - $half-item;
-				margin: $mt 0 0 $ml;
-			}
-		}
-		$rot: ($rot + $angle);
-	}
-}
-
 
 /*--------------------Desktop--------------*/
 
@@ -180,51 +134,47 @@ nav{
 	z-index: -10;
 }
 
+
 #home {
   height: 100vh;
   position: relative;
-  #mostro-center{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 20vh;
-    z-index: 12;
 
-    #logo-mostro-media-center,canvas{
-      
-  		width: 600px;
-      @media screen and (min-width: 1025px) and (max-width: 1223px){
-        width: 300px;
-      }
-      @media screen and (min-width: 1224px) and (max-width: 1823px){
-        width: 400px;
-      }
-      display: block;
-      margin-left: 400px; 
-      margin-right: auto;
-      @extend .transicion;
-  	}
-  	h1{
-      font-size: 3em;
-  	}
+  #logo-mostro-media-center{      
+    @media screen and (min-width: 1025px) and (max-width: 1223px){
+      width: 300px;
+    }
+    @media screen and (min-width: 1224px) and (max-width: 1823px){
+      width: 400px;
+    }
+    @extend .transicion;
+
+    width: 600px !important;
+    height: 600px !important;
+    margin-right: auto !important;
+    margin-left: auto !important; 
+
   }
-	ul{
-		position: absolute;
-    left: 0;
-    right: 0;
-		z-index: 10;
-	}
+  h1{
+    margin-top: -150px;
+    font-size: 3em;
+  }
+  
 	#iconos-home {
     @extend .transicion;
-	  @include distribute-on-circle(5, 40em, 5em, false);
-	  margin: 5em auto 0;
-    @include escala(0);
+    width: 100%;
+    margin-top: 50px;
+    .fifth{
+      width: 20%;
+      float: left;
+    }
 		li{
-			display: block;
-		  border-radius: 50%;
-			img{
-				margin-left: 15px;
-			}
+			display: inline-block;
+      
+      div{
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 			p{
 				text-align: center;
 				font-size: 1.5em;
@@ -613,7 +563,7 @@ footer{
 @media screen and (min-width: 1824px){
   #home{
     #iconos-home{
-      @include distribute-on-circle(5, 50em, 5em, false);
+      
     }
   }
 }
@@ -624,7 +574,7 @@ footer{
       top: 30vh;
     }
     #iconos-home{
-      @include distribute-on-circle(5, 35em, 5em, false);
+      
     }
   }
   #work{

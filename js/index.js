@@ -407,39 +407,59 @@ let animData={container:'',renderer:'svg',loop:!0,prerender:!1,autoplay:!1,autol
 let anim=''
 let isThrowing=!1
 
-class HomeContent extends React.Component{
+
+class Home extends React.Component{
 	componentDidMount(){
+		Materialize.toast('Bienvenid@',3000,'rounded')
+		Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.',5000,'rounded')
 	}
 	render(){
-		// <h1 className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1>
 		return(
-			<div id="mostro-center" className="container">
-				<div className="row">
-					<div id="mostro-logo-container" className="col s12 m12 l12">
-						<div id="logo-mostro-media-center" className="center">
-							<div id="here-canvas"></div>
-						</div>
-						
-					</div>
-				</div>
+		<section id="home" className="container section scrollspy">
+			<div className="row">
+				<HomeContent/>
+				<IconHome iconos={ICONOS}/>
 			</div>
-		)
+				
+		</section>)
 	}
 }
+	
 
-class SingleIconHome extends React.Component{
+class HomeContent extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			isPlaying : false,
+			myCanvasWidth: 600,
+			myCanvasHeight: 600
+		}
+		this.startGame = this.startGame.bind(this)
+	}
 	componentDidMount(){
-		let miAnima=this.props.anima
-		this.props.img.container=document.getElementById(this.props.myid)
-		miAnima=bodymovin.loadAnimation(this.props.img)
-		miAnima.playSegments([0,29],!0)
+		let game = new Phaser.Game(this.state.myCanvasWidth,this.state.myCanvasHeight, Phaser.CANVAS, document.getElementById("logo-mostro-media-center") ,"",true)
+		game.state.add("Boot", boot)
+		game.state.add("Preload",preload)
+		game.state.add("GameTitle",gameTitle)
+		game.state.add("TheGame",theGame)
+		game.state.add("GameOver", gameOver)
+		game.state.start("Boot")		
+	}
+	startGame(){
+		this.setState({
+			isPlaying: true,
+			myCanvasWidth: 600,
+			myCanvasHeight: 600
+		})
 	}
 	render(){
+		let myText
+		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1> 
 		return(
-		<li>
-			<div id={this.props.myid}></div>
-			<p>{this.props.name}</p>
-		</li>
+			<div>
+				<div id="logo-mostro-media-center" className="center" onClick={this.startGame}></div>
+				{myText}
+			</div>
 		)
 	}
 }
@@ -463,24 +483,45 @@ class IconHome extends React.Component{
 			)
 		}
 	)
-	return( <ul id="iconos-home" className="hide-on-med-and-down">{myIcon}</ul> )
+	return(
+		<ul id="iconos-home" className="hide-on-med-and-down">{myIcon}</ul>
+	)
 	}
 }
 
-class Home extends React.Component{
+class SingleIconHome extends React.Component{
+	constructor(props){
+		super(props)
+		this.playAnimation=this.playAnimation.bind(this)
+		this.stopAnimation=this.stopAnimation.bind(this)
+	}	
 	componentDidMount(){
-		Materialize.toast('Bienvenid@',3000,'rounded')
-		Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.',5000,'rounded')
+		let miAnima = this.props.anima
+		this.props.img.container = document.getElementById(this.props.myid)
+		this.props.anima = bodymovin.loadAnimation(this.props.img)
+		setTimeout(()=>{
+			this.props.anima.stop()
+		},2200)
+	}
+	playAnimation(){
+		this.props.anima.playSegments([0,29],!0)
+	}
+	stopAnimation(){
+		this.props.anima.stop()
 	}
 	render(){
 		return(
-			<section id="home" className="container-fluid section scrollspy">
-				<HomeContent/>
-				<IconHome iconos={ICONOS}/>
-			</section>)
-		}
+		<li className="col fifth" onMouseEnter={this.playAnimation} onMouseLeave={this.stopAnimation} style={{ cursor: 'pointer', zIndex: 100 }}>
+			<div id={this.props.myid}></div>
+			<p>{this.props.name}</p>
+		</li>
+		)
 	}
-	
+}
+
+
+
+
 	class Main extends React.Component{
 		constructor(props){
 		super(props)
@@ -509,5 +550,7 @@ class Home extends React.Component{
 		)
 	}
 }
+
+
 
 ReactDOM.render(<Main/>,document.getElementById('main'))
