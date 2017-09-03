@@ -454,7 +454,7 @@ class HomeContent extends React.Component{
 	}
 	render(){
 		let myText
-		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align hide-on-med-and-down">MOSTRO<br/>MEDIA</h1> 
+		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align">MOSTRO<br/>MEDIA</h1> 
 		return(
 			<div>
 				<div id="logo-mostro-media-center" className="center" onClick={this.startGame}></div>
@@ -484,7 +484,7 @@ class IconHome extends React.Component{
 		}
 	)
 	return(
-		<ul id="iconos-home" className="hide-on-med-and-down">{myIcon}</ul>
+		<ul id="iconos-home" >{myIcon}</ul>
 	)
 	}
 }
