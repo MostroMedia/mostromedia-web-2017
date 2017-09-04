@@ -129,7 +129,7 @@ class IconHome extends React.Component{
 		}
 	)
 	return(
-		<ul id="iconos-home" >{myIcon}</ul>
+		<ul id="iconos-home" className="hide-on-small-only" >{myIcon}</ul>
 	)
 	}
 }
