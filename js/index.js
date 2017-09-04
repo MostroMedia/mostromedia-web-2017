@@ -50,6 +50,212 @@ class Menu extends React.Component{
 	}
 }
 
+
+let animData={container:'',renderer:'svg',loop:!0,prerender:!1,autoplay:!1,autoloadSegments:!1,path:'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/animations/mostro-media-icon-animation.json'}
+let anim=''
+let isThrowing=!1
+
+
+class Home extends React.Component{
+	componentDidMount(){
+		Materialize.toast('Bienvenido',3000,'rounded')
+		Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.',5000,'rounded')
+	}
+	render(){
+		return(
+		<section id="home" className="container section scrollspy">
+			<div className="row">
+				<HomeContent/>
+				<IconHome iconos={ICONOS}/>
+			</div>
+				
+		</section>)
+	}
+}
+	
+class HomeContent extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			isPlaying : false,
+			myCanvasWidth: 600,
+			myCanvasHeight: 600
+		}
+		this.startGame = this.startGame.bind(this)
+	}
+	componentDidMount(){
+		let game = new Phaser.Game(this.state.myCanvasWidth,this.state.myCanvasHeight, Phaser.CANVAS, document.getElementById("logo-mostro-media-center") ,"",true)
+		game.state.add("Boot", boot)
+		game.state.add("Preload",preload)
+		game.state.add("GameTitle",gameTitle)
+		game.state.add("TheGame",theGame)
+		game.state.add("GameOver", gameOver)
+		game.state.start("Boot")		
+	}
+	startGame(){
+		this.setState({
+			isPlaying: true,
+			myCanvasWidth: 600,
+			myCanvasHeight: 600
+		})
+	}
+	render(){
+		let myText
+		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align">MOSTRO<br/>MEDIA</h1> 
+		return(
+			<div>
+				<div id="logo-mostro-media-center" className="center" onClick={this.startGame}></div>
+				{myText}
+			</div>
+		)
+	}
+}
+
+class IconHome extends React.Component{
+	componentDidMount(){
+		setTimeout(()=>{
+			document.getElementById("iconos-home").style.transform="scale(1)"},1000)
+	}
+	render(){
+		let myIcon=[]
+		this.props.iconos.forEach((icono,index,array)=>{myIcon.push(
+			<SingleIconHome
+				name={icono.name}
+				key={icono.name}
+				myid={icono.name}
+				img={icono.img}
+				alt={icono.alt}
+				anima={icono.anima}
+			/>
+			)
+		}
+	)
+	return(
+		<ul id="iconos-home" >{myIcon}</ul>
+	)
+	}
+}
+
+class SingleIconHome extends React.Component{
+	constructor(props){
+		super(props)
+		this.playAnimation=this.playAnimation.bind(this)
+		this.stopAnimation=this.stopAnimation.bind(this)
+	}	
+	componentDidMount(){
+		let miAnima = this.props.anima
+		this.props.img.container = document.getElementById(this.props.myid)
+		this.props.anima = bodymovin.loadAnimation(this.props.img)
+		setTimeout(()=>{
+			this.props.anima.stop()
+		},2200)
+	}
+	playAnimation(){
+		this.props.anima.playSegments([0,29],!0)
+	}
+	stopAnimation(){
+		this.props.anima.stop()
+	}
+	render(){
+		return(
+		<li className="col fifth" onMouseEnter={this.playAnimation} onMouseLeave={this.stopAnimation} style={{ cursor: 'pointer', zIndex: 100 }}>
+			<div id={this.props.myid}></div>
+			<p>{this.props.name}</p>
+		</li>
+		)
+	}
+}
+
+
+const WHATWELOVE=[
+	{
+		name:'Estrategias digitales',
+		img:'img/iconos-work/ideaMostroMedia.svg',
+		alt:'Imagen de ¿Tienes una idea en mente?, MOSTRO MEDIA',
+		modal:'rtaA',
+		rta:'Consolidamos tu presencia en internet mediante estrategias conjuntas de redes sociales, analytics, posicionamiento SEO y SEM.',
+		imgintro:'img/iconos-work/idea-introMostroMedia.jpg',
+		alt2:'Imagen de Tu idea la hacemos realidad MOSTRO MEDIA'
+	},
+	{
+		name:'Animaciones',
+		img:'img/iconos-work/animationMostroMedia.svg',
+		alt:'Imagen de ¿Tu animación personalizada? MOSTRO MEDIA',
+		modal:'rtaB',
+		rta:'Contamos historias de tu marca a través de videos para tus redes sociales o televisión.',
+		imgintro:'img/iconos-work/animation-introMostroMedia.jpg',
+		alt2:'Imagen de Desarróllala con nosotros MOSTRO MEDIA'
+	},
+	{
+		name:'Aplicaciones web/móviles',
+		img:'img/iconos-work/businessMostroMedia.svg',
+		alt:'Imagen de ¿Tienes un negocio? MOSTRO MEDIA',
+		modal:'rtaC',
+		rta:'Mostramos tu negocio al mundo mediante experiencias digitales al alcance de cualquier dispositivo.',
+		imgintro:'img/iconos-work/idea-introMostroMedia.jpg',
+		alt2:'Imagen de Potencializa tu ventas. Vende online MOSTRO MEDIA'
+	}
+]
+
+class Work extends React.Component{render(){
+	return(
+		<section id="work" className="section scrollspy">
+			<div className="container">
+				<div className="row">
+					<TitleContact
+						titulo="¿Cómo hacemos crecer tu negocio?" />
+					<PairItemsWork whatwelove={WHATWELOVE}/>
+				</div>
+			</div>
+		</section>
+		)
+	}
+}
+
+class PairItemsWork extends React.Component{render(){
+	let weWork=[]
+	this.props.whatwelove.forEach((whatwelov)=>{weWork.push(<ItemWork
+		name={whatwelov.name}
+		key={whatwelov.name}
+		img={whatwelov.img}
+		alt={whatwelov.alt}
+		modal={whatwelov.modal}
+		rta={whatwelov.rta}
+		/>
+		)}
+	)
+	return(
+		<ul id="individual-services" className="row">{weWork}</ul>
+	)}
+}
+
+class ItemWork extends React.Component{
+	render(){
+		return(
+			<li className="card center col s12 m4 grey darken-4 text-white">
+				<div className="card-content">
+					<h3 className="card-title activator">{this.props.name}<i className="material-icons right">expand_more</i></h3>
+				</div>
+				<div className="card-image waves-effect waves-block waves-light">
+					<img className="activator" src={this.props.img} alt={this.props.alt}/>
+				</div>
+				<div className="card-reveal grey darken-4 text-white valign-wrapper">
+				
+					<h3 className="card-title"><i className="material-icons right">close</i>{this.props.rta}</h3>
+				</div>
+			</li>
+		)
+	}
+}
+
+
+
+
+
+
+
+
+
 class Footer extends React.Component{
 	render(){
 		return(
@@ -269,64 +475,6 @@ class Team extends React.Component{
 	</section>
 	)}
 }
-const WHATWELOVE=[{name:'¿Tienes una idea en mente?',img:'img/iconos-work/ideaMostroMedia.svg',alt:'Imagen de ¿Tienes una idea en mente?, MOSTRO MEDIA',modal:'rtaA',rta:'La hacemos realidad.',textoRta:'En Mostro Media te ofrecemos la posibilidad de hacer realidad tus ideas, ya sea que quieras desarrollar una aplicación movil o un sitio web, para conectarte con tus clientes de nueva forma.',imgintro:'img/iconos-work/idea-introMostroMedia.jpg',alt2:'Imagen de Tu idea la hacemos realidad MOSTRO MEDIA',},{name:'¿Tu animación personalizada?',img:'img/iconos-work/animationMostroMedia.svg',alt:'Imagen de ¿Tu animación personalizada? MOSTRO MEDIA',modal:'rtaB',rta:'Desarróllala con nosotros.',textoRta:'Ponemos a tu alcance todas nuestras habilidades para que juntos desarrollemos esa animación que siempre quisiste.',imgintro:'img/iconos-work/animation-introMostroMedia.jpg',alt2:'Imagen de Desarróllala con nosotros MOSTRO MEDIA',},{name:'¿Tienes un negocio?',img:'img/iconos-work/businessMostroMedia.svg',alt:'Imagen de ¿Tienes un negocio? MOSTRO MEDIA',modal:'rtaC',rta:'Potencializa tu ventas. Vende online.',textoRta:'Te ayudamos a crear estrategias de Marketing digital para que tus ventas online se incrementen.',imgintro:'img/iconos-work/idea-introMostroMedia.jpg',alt2:'Imagen de Potencializa tu ventas. Vende online MOSTRO MEDIA',},{name:'¿Tienes un equipo que capacitar?',img:'img/iconos-work/e-learningMostroMedia.svg',alt:'Imagen de ¿Tienes un equipo que capacitar? MOSTRO MEDIA',modal:'rtaD',rta:'Crea plataformas de aprendizaje en línea.',textoRta:'Te ofrecemos la creación de plataformas de universidad Corporativa, además de la implementación de malla curricular, creación de cursos e-learning y consultoría en proyectos TIC-Educación.',imgintro:'img/iconos-work/e-learning-introMostroMedia.jpg',alt2:'Imagen de Crea plataformas de aprendizaje en línea. MOSTRO MEDIA',}]
-
-class ItemWork extends React.Component{
-	render(){
-		return(
-			<li className="card center col s12 m5 grey darken-4 text-white">
-				<div className="card-image waves-effect waves-block waves-light">
-					<img className="activator" src={this.props.img}alt={this.props.alt}/>
-				</div>
-				<div className="card-content">
-					<h3 className="card-title activator">{this.props.name}<i className="material-icons right">more_vert</i></h3>
-				</div>
-				<div className="card-reveal grey darken-4 text-white">
-					<h3 className="card-title"><i className="material-icons right">close</i>{this.props.rta}</h3>
-					<br/>
-					<p>{this.props.textoRta}</p>
-				</div>
-			</li>
-		)
-	}
-}
-
-class PairItemsWork extends React.Component{render(){
-	let weWork=[]
-	this.props.whatwelove.forEach((whatwelov)=>{weWork.push(<ItemWork
-		name={whatwelov.name}
-		key={whatwelov.name}
-		img={whatwelov.img}
-		alt={whatwelov.alt}
-		modal={whatwelov.modal}
-		rta={whatwelov.rta}
-		textoRta={whatwelov.textoRta}
-		/>
-		)}
-	)
-	return(
-		<ul id="individual-services" className="row">{weWork}</ul>
-	)}
-}
-
-class Work extends React.Component{render(){
-	return(
-		<section id="work" className="section scrollspy">
-			<div className="container">
-				<div className="row">
-					<div id="serv-section" className="col s12 l6">
-						<TitleContact
-							titulo="Consolidamos tu presencia en internet a traves de nuestros servicios de Páginas web, Aplicaciones móviles, e-learning y Motion Design."/>
-					</div>
-					<div className="col s12 l6">
-						<PairItemsWork whatwelove={WHATWELOVE}/>
-					</div>
-				</div>
-			</div>
-		</section>
-		)
-	}
-}
 
 let scene,camera,renderer,particles,controls
 let width=window.innerWidth-10,height=window.innerHeight,mousePos={x:0,y:0}
@@ -403,126 +551,7 @@ class ParticlesHome extends React.Component{
 	}
 }
 
-let animData={container:'',renderer:'svg',loop:!0,prerender:!1,autoplay:!1,autoloadSegments:!1,path:'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/animations/mostro-media-icon-animation.json'}
-let anim=''
-let isThrowing=!1
-
-
-class Home extends React.Component{
-	componentDidMount(){
-		Materialize.toast('Bienvenid@',3000,'rounded')
-		Materialize.toast('Haz scroll y mira nuestro contenido, nuestros servicios y nuestro equipo.',5000,'rounded')
-	}
-	render(){
-		return(
-		<section id="home" className="container section scrollspy">
-			<div className="row">
-				<HomeContent/>
-				<IconHome iconos={ICONOS}/>
-			</div>
-				
-		</section>)
-	}
-}
-	
-
-class HomeContent extends React.Component{
-	constructor(props){
-		super(props)
-		this.state = {
-			isPlaying : false,
-			myCanvasWidth: 600,
-			myCanvasHeight: 600
-		}
-		this.startGame = this.startGame.bind(this)
-	}
-	componentDidMount(){
-		let game = new Phaser.Game(this.state.myCanvasWidth,this.state.myCanvasHeight, Phaser.CANVAS, document.getElementById("logo-mostro-media-center") ,"",true)
-		game.state.add("Boot", boot)
-		game.state.add("Preload",preload)
-		game.state.add("GameTitle",gameTitle)
-		game.state.add("TheGame",theGame)
-		game.state.add("GameOver", gameOver)
-		game.state.start("Boot")		
-	}
-	startGame(){
-		this.setState({
-			isPlaying: true,
-			myCanvasWidth: 600,
-			myCanvasHeight: 600
-		})
-	}
-	render(){
-		let myText
-		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align">MOSTRO<br/>MEDIA</h1> 
-		return(
-			<div>
-				<div id="logo-mostro-media-center" className="center" onClick={this.startGame}></div>
-				{myText}
-			</div>
-		)
-	}
-}
-
-class IconHome extends React.Component{
-	componentDidMount(){
-		setTimeout(()=>{
-			document.getElementById("iconos-home").style.transform="scale(1)"},1000)
-	}
-	render(){
-		let myIcon=[]
-		this.props.iconos.forEach((icono,index,array)=>{myIcon.push(
-			<SingleIconHome
-				name={icono.name}
-				key={icono.name}
-				myid={icono.name}
-				img={icono.img}
-				alt={icono.alt}
-				anima={icono.anima}
-			/>
-			)
-		}
-	)
-	return(
-		<ul id="iconos-home" >{myIcon}</ul>
-	)
-	}
-}
-
-class SingleIconHome extends React.Component{
-	constructor(props){
-		super(props)
-		this.playAnimation=this.playAnimation.bind(this)
-		this.stopAnimation=this.stopAnimation.bind(this)
-	}	
-	componentDidMount(){
-		let miAnima = this.props.anima
-		this.props.img.container = document.getElementById(this.props.myid)
-		this.props.anima = bodymovin.loadAnimation(this.props.img)
-		setTimeout(()=>{
-			this.props.anima.stop()
-		},2200)
-	}
-	playAnimation(){
-		this.props.anima.playSegments([0,29],!0)
-	}
-	stopAnimation(){
-		this.props.anima.stop()
-	}
-	render(){
-		return(
-		<li className="col fifth" onMouseEnter={this.playAnimation} onMouseLeave={this.stopAnimation} style={{ cursor: 'pointer', zIndex: 100 }}>
-			<div id={this.props.myid}></div>
-			<p>{this.props.name}</p>
-		</li>
-		)
-	}
-}
-
-
-
-
-	class Main extends React.Component{
+class Main extends React.Component{
 		constructor(props){
 		super(props)
 		this.state={value:'',isPressed:!1}

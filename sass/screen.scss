@@ -189,59 +189,52 @@ nav{
 }
 
 #work {
-  background-color: $background-color;
-	margin-top: 200px;
+  background-color: rgba($background-color,0.9);
+  margin-top: 200px;
+  
 	.row{
-		height: 100vh;
-	}
-
-  h1{
-    font-size: 3.5em;
-    text-align: left;
-    line-height: 1.1em;
+		height: 70vh;
   }
-
+  
   #serv-section{
     margin-top: 200px;  
   }
   #individual-services{
     li{
       display: inline-block;
-      .card-title{
-        h3{
-          font-size: 3em !important;
-        }
-      }      
-      .card-image{
-        img{
-          padding: 30px;
-        }
-      }
-      .card-content{
-        padding: 20px 2px;
-      }
-      .card-reveal{
-        h3{
-          font-size: 2em;
-        }        
-        p{
-          font-size: 1.2em;
-          text-align: justify;
-          letter-spacing: 1px;
-        }        
-      }
     }
   }
   .card{
-    border-radius: 5%;
-    height: 320px;
-    margin: 20px;
+    border-right: 1px solid #424242;
     @media screen and (max-width: 768px){
       height: auto;
-      margin: 20px 0;
+      margin: 0;
+    }
+    .card-content{
+      padding: 20px 2px;
+      .card-title{
+        font-size: 3em !important;
+      }
+    }
+
+    .card-image{
+      img{
+        padding: 30px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     
-  }    
+    .card-reveal{
+      height: 220px;
+      h3{
+        font-size: 2em;
+        text-align: justify;
+      }            
+    }
+  }  
+
   #trigger-work-msj{
     position: relative;
     display: block;
@@ -401,12 +394,6 @@ nav{
     }    
 
 }
-
-
-
-
-
-
 
 #contact{
   height: 700px;
