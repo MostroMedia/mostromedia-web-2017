@@ -14,7 +14,7 @@ class Menu extends React.Component{
 	componentDidMount(){
 		$(document).ready(function(){
 			$(".button-collapse").sideNav()
-			$('.scrollspy').scrollSpy({scrollOffset:-50})
+			$('.scrollspy').scrollSpy({scrollOffset: 0})
 			$(".logo-text").click(function(){
 				$('html,body').animate({scrollTop:$("#home").offset().top},'slow')
 			})
@@ -50,11 +50,9 @@ class Menu extends React.Component{
 	}
 }
 
-
 let animData={container:'',renderer:'svg',loop:!0,prerender:!1,autoplay:!1,autoloadSegments:!1,path:'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/img/animations/mostro-media-icon-animation.json'}
 let anim=''
 let isThrowing=!1
-
 
 class Home extends React.Component{
 	componentDidMount(){
@@ -249,44 +247,110 @@ class ItemWork extends React.Component{
 }
 
 
+const MOSTROTEAM=[
+	{
+		name:'Cristhian Cepeda',
+		img:'img/mostros/cristhian_cepeda.jpg',
+		alt:'Imagen de Cristhian Cepeda - Mostro Team',
+		position:'Productor musical en formación.',
+		quote:'Makia',
+		skills: 'E-learning. Animación. Música.',
+		color:'#2ECC71'
+	},
+	{
+		name:'Camilo Argüello',
+		img:'img/mostros/camilo_arguello.jpg',
+		alt:'Imagen de Camilo Arguello - Mostro Team',
+		position:'Desarrollador',
+		quote:'Ingenio',
+		skills: 'Web. Móvil. Animación. ',
+		color:'#FFCC08'
+	},
+	{
+		name:'Juan Garay',
+		img:'img/mostros/juan_garay.jpg',
+		alt:'Imagen de Juancho Garay - Mostro Team',
+		position:'Animador',
+		quote:'Confianza',
+		skills: 'Animación. Experiencia de usuario. E-learning.',
+		color:'#3498DB'
+	},
+	{
+		name:'Sebastian Díaz',
+		img:'img/mostros/sebastian_diaz.jpg',
+		alt:'Imagen de Sebastian Díaz - Mostro Team',
+		position:'Desarrollador',
+		quote:'Compromiso',
+		skills: 'Web. E-learning. Gerencia.',
+		color:'#BDC3C7'
+	},
+	{
+		name:'Daniela Sanchez',
+		img:'img/mostros/daniela_sanchez.jpg',
+		alt:'Imagen de Daniela Sanchez - Mostro Team',
+		position:'Directora de arte',
+		quote:'Creatividad',
+		skills: 'Diseño. Dirección de arte. Marketing digital.',
+		color:'#FA7878'
+	},
+	{
+		name:'Daniel Valenzuela',
+		img:'img/mostros/daniel_valenzuela.jpg',
+		alt:'Imagen de Daniel Valenzuela - Mostro Team',
+		position:'Productor musical en formación.',
+		quote:'Empatía',
+		skills: 'Gerencia de proyectos. Web.  Música.',
+		color:'#8E44AD'
+	}
+]
+const TitleTeam='Nuestro equipo'
 
 
+class Team extends React.Component{
+	render(){let mostroTeam=[]
+	this.props.mostros.forEach((mostro)=>{mostroTeam.push(
+		<ItemTeam
+			name={mostro.name}
+			key={mostro.name}
+			img={mostro.img}
+			alt={mostro.alt}
+			position={mostro.position}
+			quote={mostro.quote}
+			color={mostro.color}
+		/>
+		)}
+	)
+	return(
+		<section id="team" className="section scrollspy">
+			<div className="container">
+				<div className="row">
+					<TitleContact
+						titulo={TitleTeam}/>
+					<ul className="wrap">{mostroTeam}</ul>
+				</div>
+			</div>
+	</section>
+	)}
+}
 
-
-
-
-
-class Footer extends React.Component{
+class ItemTeam extends React.Component{
+	// <img className="activator" src={this.props.img} alt={this.props.alt}/>
 	render(){
 		return(
-			<footer className="center card-panel grey darken-3">
-				<div className="container">
-					<ul className="social">
-						<li className="facebook">
-							<a href="#" className="entypo-facebook"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-						</li>
-						<li className="github">
-							<a href="https://github.com/MostroMedia" className="entypo-github"><i className="fa fa-github" aria-hidden="true"></i></a>
-						</li>
-						<li className="instagram">
-							<a href="https://www.instagram.com/mostromedia/?hl=en" className="entypo-instagram"><i className="fa fa-instagram" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li className="behance">
-							<a href="#" className="entypo-behance"><i className="fa fa-behance" aria-hidden="true"></i></a>
-						</li>
-						<li className="linked-in">
-							<a href="#" className="entypo-linkedin"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
-						</li>
-					</ul>
+			<li className="card center col s12 m2 grey darken-4 text-white">
+				<div className="card-content waves-effect waves-block waves-light white-text">
+					<h3 className="card-title activator">{this.props.name}</h3>
+					<hr/>
+					<h4 style={{color: this.props.color}}>{this.props.quote}</h4>
+					<br/>
+					<p>{this.props.position}</p>
 				</div>
-				<div className="container">
-					<p>Copyright(c)2017 MOSTRO MEDIA All Rights Reserved.</p>
-				</div>
-			</footer>
+			</li>
 		)
 	}
 }
+
+
 
 const TextoContact=[{titulo:'¿Quieres saber más?, conversemos'},{call:'Llámanos',number:"+57 314 258 8148"},{call:'Envíanos un email',number:'info@mostromedia.com'}]
 
@@ -345,7 +409,6 @@ class TitleContact extends React.Component{
 	}
 }
 
-
 class Contact extends React.Component{
 	componentDidMount(){
 		$(window).scroll(function(){
@@ -385,96 +448,38 @@ class Contact extends React.Component{
 	}
 }
 
-
-const MOSTROTEAM=[{name:'Cristhian Cepeda',img:'img/mostros/cristhian_cepeda.jpg',alt:'Imagen de Cristhian Cepeda - Mostro Team',position:'Ingeniero Mutimedia y Productor de música urbana. Su enfoque es usar todas las herramientas pedagógicas de la multimedia para crear contenido innovador.',quote:'Makia',color:'#2ECC71'},{name:'Camilo Argüello',img:'img/mostros/camilo_arguello.jpg',alt:'Imagen de Camilo Arguello - Mostro Team',position:'Desarrollador de software. Camilo busca con el uso de las tecnologías, crear nuevas formas de interacción en cada proyecto.',quote:'Ingenio',color:'#FFCC08'},{name:'Juan Garay',img:'img/mostros/juan_garay.jpg',alt:'Imagen de Juancho Garay - Mostro Team',position:'Animador 3D. Todos lo llaman "Juancho" y es quien lidera las animaciones que realiza Mostro Media.',quote:'Confianza',color:'#3498DB'},{name:'Sebastian Díaz',img:'img/mostros/sebastian_diaz.jpg',alt:'Imagen de Sebastian Díaz - Mostro Team',position:'Desarrollador web. Sebastián es quien lidera al equipo y coordina con los clientes.',quote:'Compromiso',color:'#BDC3C7'},{name:'Daniela Sanchez',img:'img/mostros/daniela_sanchez.jpg',alt:'Imagen de Daniela Sanchez - Mostro Team',position:'Directora de arte, quien le brinda un estilo gráfico único a cada proyecto.',quote:'Creatividad',color:'#FA7878'},{name:'Daniel Valenzuela',img:'img/mostros/daniel_valenzuela.jpg',alt:'Imagen de Daniel Valenzuela - Mostro Team',position:'Músico y coordinador de proyectos. Gracias a él, todo el equipo se coordina de la mejor manera en cada proyecto.',quote:'Empatía',color:'#8E44AD'}]
-const TitleTeam='Nuestro equipo'
-
-class ItemTeam extends React.Component{
-	constructor(props){
-		super(props)
-		this.showInvader=this.showInvader.bind(this)
-		this.hideInvader=this.hideInvader.bind(this)
-	}
-	showInvader(){
-		let space_invader=this._reactInternalInstance._renderedComponent._hostNode.lastChild
-		space_invader.classList.remove("scale-out");space_invader.classList.add("scale-in")
-	}
-	hideInvader(){
-		let space_invader=this._reactInternalInstance._renderedComponent._hostNode.lastChild
-		space_invader.classList.remove("scale-in");space_invader.classList.add("scale-out")
-	}
+class Footer extends React.Component{
 	render(){
 		return(
-			<li onMouseEnter={this.showInvader}onMouseLeave={this.hideInvader}>
-				<div draggable="true" className="center">
-					<img className="esponsive-img" src={this.props.img}alt={this.props.alt}/>
-					<h3>{this.props.name}</h3>
-					<hr/>
-					<h4 style={{color:this.props.color}}>{this.props.quote}</h4>
+			<footer className="center card-panel grey darken-3">
+				<div className="container">
+					<ul className="social">
+						<li className="facebook">
+							<a href="#" className="entypo-facebook"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+						</li>
+						<li className="github">
+							<a href="https://github.com/MostroMedia" className="entypo-github"><i className="fa fa-github" aria-hidden="true"></i></a>
+						</li>
+						<li className="instagram">
+							<a href="https://www.instagram.com/mostromedia/?hl=en" className="entypo-instagram"><i className="fa fa-instagram" aria-hidden="true"></i>
+							</a>
+						</li>
+						<li className="behance">
+							<a href="#" className="entypo-behance"><i className="fa fa-behance" aria-hidden="true"></i></a>
+						</li>
+						<li className="linked-in">
+							<a href="#" className="entypo-linkedin"><i className="fa fa-linkedin" aria-hidden="true"></i></a>
+						</li>
+					</ul>
 				</div>
-				<div className="contSpace scale-transition scale-out">
-					<div className="center space-invader "></div>
-					<div className="card-panel"><span className="white-text">{this.props.position}</span></div>
+				<div className="container">
+					<p>Copyright(c)2017 MOSTRO MEDIA All Rights Reserved.</p>
 				</div>
-			</li>
+			</footer>
 		)
 	}
 }
 
-class Team extends React.Component{
-	componentDidMount(){
-		$('.listMostro').slick({
-			centerMode:!0,
-			centerPadding:'60px',
-			slidesToShow:5,
-			autoplay:!1,
-			cssEase:'ease',
-			responsive:[{
-				breakpoint:800,
-				settings:{
-					arrows:!1,
-					centerMode:!0,
-					centerPadding:'40px',
-					slidesToShow:3
-				}
-			},{
-				breakpoint:400,
-				settings:{
-					arrows:!1,
-					centerMode:!0,
-					centerPadding:'0px',
-					slidesToShow:1
-				}
-			}
-		]})
-	}
-	render(){let mostroTeam=[]
-	this.props.mostros.forEach((mostro)=>{mostroTeam.push(
-		<ItemTeam
-			name={mostro.name}
-			key={mostro.name}
-			img={mostro.img}
-			alt={mostro.alt}
-			position={mostro.position}
-			quote={mostro.quote}
-			color={mostro.color}
-		/>
-		)}
-	)
-	return(
-		<section id="team" className="section scrollspy">
-			<div className="container">
-				<div className="row">
-					<TitleContact
-						titulo={TitleTeam}/>
-				</div>
-			</div>
-			<ul className="listMostro">{mostroTeam}</ul>
-			<div id="borde">
-		</div>
-	</section>
-	)}
-}
 
 let scene,camera,renderer,particles,controls
 let width=window.innerWidth-10,height=window.innerHeight,mousePos={x:0,y:0}
