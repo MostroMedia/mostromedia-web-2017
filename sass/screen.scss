@@ -44,9 +44,6 @@ body{
 	font-family: 'steelfish';
 	background-color: $background-color;
 	color: $text-color !important;
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
-
 	@media screen and (max-width: $break-small) {
 		padding-left: 0px;
   	}
