@@ -1,11 +1,8 @@
 # MOSTRO MEDIA
 
-This is the repository of Mostro Media's website. Still work in progress.
+This is the repository of Mostro Media's website. 
 
-
-![components_mostro_website](https://cloud.githubusercontent.com/assets/13356409/24334910/307373be-1239-11e7-9504-515a64295859.jpg)
-
-
+Visit us: (mostromedia.com)[https://mostromedia.com]
 
 Mostro Media is formed by:
 
