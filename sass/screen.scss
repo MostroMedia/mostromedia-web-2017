@@ -512,6 +512,11 @@ footer{
     margin-left: -350px;
   }
   #work{
+    .card{
+      .card-reveal{
+        height: 190px;
+      }
+    }
     .row{
       height: auto;
     }
@@ -560,7 +565,13 @@ footer{
     margin-top: -300px;
     }    
   }
-
+  #work{
+    .card{
+      .card-reveal{
+        height: 190px;
+      }
+    }    
+  }
   .fullscreen-bg{
     margin: 200px 0;
     overflow-x: hidden;
