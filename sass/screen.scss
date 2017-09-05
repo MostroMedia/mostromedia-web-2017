@@ -149,6 +149,7 @@ nav{
     height: 600px !important;
     margin-right: auto !important;
     margin-left: auto !important; 
+    margin-top: 100px;
 
   }
   h1{
@@ -501,6 +502,9 @@ footer{
     #logo-mostro-media-center,canvas{
       width: 100% !important;
     }
+    h1{
+    margin-top: -300px;
+    }     
   }
   .fullscreen-bg__video{
     width: auto !important;
@@ -546,7 +550,10 @@ footer{
   #home {
   	#logo-mostro-media-center, canvas{
       width: 100% !important;
-  	}
+    }
+  h1{
+    margin-top: -300px;
+    }    
   }
 
   .fullscreen-bg{
