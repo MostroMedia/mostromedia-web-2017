@@ -3,6 +3,9 @@ import * as firebase from 'firebase'
 import logo from './logo.png'
 import './App.css'
 
+import Home from './Home/Home.js'
+import Particles from './Particles/Particles.js'
+
 const config = {
     apiKey: "AIzaSyClXRieTtf4Bc5M-JwzsCfWjDb5_yD9YSw",
     authDomain: "mostromedia2013.firebaseapp.com",
@@ -21,9 +24,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Mostro Media</h2>
         </div>
-        <p className="App-intro">
-          Mostro is updating. Thanks for your patiente.
-        </p>
+        <Home />
+        <Particles />
       </div>
     );
   }
