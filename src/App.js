@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
-import logo from './logo.png'
 import './App.css'
 
 import Home from './Home/Home.js'
+import Work from './Work/Work.js'
 import Particles from './Particles/Particles.js'
 
 const config = {
@@ -20,11 +20,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Mostro Media</h2>
-        </div>
         <Home />
+        <Work />
         <Particles />
       </div>
     );

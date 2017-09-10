@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import * as THREE from 'three';
 
-let scene,camera,renderer,particles,controls
-let width=window.innerWidth-10,height=window.innerHeight,mousePos={x:0,y:0}
+let scene,camera,renderer,particles
+let width=window.innerWidth-10,height=window.innerHeight
 const colores=[0xE8540D,0xCCCCCC,0xE8540D]
 
 
@@ -64,7 +64,7 @@ function drawParticles(){
 	}
 }
 
-export default class Particles extends React.Component{
+export default class Particles extends Component{
 	componentDidMount(){
 		Init(document.getElementById("particles-home"))
 		animate()
