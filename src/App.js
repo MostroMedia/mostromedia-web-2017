@@ -4,7 +4,11 @@ import './App.css'
 
 import Home from './Home/Home.js'
 import Work from './Work/Work.js'
+import Team from './Team/Team.js'
+import Contact from './Contact/Contact.js'
+import Footer from './Footer/Footer.js'
 import Particles from './Particles/Particles.js'
+import Menu from './Menu/Menu.js'
 
 const config = {
     apiKey: "AIzaSyClXRieTtf4Bc5M-JwzsCfWjDb5_yD9YSw",
@@ -22,7 +26,11 @@ class App extends Component {
       <div className="App">
         <Home />
         <Work />
+        <Team />
+        <Contact />
+        <Footer />
         <Particles />
+        <Menu />
       </div>
     );
   }

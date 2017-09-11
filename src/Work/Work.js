@@ -72,7 +72,6 @@ class PairItemsWork extends Component{
 
 class ItemWork extends Component{
 	render(){
-        console.log(this.props.img)
 		return(
 			<li className="card center col s12 m4 grey darken-4 text-white">
 				<div className="card-content">
