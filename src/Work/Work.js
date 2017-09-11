@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import Title from '../Title/Title.js'
 import ideaMostroMedia from './iconos-work/ideaMostroMedia.svg'
+import animationMostroMedia from './iconos-work/animationMostroMedia.svg'
+import businessMostroMedia from './iconos-work/businessMostroMedia.svg'
 
+console.log(ideaMostroMedia)
 const WHATWELOVE=[
 	{
 		name:'Estrategias digitales',
-		img:{ideaMostroMedia},
+		img: ideaMostroMedia,
 		alt:'Imagen de ¿Tienes una idea en mente?, MOSTRO MEDIA',
 		modal:'rtaA',
 		rta:'Consolidamos tu presencia en internet mediante estrategias conjuntas de redes sociales, analytics, posicionamiento SEO y SEM.',
@@ -14,7 +17,7 @@ const WHATWELOVE=[
 	},
 	{
 		name:'Animaciones',
-		img:'img/iconos-work/animationMostroMedia.svg',
+		img: animationMostroMedia,
 		alt:'Imagen de ¿Tu animación personalizada? MOSTRO MEDIA',
 		modal:'rtaB',
 		rta:'Contamos historias de tu marca a través de videos para tus redes sociales o televisión.',
@@ -23,7 +26,7 @@ const WHATWELOVE=[
 	},
 	{
 		name:'Aplicaciones web/móviles',
-		img:'img/iconos-work/businessMostroMedia.svg',
+		img: businessMostroMedia,
 		alt:'Imagen de ¿Tienes un negocio? MOSTRO MEDIA',
 		modal:'rtaC',
 		rta:'Mostramos tu negocio al mundo mediante experiencias digitales al alcance de cualquier dispositivo.',
@@ -69,6 +72,7 @@ class PairItemsWork extends Component{
 
 class ItemWork extends Component{
 	render(){
+        console.log(this.props.img)
 		return(
 			<li className="card center col s12 m4 grey darken-4 text-white">
 				<div className="card-content">

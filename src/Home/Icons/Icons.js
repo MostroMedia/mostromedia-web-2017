@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from '../../logo.png'
 import * as bodymovin from 'bodymovin'
 
 export default class Icons extends Component{
@@ -45,7 +44,8 @@ class SingleIcon extends Component{
 			className="col fifth" 
 			style={{ cursor: 'pointer', zIndex: 100 }} 
 			onMouseEnter={this.playAnimation.bind(this)}
-			onMouseLeave={this.stopAnimation.bind(this)}>
+			onMouseLeave={this.stopAnimation.bind(this)}
+		>
 			<div id={this.props.myid}></div>
 			<p>{this.props.name}</p>
 		</li>
