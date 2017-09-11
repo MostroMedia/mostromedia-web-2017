@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Title from '../Title/Title.js'
+import ideaMostroMedia from './iconos-work/ideaMostroMedia.svg'
 
 const WHATWELOVE=[
 	{
 		name:'Estrategias digitales',
-		img:'img/iconos-work/ideaMostroMedia.svg',
+		img:{ideaMostroMedia},
 		alt:'Imagen de ¿Tienes una idea en mente?, MOSTRO MEDIA',
 		modal:'rtaA',
 		rta:'Consolidamos tu presencia en internet mediante estrategias conjuntas de redes sociales, analytics, posicionamiento SEO y SEM.',

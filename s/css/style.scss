@@ -1,0 +1,54 @@
+$main-space: 100px; /* this is the width of the menu*/
+$background-color: #363636;
+$mostro-color: #E8540D;
+$mostro-menu: #232323;
+$text-color: #fff;
+
+/*Responsive values*/
+$break-small: 768px;
+
+
+
+/*--------------------Desktop--------------*/
+
+body{
+	padding-left: $main-space;
+	background-color: $background-color;
+	color: $text-color !important;
+	@media screen and (max-width: $break-small) {
+		padding-left: 0px;
+  	}
+}
+nav{
+	background-color: $mostro-color;
+}
+.side-nav{
+	width: 100px !important;
+}
+.color-menu{
+	background-color: $mostro-menu;
+	li{
+		color: $text-color;
+	}
+	a{
+		color: $mostro-color;
+	}
+	i{
+		color: $text-color !important;
+	}
+}
+#home {
+	img.center{
+		width: 500px;
+		display: block;
+    	margin: 0 auto;
+	}
+}
+#servicios{
+	h1{
+		text-align: center;
+	}
+}
+
+
+

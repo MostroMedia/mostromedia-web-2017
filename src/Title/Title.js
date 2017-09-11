@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class TitleContact extends React.Component{
+export default class Title extends React.Component{
 	render(){
 		return(
 			<div className="center">

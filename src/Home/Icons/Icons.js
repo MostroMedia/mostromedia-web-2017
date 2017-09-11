@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../../logo.png'
+import * as bodymovin from 'bodymovin'
 
 export default class Icons extends Component{
 	componentDidMount(){
@@ -12,7 +13,7 @@ export default class Icons extends Component{
 				name={icono.name}
 				key={icono.name}
 				myid={icono.name}
-				img={logo}
+				img={icono.img}
 				alt={icono.alt}
 				anima={icono.anima}
 			/>
@@ -24,13 +25,28 @@ export default class Icons extends Component{
 	)
 	}
 }
-
+let animation
 class SingleIcon extends Component{
+	componentDidMount(){
+		animation = this.props.anima
+		this.props.img.container = document.getElementById(this.props.myid)
+		animation = bodymovin.loadAnimation(this.props.img)
+		setTimeout(()=>{animation.stop()},2200)
+	}
+	playAnimation(){
+		animation.playSegments([0,29],!0)
+	}
+	stopAnimation(){
+		animation.stop()
+	}
 	render(){
 		return(
-		<li className="col fifth" style={{ cursor: 'pointer', zIndex: 100 }}>
+		<li 
+			className="col fifth" 
+			style={{ cursor: 'pointer', zIndex: 100 }} 
+			onMouseEnter={this.playAnimation.bind(this)}
+			onMouseLeave={this.stopAnimation.bind(this)}>
 			<div id={this.props.myid}></div>
-            <img src={this.props.img} alt={this.props.alt} />
 			<p>{this.props.name}</p>
 		</li>
 		)
