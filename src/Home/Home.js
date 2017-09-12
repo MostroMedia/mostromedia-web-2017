@@ -6,7 +6,7 @@ const ICONOS=[ {
     name:'Interacción',
     anima:'',
     img: {
-        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: './icons-home/interaccion1.json'
+        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/src/Home/icons-home/interaccion1.json'
     }
     ,
     alt:'Imagen del Icono de Interacción Mostro Media'
@@ -17,7 +17,7 @@ const ICONOS=[ {
     name:'Creatividad',
     anima:'',
     img: {
-        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: './icons-home/creatividad.json'
+        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/src/Home/icons-home/creatividad.json'
     }
     ,
     alt:'Imagen del Icono de Creatividad Mostro Media'
@@ -28,7 +28,7 @@ const ICONOS=[ {
     name:'Ingenio',
     anima:'',
     img: {
-        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: './icons-home/ingenio.json'
+        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/src/Home/icons-home/ingenio.json'
     }
     ,
     alt:'Imagen del Icono de Ingenio Mostro Media'
@@ -39,7 +39,7 @@ const ICONOS=[ {
     name:'Liderazgo',
     anima:'',
     img: {
-        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: './icons-home/liderazgo.json'
+        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/src/Home/icons-home/liderazgo.json'
     }
     ,
     alt:'Imagen del Icono de Liderazgo Mostro Media'
@@ -50,7 +50,7 @@ const ICONOS=[ {
     name:'Talento',
     anima:'',
     img: {
-        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: './icons-home/talento1.json'
+        container: '', renderer: 'svg', loop: !0, prerender: !1, autoplay: !1, autoloadSegments: !1, path: 'https://raw.githubusercontent.com/MostroMedia/mostromedia-web-2017/master/src/Home/icons-home/talento1.json'
     }
     ,
     alt:'Imagen del Icono de Talento Mostro Media'
