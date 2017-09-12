@@ -1,0 +1,28 @@
+{
+  "name": "mostromedia",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bodymovin": "^4.10.2",
+    "firebase": "^4.3.1",
+    "node-sass-chokidar": "0.0.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "three": "^0.87.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.13"
+  },
+  "externals": {
+    "Phaser": "Phaser"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
