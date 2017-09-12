@@ -9,7 +9,7 @@ const Contact = () => (
     />
 )
 
-class MyContact extends React.Component{
+class MyContact extends Component{
 	render(){
 		let call=this.props.textContact[1].call, mail=this.props.textContact[2].call
 		let number=this.props.textContact[1].number, mailtxt=this.props.textContact[2].number
@@ -33,7 +33,7 @@ class MyContact extends React.Component{
 	}
 }
 
-class ContentContact extends React.Component{
+class ContentContact extends Component{
 	render(){
 		return(
     	<div>

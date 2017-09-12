@@ -39,9 +39,25 @@
     </noscript>
     <main id="root"></main>
     <script src=https://code.jquery.com/jquery-2.1.1.min.js></script>
-		<script src=%PUBLIC_URL%/materialize.min.js></script>
-		<script src=%PUBLIC_URL%/bodymovin.min.js></script>
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js></script>
+    <script src=%PUBLIC_URL%/materialize.min.js></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/phaser.min.js"></script>
+    <script>
+      window.onload = function () {
+      var game = new Phaser.Game(600,600, Phaser.CANVAS, document.getElementById("logo-mostro-media-center") ,"",true)
+      game.state.add("Boot", boot)
+      game.state.add("Preload",preload)
+      game.state.add("GameTitle",gameTitle)
+      game.state.add("TheGame",theGame)
+      game.state.add("GameOver", gameOver)
+      game.state.start("Boot")}	      
+    </script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/boot.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/preload.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/gametitle.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/thegame.js"></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/game/gameover.js"></script>
+
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

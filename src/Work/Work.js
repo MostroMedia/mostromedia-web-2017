@@ -4,7 +4,6 @@ import ideaMostroMedia from './iconos-work/ideaMostroMedia.svg'
 import animationMostroMedia from './iconos-work/animationMostroMedia.svg'
 import businessMostroMedia from './iconos-work/businessMostroMedia.svg'
 
-console.log(ideaMostroMedia)
 const WHATWELOVE=[
 	{
 		name:'Estrategias digitales',

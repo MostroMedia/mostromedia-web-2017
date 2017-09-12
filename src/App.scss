@@ -356,7 +356,18 @@ footer{
       text-align: center;
     	width: 4em;
       @extend .transicion;
-     
+
+      -moz-transform:rotate(45deg);
+      -ms-transform:rotate(45deg);
+      -webkit-transform:rotate(45deg);
+      transform:rotate(45deg);
+
+      &:hover{
+        -moz-transform:rotate(405deg);
+        -ms-transform:rotate(405deg);
+        -webkit-transform:rotate(405deg);
+        transform:rotate(405deg);
+      }
  
     }
     a{
@@ -366,6 +377,10 @@ footer{
     	line-height: 4em;
     	text-align: center;
       width: 4em;
+      -moz-transform:rotate(-45deg);
+      -ms-transform:rotate(-45deg);
+      -webkit-transform:rotate(-45deg);
+      transform:rotate(-45deg);      
     }
   }
   .facebook,

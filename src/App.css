@@ -232,14 +232,27 @@ footer .social {
     margin: -2.2em;
     position: absolute;
     text-align: center;
-    width: 4em; }
+    width: 4em;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+    footer .social li:hover {
+      -moz-transform: rotate(405deg);
+      -ms-transform: rotate(405deg);
+      -webkit-transform: rotate(405deg);
+      transform: rotate(405deg); }
   footer .social a {
     color: #fffdf0;
     display: block;
     height: 4em;
     line-height: 4em;
     text-align: center;
-    width: 4em; }
+    width: 4em;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
 
 footer .facebook,
 footer .instagram,
