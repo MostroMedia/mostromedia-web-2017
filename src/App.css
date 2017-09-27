@@ -307,8 +307,6 @@ footer p {
     overflow-x: hidden; }
   h1 {
     font-size: 4em; }
-  nav .brand-logo {
-    margin-top: 12px !important; }
   .nav-wrapper ul li a {
     padding: 0 32px !important; }
   #work .card {
@@ -343,10 +341,10 @@ footer p {
     z-index: 100; }
   #main {
     overflow-y: hidden; }
-  #home #logo-mostro-media-center, #home canvas {
+  #home canvas {
     width: 100% !important; }
   #home h1 {
-    margin-top: -300px; }
+    margin-top: -100px; }
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
@@ -365,10 +363,10 @@ footer p {
       margin: 30px -45px; }
   #content-contact, #form-contact {
     margin: 0 !important; }
-  footer {
-    margin-top: 400px !important; }
-  #contact #title_style_h1 {
-    font-size: 2.5em; } }
+  #contact {
+    height: auto !important; }
+    #contact #title_style_h1 {
+      font-size: 2.5em; } }
 
 @media screen and (max-width: 400px) {
   body {

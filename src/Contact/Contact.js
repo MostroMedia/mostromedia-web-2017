@@ -37,7 +37,7 @@ class ContentContact extends Component{
 	render(){
 		return(
     	<div>
-            <div id="content-contact" className="col s12 m5">
+            <div id="content-contact" className="col s12 m6 l5">
                 <div className="valign-wrapper">
                     <h2 className="valign">
                         {this.props.call}
@@ -46,7 +46,7 @@ class ContentContact extends Component{
                     </h2>
                 </div>
             </div>
-            <div id="form-contact" className="col s12 m5">
+            <div id="form-contact" className="col s12 m6 l5">
                 <div className="valign-wrapper">
                 <h2 className="valign">
                     {this.props.mail}
