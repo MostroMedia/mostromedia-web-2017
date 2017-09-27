@@ -330,7 +330,11 @@ footer p {
   .fullscreen-bg__video {
     width: auto !important;
     height: 700px;
-    margin-left: -350px; } }
+    margin-left: -350px; }
+  #contact {
+    height: auto !important; }
+    #contact #content-contact, #contact #form-contact {
+      margin: 0 !important; } }
 
 @media screen and (min-width: 401px) and (max-width: 800px) {
   body {

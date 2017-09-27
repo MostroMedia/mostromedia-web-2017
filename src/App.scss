@@ -516,6 +516,12 @@ footer{
     height: 700px;
     margin-left: -350px;
   }
+  #contact{
+    height: auto !important;
+      #content-contact, #form-contact{
+        margin: 0 !important;
+      }
+  } 
 }
 
 @media screen and (min-width: 401px) and (max-width: 800px){
