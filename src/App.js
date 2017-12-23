@@ -7,7 +7,8 @@ import Work from './Work/Work.js'
 import Team from './Team/Team.js'
 import Contact from './Contact/Contact.js'
 import Footer from './Footer/Footer.js'
-import Particles from './Particles/Particles.js'
+// import Particles from './Particles/Particles.js'
+import Snow from './Snow/Snow.js'
 import Menu from './Menu/Menu.js'
 
 const config = {
@@ -29,7 +30,7 @@ class App extends Component {
         <Team />
         <Contact />
         <Footer />
-        <Particles />
+        <Snow />
         <Menu />
       </div>
     );
