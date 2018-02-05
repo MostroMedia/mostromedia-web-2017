@@ -16,11 +16,11 @@ export default class Game extends Component{
 		})
 	}
 	render(){
-		//let myText
-		//this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align">MOSTRO<br/>MEDIA</h1> 
+		let myText
+		this.state.isPlaying ? myText = null :  myText = <h1 id="mostro-media-name" className="center-align">MOSTRO<br/>MEDIA</h1> 
 		return(
 				<div>
-					<img id="christmas-hat" src={ChristmasHat} alt="Christmas hat" />
+					{/*  <img id="christmas-hat" src={ChristmasHat} alt="Christmas hat" /> */}
 					<img id="logo-mostro-media-center" className="center" src={MostroLogo} alt="Logo de Mostro" />
 					<h1 id="mostro-media-name" className="center col s12">MOSTRO<br/>MEDIA</h1>
 				</div>	
